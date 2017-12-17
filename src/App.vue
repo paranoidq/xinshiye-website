@@ -52,15 +52,17 @@
         </div>
 
       <div class="container">
-        <h2>关于我们</h2>
+        <h2 style="margin-bottom: 30px;">关于我们</h2>
         <!-- Example row of columns -->
         <div class="row justify-content-center">
-          <div class="col-md-4">
-
+          <div class="col-md-5" style="max-height: 250px; overflow: hidden;">
+            <img src="../static/img/about-us-left-banner.jpg"/>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-5 text-left">
             <p>
-              南通新视野环保科技有限公司是综合性环保技术服务性公司。其主要技术服务范围：企业环保顾问、策化企业项目竣工环保自主验收技术服务、代理申领排污许可证技术服务、企业环境风险应急预案编制技术服务、环境污染治理服务、项目环评服务、清洁生产技术服务、环境监测服务、水污染治理设施运营服务等。凭借专业、严谨的技术能力和灵活、高效的协调能力，得到了客户及各级环境管理部门的认可和支持，享有良好的认可度及信誉度。
+              南通新视野环保科技有限公司是综合性环保技术服务性公司。公司凭借专业、严谨的技术能力和灵活、高效的协调能力，得到了客户及各级环境管理部门的认可和支持，享有良好的认可度及信誉度。<br/><br/>
+              <span class="font-weight-bold">服务范围：</span><br/>
+              企业环保顾问、策化企业项目竣工环保自主验收技术服务、代理申领排污许可证技术服务、企业环境风险应急预案编制技术服务、环境污染治理服务、项目环评服务、清洁生产技术服务、环境监测服务、水污染治理设施运营服务等。
             </p>
           </div>
           <!--<div class="col-md-4">-->
@@ -74,11 +76,35 @@
             <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
           <!--</div>-->
         </div>
-        <p><a class="btn btn-info" href="#" role="button">了解更多&raquo;</a></p>
         <hr>
       </div> <!-- /container -->
 
-      <div class="container">
+      <div class="container" id="news">
+        <h2>行业动态</h2>
+        <!-- Example row of columns -->
+        <div class="row justify-content-center text-left">
+          <div class="col-md-10 border-left">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          </div>
+        </div>
+        <div class="row justify-content-center text-left">
+          <div class="col-md-10 border-left">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          </div>
+        </div>
+        <div class="row justify-content-center text-left">
+          <div class="col-md-10 border-left">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          </div>
+        </div>
+        <hr>
+      </div> <!-- /container -->
+
+
+      <div class="container" id="exhibitedProjects">
         <h2>成果展示</h2>
         <!-- Example row of columns -->
         <div class="row justify-content-center text-left">
@@ -99,32 +125,8 @@
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           </div>
         </div>
-        <p><a class="btn btn-info" href="#" role="button">了解更多&raquo;</a></p>
-        <hr>
       </div> <!-- /container -->
 
-      <div class="container" id="news">
-        <h2>行业新闻</h2>
-        <!-- Example row of columns -->
-        <div class="row justify-content-center text-left">
-          <div class="col-md-10 border-left">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          </div>
-        </div>
-        <div class="row justify-content-center text-left">
-          <div class="col-md-10 border-left">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          </div>
-        </div>
-        <div class="row justify-content-center text-left">
-          <div class="col-md-10 border-left">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          </div>
-        </div>
-      </div> <!-- /container -->
 
       <div class="container" id="relatedLinks">
         <h2>友情链接</h2>
@@ -180,6 +182,10 @@ export default {
   color: #2c3e50;
 }
 
+h2 {
+  font-size: 2rem;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -233,7 +239,7 @@ nav li {
 .border-left {
   margin: 10px 0px;
   border-left: 5px solid lightseagreen;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
 }
 
 /* 定制news模块 */
