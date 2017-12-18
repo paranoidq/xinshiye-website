@@ -17,117 +17,34 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarsItems">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">首页<span class="sr-only">(current)</span></a>
+            <router-link to="/home"><a class="nav-link" href="#">首页<span class="sr-only">(current)</span></a></router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">公司简介</a>
+            <router-link to="/about"><a class="nav-link" href="#">公司简介</a></router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">业务范围</a>
+            <router-link to="/buss"><a class="nav-link" href="#">业务范围</a></router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">新闻动态</a>
+            <router-link to="/news"><a class="nav-link" href="#">新闻动态</a></router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">成果业绩</a>
+            <router-link to="/projects"><a class="nav-link" href="#">成果业绩</a></router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">公示公告</a>
+            <router-link to="/publish"><a class="nav-link" href="#">公示公告</a></router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">人才招聘</a>
+            <router-link to="/hr"><a class="nav-link" href="#">人才招聘</a></router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">联系我们</a>
+            <router-link to="/contact"><a class="nav-link" href="#">联系我们</a></router-link>
           </li>
         </ul>
       </div>
     </nav>
-    <main role="main">
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="" id="banner">
-          <!--<div class="col-md-12">-->
-            <img src="../static/img/banner.png" class="img-fluid center-block"/>
-          <!--</div>-->
-        </div>
-
-      <div class="container">
-        <h2 style="margin-bottom: 30px;">关于我们</h2>
-        <!-- Example row of columns -->
-        <div class="row justify-content-center">
-          <div class="col-md-5" style="max-height: 250px; overflow: hidden;">
-            <img src="../static/img/about-us-left-banner.jpg"/>
-          </div>
-          <div class="col-md-5 text-left">
-            <p>
-              南通新视野环保科技有限公司是综合性环保技术服务性公司。公司凭借专业、严谨的技术能力和灵活、高效的协调能力，得到了客户及各级环境管理部门的认可和支持，享有良好的认可度及信誉度。<br/><br/>
-              <span class="font-weight-bold">服务范围：</span><br/>
-              企业环保顾问、策化企业项目竣工环保自主验收技术服务、代理申领排污许可证技术服务、企业环境风险应急预案编制技术服务、环境污染治理服务、项目环评服务、清洁生产技术服务、环境监测服务、水污染治理设施运营服务等。
-            </p>
-          </div>
-          <!--<div class="col-md-4">-->
-            <!--<h2>Heading</h2>-->
-            <!--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>-->
-            <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
-          <!--</div>-->
-          <!--<div class="col-md-4">-->
-            <!--<h2>Heading</h2>-->
-            <!--<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>-->
-            <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
-          <!--</div>-->
-        </div>
-        <hr>
-      </div> <!-- /container -->
-
-      <div class="container" id="news">
-        <h2>行业动态</h2>
-        <!-- Example row of columns -->
-        <div class="row justify-content-center text-left">
-          <div class="col-md-10 border-left">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          </div>
-        </div>
-        <div class="row justify-content-center text-left">
-          <div class="col-md-10 border-left">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          </div>
-        </div>
-        <div class="row justify-content-center text-left">
-          <div class="col-md-10 border-left">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          </div>
-        </div>
-        <hr>
-      </div> <!-- /container -->
-
-
-      <div class="container" id="exhibitedProjects">
-        <h2>成果展示</h2>
-        <!-- Example row of columns -->
-        <div class="row justify-content-center text-left">
-          <div class="col-md-10 border-left">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          </div>
-        </div>
-        <div class="row justify-content-center text-left">
-          <div class="col-md-10 border-left">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          </div>
-        </div>
-        <div class="row justify-content-center text-left">
-          <div class="col-md-10 border-left">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          </div>
-        </div>
-      </div> <!-- /container -->
-
-
+    <router-view></router-view>
+    <footer class="container">
       <div class="container" id="relatedLinks">
         <h2>友情链接</h2>
         <!-- Example row of columns -->
@@ -155,9 +72,6 @@
           </div>
         </div>
       </div> <!-- /container -->
-
-    </main>
-    <footer class="container">
       <section id="rightsDeclare"><p>&copy;2018 All right reserved. 南通新视野环保科技有限公司版权所有</p></section>
     </footer>
   </div>
@@ -174,85 +88,84 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
 
-h2 {
-  font-size: 2rem;
-}
+  h2 {
+    font-size: 2rem;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
 
-nav li {
-  display: inline-block;
-  margin: 0 0px;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-
-/* 定制nav */
-.navbar-light .navbar-nav .nav-link {
-  color: #000;
-}
-.navbar-light .navbar-nav .nav-link:hover {
-  color: #4fd2c2;
-}
-
-#rightsDeclare {
-  font-size: 0.8rem;
-}
-
-/*定制首页大图*/
-#banner {
-}
-
-/* 定制友情链接 */
-#relatedLinks{
-  padding: 20px 10px 10px 10px;
-  background-color: #5d5857;
-}
-#relatedLinks a {
-  display: block;
-  color: #989898;
-  font-size: 0.8rem;
-}
-#relatedLinks h2 {
-  color: #fff;
-}
-.link-col div:not(:last-child) {
-  border-right: 1px solid #989898;
-}
-.link-col p {
-  margin-bottom: 0.2rem;
-}
-
-/*定制成果展示模块*/
-.border-left {
-  margin: 10px 0px;
-  border-left: 5px solid lightseagreen;
-  /*border-radius: 10px;*/
-}
-
-/* 定制news模块 */
-main>div:not(:last-child){
-  margin-bottom: 2rem;
-}
-/* 定制footer */
-footer {
-  margin: 10px 0;
-  font-weight: bold;
-}
+  nav li {
+    display: inline-block;
+    margin: 0 0px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
 
 
+  /* 定制nav */
+  .navbar-light .navbar-nav .nav-link {
+    color: #000;
+  }
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: #4fd2c2;
+  }
 
+  #rightsDeclare {
+    font-size: 0.8rem;
+  }
+
+
+  /* 定制友情链接 */
+  #relatedLinks{
+    padding: 20px 10px 10px 10px;
+    background-color: #5d5857;
+  }
+  #relatedLinks a {
+    display: block;
+    color: #989898;
+    font-size: 0.8rem;
+  }
+  #relatedLinks h2 {
+    color: #fff;
+  }
+  .link-col div:not(:last-child) {
+    border-right: 1px solid #989898;
+  }
+  .link-col p {
+    margin-bottom: 0.2rem;
+  }
+
+
+  /* 定制footer */
+  footer {
+    margin: 10px 0;
+    font-weight: bold;
+  }
+
+  /* 定制模块间距 */
+  main>div:not(:last-child){
+    margin-bottom: 2rem;
+  }
+
+  /* 定制面包屑 */
+  .breadcrumb {
+    background-color: transparent;
+    border-bottom: 1px solid #4fd2c2;
+    border-radius: 0px;
+  }
+  .breadcrumb-item a {
+    color: #4fd2c2;
+  }
 
 </style>
