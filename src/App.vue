@@ -3,7 +3,6 @@
 -->
 <template>
   <div id="app">
-
     <!-- 导航栏 -->
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
       <a class="navbar-brand" href="#"><img src="../static/img/logo.png" style="max-height: 60px;"/></a>
@@ -41,8 +40,8 @@
       </div>
     </nav>
     <router-view></router-view>
-    <footer class="container">
-      <div class="container" id="relatedLinks">
+    <footer class="">
+      <div class="" id="relatedLinks">
         <h2>友情链接</h2>
         <!-- Example row of columns -->
         <div class="row justify-content-center link-col">
@@ -122,7 +121,7 @@ export default {
   }
   #relatedLinks a {
     display: block;
-    color: #989898;
+    color: #c4c4c4;
     font-size: 0.8rem;
   }
   #relatedLinks h2 {
@@ -167,7 +166,14 @@ export default {
 
   /* 定制页面title */
   .container .para-title {
-    margin-bottom: 3rem;
+    transform-style: preserve-3d;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: lightseagreen;
+  }
+
+  .container .para-title .oi {
+    top: 3px;
   }
 
   main>.container {
@@ -178,5 +184,10 @@ export default {
     margin-bottom: 0px;
   }
 
+
+  /*定制icon*/
+  .container h2 .oi {
+    padding-right:1rem;
+  }
 
 </style>

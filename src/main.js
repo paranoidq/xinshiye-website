@@ -6,6 +6,9 @@ import Home from './Home'
 import About from './About'
 import News from './News'
 import Contact from './Contact'
+import Project from './Project'
+import Publish from './Publish'
+import Hr from './Hr'
 
 // new Vue({
 //   el: '#app',
@@ -29,6 +32,15 @@ const routes = [{
 },{
   path: '/contact',
   component: Contact
+},{
+  path: '/projects',
+  component: Project
+},{
+  path: '/publish',
+  component: Publish
+},{
+  path: '/hr',
+  component: Hr
 },
 
 ];

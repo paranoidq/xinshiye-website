@@ -3,47 +3,51 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../static/img/banner.png" class="img-fluid center-block"/>
+      <img src="../static/img/banner-about.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
     <div class="container">
-      <div class="row justify-content-left">
-        <div class="col-md-12">
-          <nav aria-label="breadcrumb" role="navigation">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><span class="oi oi-list"></span></li>
-              <li class="breadcrumb-item"><router-link to="/home"><a href="#">首页</a></router-link></li>
-              <!--<li class="breadcrumb-item active" aria-current="page">公司简介</li>-->
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <h2 class="para-title">关于我们</h2>
+      <h2 class="para-title" style="margin-bottom: 10px;"><span class="oi oi-people"></span>关于我们</h2>
       <!-- Example row of columns -->
       <div class="row justify-content-center">
-        <div class="col-md-4 img-fluid" style="max-height: 250px; overflow: hidden;">
-          <img src="../static/img/about-us-left-banner.jpg" class="img-fluid"/>
+        <div class="col-md-4" style="max-height: 300px;">
+          <img src="../static/img/about-us-left-banner.jpg" class="img-fluid" style="border-radius: 5px;"/>
         </div>
         <div class="col-md-8 text-left">
           <p>
             南通新视野环保科技有限公司是综合性环保技术服务性公司。公司凭借专业、严谨的技术能力和灵活、高效的协调能力，得到了客户及各级环境管理部门的认可和支持，享有良好的认可度及信誉度。<br/><br/>
             <span class="font-weight-bold">服务范围：</span><br/>
-            企业环保顾问、策化企业项目竣工环保自主验收技术服务、代理申领排污许可证技术服务、企业环境风险应急预案编制技术服务、环境污染治理服务、项目环评服务、清洁生产技术服务、环境监测服务、水污染治理设施运营服务等。
+            <!--、、、、、、、、水污染治理设施运营服务等。-->
           </p>
+          <table class="table table-striped">
+            <tbody>
+            <tr class="table-info">
+              <td>环保技术服务（环保顾问）</td>
+              <td>项目竣工环保验收服务</td>
+              <td>申请排污许可证服务</td>
+            </tr>
+            <tr>
+              <td>企业环境风险应急预案服务</td>
+              <td>项目环评服务</td>
+              <td>环境污染治理服务</td>
+            </tr>
+            <tr class="table-info">
+              <td>环境监测服务</td>
+              <td>水污染治理设施运营服务</td>
+              <td>清洁生产审核服务</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <hr>
     </div> <!-- /container -->
 
     <div class="container" id="home-news">
-      <h2 class="para-title">行业动态</h2>
+      <h2 class="para-title"><span class="oi oi-pulse"></span>行业动态</h2>
       <!-- Example row of columns -->
 
-      <div class="row justify-content-center">
+      <div class="row justify-content-center" style="margin-top:0px;">
         <div class="list-group col-md-12 text-left">
           <router-link  v-for="item in latestNews" :to="`/news/${item.id}`" class="list-group-item list-group-item-light">
             <span class="oi oi-bullhorn"></span>&nbsp;&nbsp;&nbsp;{{item.title}}
@@ -53,13 +57,15 @@
     </div> <!-- /container -->
 
     <div class="container" id="home-projects">
-      <h2 class="para-title">成果展示</h2>
+      <h2 class="para-title"><span class="oi oi-aperture"></span>成果展示</h2>
       <div class="row justify-content-center">
         <div v-for="item in latestProjects.slice(0, 3)" class="col-md-4">
           <div class="card">
-            <router-link class="card-header" :to="`/projects/${item.id}`">{{item.title}}</router-link>
+            <router-link class="card-header" :to="`/projects/${item.id}`">
+              {{item.title.length > 12 ? item.title.slice(0, 12)+'...' : item.title}}
+            </router-link>
             <div class="card-body">
-              <p class="card-text">{{item.desc}}</p>
+              <p class="card-text">{{item.desc.length > 60 ? item.desc.slice(0, 60)+'...' : item.desc}}</p>
             </div>
           </div>
         </div>
@@ -67,9 +73,11 @@
       <div class="row justify-content-center">
         <div v-for="item in latestProjects.slice(3, 6)" class="col-md-4">
           <div class="card">
-            <router-link class="card-header" :to="`/projects/${item.id}`">{{item.title}}</router-link>
+            <router-link class="card-header" :to="`/projects/${item.id}`">
+              {{item.title.length > 12 ? item.title.slice(0, 12)+'...' : item.title}}
+            </router-link>
             <div class="card-body">
-              <p class="card-text">{{item.desc}}</p>
+              <p class="card-text">{{item.desc.length > 60 ? item.desc.slice(0, 60)+'...' : item.desc}}</p>
             </div>
           </div>
         </div>
@@ -93,12 +101,11 @@
     background-color: transparent;
   }
   #home-news a:hover {
-    background-color: lightseagreen;
-    color: #fff;
+    background-color: #bee5eb;
+    color: #2c3e50;
     transition-duration: 0.2s;
     border-color: #fff;
     border-bottom-style: solid;
-    font-weight:bold;
   }
   #home-news a:not(:last-child) {
     margin-bottom: 10px;
@@ -106,8 +113,13 @@
 
   #home-projects .row:not(:first-child){
     margin-top:20px;
+
   }
 
+  #home-projects .card {
+    border-color: #bee5eb;
+    box-shadow: 5px 5px 5px #bee5eb;
+  }
   #home-projects .card-body {
     color: #818182;
     max-width: 500px;
@@ -125,9 +137,8 @@
   }
 
   #home-projects .card:hover .card-header {
-    border-color: lightseagreen;
     background-color: lightseagreen!important;
-    color: #fff;
+    color: #2c3e50;
     border-bottom-color: whitesmoke;
   }
   /*#home-projects .card:hover .card-body {*/
@@ -161,17 +172,17 @@
   });
 
   var mockProjects = [
-  	{"id":"1", "title":"县环保局积极开展反贪腐活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"2", "title":"“中科院专家走进海安”能源环保科技成果发布会", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"3", "title":"县环保局：走访企业办实事", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"4", "title":"海安环保：开展“走访企业 服务基层”活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"5", "title":"县环保局召开团支部大会 推选入党积极分子", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"6", "title":"海安纪委监察局以四项制度力推“263”专项行动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
+  	{"id":"1", "title":"县环保局积极开展反贪腐活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"2", "title":"“中科院专家走进海安”能源环保科技成果发布会", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"3", "title":"县环保局：走访企业办实事", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"4", "title":"海安环保：开展“走访企业 服务基层”活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"5", "title":"县环保局召开团支部大会 推选入党积极分子", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"6", "title":"海安纪委监察局以四项制度力推“263”专项行动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
     ];
 
   mockProjects = mockProjects.map(item =>{
     if (item.title.length > maxTitleLen) {
-      item.title = item.title.slice(0, maxTitleLen) + "...";
+      item.title = item.title;
     }
     return item;
   });

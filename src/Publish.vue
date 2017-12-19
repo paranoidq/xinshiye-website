@@ -15,7 +15,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><span class="oi oi-list"></span></li>
               <li class="breadcrumb-item"><router-link to="/home"><a href="#">首页</a></router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">新闻动态</li>
+              <li class="breadcrumb-item active" aria-current="page">公示公告</li>
             </ol>
           </nav>
         </div>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="container" id="news">
-      <h2 class="para-title"><span class="oi oi-globe"></span>新闻动态</h2>
+      <h2 class="para-title"><span class="oi oi-globe"></span>公示公告</h2>
 
       <!--新闻列表-->
       <div v-for="item in items">
