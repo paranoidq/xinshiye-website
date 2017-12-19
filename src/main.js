@@ -3,9 +3,9 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 
 import Home from './Home'
-import Buss from './Buss'
 import About from './About'
 import News from './News'
+import Contact from './Contact'
 
 // new Vue({
 //   el: '#app',
@@ -20,15 +20,15 @@ const routes = [{
 },{
   path: '/home',
   component: Home
-}, {
-  path: '/buss',
-  component: Buss
 },{
   path: '/about',
   component: About
 },{
   path: '/news',
   component: News
+},{
+  path: '/contact',
+  component: Contact
 },
 
 ];

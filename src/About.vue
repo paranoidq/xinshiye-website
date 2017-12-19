@@ -3,7 +3,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../static/img/banner.png" class="img-fluid center-block"/>
+      <img src="../static/img/banner-about.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -12,6 +12,7 @@
         <div class="col-md-12">
           <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
+              <li class="breadcrumb-item"><span class="oi oi-list"></span></li>
               <li class="breadcrumb-item"><router-link to="/home"><a href="#">首页</a></router-link></li>
               <li class="breadcrumb-item active" aria-current="page">公司简介</li>
             </ol>
@@ -21,11 +22,11 @@
     </div>
 
     <div class="container">
-      <h2>公司简介</h2>
+      <h2 class="para-title">公司简介</h2>
       <!-- Example row of columns -->
       <div class="row justify-content-center text-left">
         <div class="col-md-4">
-          <img src="http://www.ysemm.cn/templets/newysemmcn/images/aboutus-info.png" class="img-fluid"/>
+          <img src="../static/img/about-us-left-banner.jpg" class="img-fluid"/>
         </div>
         <div class="col-md-8">
           <p>
@@ -42,13 +43,36 @@
           </p>
         </div>
       </div>
+      <hr/>
     </div> <!-- /container -->
+
+    <div class="container" id="buss">
+      <h2 class="para-title">业务范围</h2>
+      <!-- Example row of columns -->
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <ul class="list-group">
+            <li class="list-group-item">企业环保顾问</li>
+            <li class="list-group-item">策化企业项目竣工环保自主验收技术服务</li>
+            <li class="list-group-item">代理申领排污许可证技术服务</li>
+            <li class="list-group-item">企业环境风险应急预案编制技术服务</li>
+            <li class="list-group-item">环境污染治理服务</li>
+            <li class="list-group-item">项目环评服务</li>
+            <li class="list-group-item">清洁生产技术服务</li>
+            <li class="list-group-item">环境监测服务</li>
+            <li class="list-group-item">水污染治理设施运营服务</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
+
 <style>
-  /* 定制news模块 */
-  main>div:not(:last-child){
-    margin-bottom: 2rem;
+  #buss li {
+    border-left: 0px;
+    border-right: 0px;
   }
+
 </style>

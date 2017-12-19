@@ -6,7 +6,7 @@
 
     <!-- 导航栏 -->
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#"><img src="../static/img/logo.png" style="max-height: 80px;"/></a>
+      <a class="navbar-brand" href="#"><img src="../static/img/logo.png" style="max-height: 60px;"/></a>
       <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsItems" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">-->
         <!--<span class="navbar-toggler-icon"></span>-->
       <!--</button>-->
@@ -17,28 +17,25 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarsItems">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link to="/home"><a class="nav-link" href="#">首页<span class="sr-only">(current)</span></a></router-link>
+            <router-link to="/home" class="nav-link">首页</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/about"><a class="nav-link" href="#">公司简介</a></router-link>
+            <router-link to="/about" class="nav-link">公司简介</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/buss"><a class="nav-link" href="#">业务范围</a></router-link>
+            <router-link to="/news" class="nav-link">新闻动态</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/news"><a class="nav-link" href="#">新闻动态</a></router-link>
+            <router-link to="/projects" class="nav-link">成果业绩</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/projects"><a class="nav-link" href="#">成果业绩</a></router-link>
+            <router-link to="/publish" class="nav-link">公示公告</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/publish"><a class="nav-link" href="#">公示公告</a></router-link>
+            <router-link to="/hr" class="nav-link">人才招聘</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/hr"><a class="nav-link" href="#">人才招聘</a></router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/contact"><a class="nav-link" href="#">联系我们</a></router-link>
+            <router-link to="/contact" class="nav-link">联系我们</router-link>
           </li>
         </ul>
       </div>
@@ -65,8 +62,8 @@
           </div>
           <div class="col-md-2">
             <p>
-              <a href="http://www.haian.gov.cn/zgha/" target="_blank">海安县人民政府</a>
-              <a href="http://www.haian.gov.cn/zgha/jyh/060012/060012003/" target="_blank">海安县环保局</a>
+              <a href="http://www.haian.gov.cn/zgha/infodetail/?infoid=0b1f0d8c-bd49-4835-94aa-126d34ded9bf&categoryNum=012007" target="_blank">海安慢思</a>
+              <a href="http://www.haian.gov.cn/zgha/infodetail/?infoid=d07500a9-a8ce-4d6a-bde7-e0cc541f8f8a&categoryNum=012007" target="_blank">海安石板街</a>
               <a href="http://www.haianw.com/" target="_blank">海安网</a>
             </p>
           </div>
@@ -105,24 +102,16 @@ export default {
     padding: 0;
   }
 
-  nav li {
-    display: inline-block;
-    margin: 0 0px;
-    font-size: 0.9rem;
-    font-weight: bold;
-  }
-
 
   /* 定制nav */
   .navbar-light .navbar-nav .nav-link {
     color: #000;
+    font-size: 1rem;
+    font-weight: bold;
   }
   .navbar-light .navbar-nav .nav-link:hover {
     color: #4fd2c2;
-  }
-
-  #rightsDeclare {
-    font-size: 0.8rem;
+    text-decoration:none!important;
   }
 
 
@@ -138,6 +127,7 @@ export default {
   }
   #relatedLinks h2 {
     color: #fff;
+    margin-bottom:1rem;
   }
   .link-col div:not(:last-child) {
     border-right: 1px solid #989898;
@@ -149,13 +139,20 @@ export default {
 
   /* 定制footer */
   footer {
-    margin: 10px 0;
+    margin: 5rem 0 0 0;
     font-weight: bold;
+  }
+  footer #rightsDeclare {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+  footer #rightsDeclare p {
+    margin-bottom: 0.4rem;
   }
 
   /* 定制模块间距 */
-  main>div:not(:last-child){
-    margin-bottom: 2rem;
+  main>.container:not(:last-child){
+    margin-bottom: 0rem;
   }
 
   /* 定制面包屑 */
@@ -167,5 +164,19 @@ export default {
   .breadcrumb-item a {
     color: #4fd2c2;
   }
+
+  /* 定制页面title */
+  .container .para-title {
+    margin-bottom: 3rem;
+  }
+
+  main>.container {
+    padding-top: 2rem;
+  }
+
+  main>.container:first-child {
+    margin-bottom: 0px;
+  }
+
 
 </style>
