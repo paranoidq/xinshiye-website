@@ -36,9 +36,11 @@
 
           <div class="col-md-10 line-content">
             <div class="card">
-                <router-link class="card-header" :to="`/news/${item.id}`">{{item.title}}</router-link>
+                <router-link class="card-header" :to="`/news/${item.id}`">{{item.title}}
+                  <span class="badge badge-primary" v-text="formatDate(item.publishTimestamp)"></span>
+                </router-link>
               <div class="card-body">
-                <p>{{item.desc.length > 110 ? item.desc.slice(0, 110)+'...' : item.desc}}</p>
+                <p>{{item.detail.length > 110 ? item.detail.slice(0, 110)+'...' : item.detail}}</p>
                 <!--<p>{{item.desc}}</p>-->
               </div>
             </div>
@@ -72,24 +74,26 @@
 </template>
 
 <script>
-
-  var mockNews = [
-    {"id":"1", "title":"县环保局积极开展反贪腐活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展国际反腐日主题教育活动县环保局积极开展国际反腐日主题教育活动县环保局积极开展国际反腐日主题教育活动县环保局积极开展国际反腐日主题教育活动县环保局积极开展国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"2", "title":"“中科院专家走进海安”能源环保科技成果发布会", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"3", "title":"县环保局：走访企业办实事", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"4", "title":"海安环保：开展“走访企业 服务基层”活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"5", "title":"县环保局召开团支部大会 推选入党积极分子", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"6", "title":"海安纪委监察局以四项制度力推“263”专项行动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-  ];
-
+  import {getAllNews} from './Api'
+  import {DateFormatter} from './DateFormatter'
 
   export default {
     name: "News",
-    computed: {
-    	items() {
-    		return mockNews;
+    data() {
+    	return {
+        items: []
       }
-    }
+    },
+    methods: {
+        formatDate: function (timestamp) {
+            return DateFormatter.formatDate(new Date(timestamp), "yyyy年MM月dd日");
+        }
+    },
+    mounted: function () {
+       var rst = getAllNews((data) => {
+          this.items = data;
+       });
+    },
   }
 
 </script>
@@ -150,12 +154,12 @@
   }
 
   .list-lines .para-title {
-    background: linear-gradient(to right, yellowgreen, transparent);
+    background: linear-gradient(to right, lightseagreen, transparent);
     color: white;
   }
 
   .list-lines .line-img {
-    max-height:6.7rem;
+    height:6.7rem;
     overflow: hidden;
     padding-right:0px;
   }
@@ -166,7 +170,6 @@
   .list-lines .line-content .card, .card-header {
     border: none;
   }
-
 
 
 

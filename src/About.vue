@@ -84,11 +84,11 @@
     border-radius: 0;
   }
   #buss .para-title {
-    background: linear-gradient(to right, yellowgreen, transparent);
+    background: linear-gradient(to right, lightseagreen, transparent);
     color: white;
   }
   #about .para-title {
-    background: linear-gradient(to right, yellowgreen, transparent);
+    background: linear-gradient(to right, lightseagreen, transparent);
     color: white;
   }
 

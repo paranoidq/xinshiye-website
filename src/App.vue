@@ -73,6 +73,7 @@
   </div>
 </template>
 
+
 <script>
 export default {
   name: 'app',
@@ -197,6 +198,17 @@ export default {
   .container h2 .oi {
     padding-right:1rem;
   }
+
+  /*定制列表页面和detail日期标签*/
+  .detail-container .badge {
+    background: coral;
+  }
+  .list-line .badge {
+    vertical-align: 20%;
+    background: coral;
+    float: right;
+  }
+
 
 
 </style>

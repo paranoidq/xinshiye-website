@@ -55,7 +55,7 @@
               <p class="card-title font-weight-bold">
                 {{item.title.length > 18 ? item.title.slice(0, 18)+'...' : item.title}}
               </p>
-              <p class="card-text">{{item.desc.length > 60 ? item.desc.slice(0, 60)+'...' : item.desc}}</p>
+              <p class="card-text">{{item.detail.length > 60 ? item.detail.slice(0, 60)+'...' : item.detail}}</p>
             </div>
           </div>
         </div>
@@ -65,16 +65,16 @@
     <div class="container">
       <div class="row justify-content-center" style="margin-top:0px;">
         <div class="list-group col-md-6 text-left" id="home-projects">
-          <h2 class="para-title"><span class="oi oi-aperture"></span>成果业绩</h2>
+          <h2 class="para-title"><span class="oi oi-aperture"></span>最新业绩</h2>
           <router-link  v-for="item in latestProjects" :to="`/projects/${item.id}`" class="list-group-item list-group-item-light">
             {{item.title}}
           </router-link>
         </div>
         <!--<div class="col-md-1"></div>-->
         <div class="list-group col-md-6 text-left" id="home-publish">
-          <h2 class="para-title text-left"><span class="oi oi-bullhorn"></span>公示公告</h2>
+          <h2 class="para-title text-left"><span class="oi oi-bullhorn"></span>最新公告</h2>
           <router-link  v-for="item in latestPublishes" :to="`/publish/${item.id}`" class="list-group-item list-group-item-light">
-            {{item.title}}
+            {{item.title.length> 30 ? item.title.slice(0, 30)+'...' : item.title}}
           </router-link>
         </div>
       </div>
@@ -86,7 +86,7 @@
 <style>
 
   #home-about .para-title {
-    background: linear-gradient(to left, transparent, yellowgreen, transparent);
+    background: linear-gradient(to left, transparent, lightseagreen, transparent);
     color: #fff;
   }
 
@@ -95,7 +95,7 @@
     margin: 5rem auto;
   }
   #home-news .para-title {
-    background: linear-gradient(to left, transparent, yellowgreen, transparent);
+    background: linear-gradient(to left, transparent, lightseagreen, transparent);
     color: #fff;
   }
 
@@ -122,12 +122,12 @@
 
 
   #home-projects .para-title {
-    background: linear-gradient(to right, yellowgreen, transparent);
+    background: linear-gradient(to right, lightseagreen, transparent);
     color: #fff;
   }
 
   #home-publish .para-title {
-    background: linear-gradient(to right, yellowgreen, transparent);
+    background: linear-gradient(to right, lightseagreen, transparent);
     color: #fff;
   }
 
@@ -161,53 +161,32 @@
 <script>
 
   const maxTitleLen = 12;
+  import {getNewsLatest} from './Api'
+  import {getPublishLatest} from './Api'
+  import {getProjectsLatest} from './Api'
 
-  var mockNews = [
-  	  {"id":"1", "title":"县环保局积极开展反贪腐活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-      {"id":"2", "title":"“中科院专家走进海安”能源环保科技成果发布会", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-      {"id":"3", "title":"县环保局：走访企业办实事", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-      {"id":"4", "title":"海安环保：开展“走访企业 服务基层”活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-      {"id":"5", "title":"县环保局召开团支部大会 推选入党积极分子", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-      {"id":"6", "title":"海安纪委监察局以四项制度力推“263”专项行动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
-  	  ];
-
-  mockNews = mockNews.map(item =>{
-    if (item.title.length > maxTitleLen) {
-      item.title = item.title;
-    }
-    return item;
-  });
-
-  var mockProjects = [
-  	{"id":"1", "title":"县环保局积极开展反贪腐活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"2", "title":"“中科院专家走进海安”能源环保科技成果发布会", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"3", "title":"县环保局：走访企业办实事", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"4", "title":"海安环保：开展“走访企业 服务基层”活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"5", "title":"县环保局召开团支部大会 推选入党积极分子", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"6", "title":"海安纪委监察局以四项制度力推“263”专项行动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-    ];
-
-  var mockPublish = [
-    {"id":"1", "title":"县环保局积极开展反贪腐活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"2", "title":"“中科院专家走进海安”能源环保科技成果发布会", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"3", "title":"县环保局：走访企业办实事", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"4", "title":"海安环保：开展“走访企业 服务基层”活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"5", "title":"县环保局召开团支部大会 推选入党积极分子", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-    {"id":"6", "title":"海安纪委监察局以四项制度力推“263”专项行动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
-  ];
 
   export default {
   	name: "Home",
     computed: {
-  		latestNews() {
-        return mockNews;
-      },
-      latestProjects() {
-        return mockProjects;
-      },
-      latestPublishes() {
-        return mockPublish;
+    },
+    data() {
+  		return {
+        latestNews: [],
+        latestPublishes: [],
+        latestProjects: [],
       }
-    }
+    },
+    mounted: function () {
+        getNewsLatest(3, (data) => {
+        	this.latestNews = data;
+        });
+        getPublishLatest(6, (data) => {
+          this.latestPublishes = data;
+        });
+        getProjectsLatest(6, (data) => {
+          this.latestProjects = data;
+        });
+    },
   }
 </script>

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import App from './App.vue'
 
 import Home from './Home'
@@ -9,45 +10,52 @@ import Contact from './Contact'
 import Project from './Project'
 import Publish from './Publish'
 import Hr from './Hr'
-
-// new Vue({
-//   el: '#app',
-//   render: h => h(App)
-// })
+import NewsDetail from './NewsDetail'
+import ProjectsDetail from './ProjectsDetail'
+import PublishDetail from './PublishDetail'
 
 Vue.use(VueRouter);
 
 const routes = [{
   path: '/',
   component: Home
-},{
+}, {
   path: '/home',
   component: Home
-},{
+}, {
   path: '/about',
   component: About
-},{
+}, {
   path: '/news',
   component: News
-},{
+}, {
   path: '/contact',
   component: Contact
-},{
+}, {
   path: '/projects',
   component: Project
-},{
+}, {
   path: '/publish',
   component: Publish
-},{
+}, {
   path: '/hr',
   component: Hr
+}, {
+  path: '/news/:id',
+  component: NewsDetail
+}, {
+  path: '/projects/:id',
+  component: ProjectsDetail
+}, {
+  path: '/publish/:id',
+  component: PublishDetail
 },
-
 ];
 
-const router = new VueRouter( {
+const router = new VueRouter({
   routes
 })
+
 
 
 new Vue({

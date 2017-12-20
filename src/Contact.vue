@@ -32,7 +32,7 @@
         <div class="col-lg-4 col-xs-4">
           <span class="icon-contactus icon-tel"></span>
           <div class="contactus-item">
-            <p>联系电话：86-0513-88866136<br/>移动电话：(+86)13606279979</p>
+            <p>固定电话：(+86)-0513-88866136<br/>移动电话：(+86)13606279979</p>
           </div>
         </div>
         <div class="col-lg-4 col-xs-4">
@@ -51,10 +51,6 @@
 
 
 <style>
-  #buss li {
-    border-left: 0px;
-    border-right: 0px;
-  }
   .row-contactus-info {
     padding-top: 60px;
   }
