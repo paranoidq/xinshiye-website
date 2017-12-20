@@ -7,7 +7,7 @@
       <!--</div>-->
     </div>
 
-    <div class="container">
+    <div class="container" id="home-about">
       <h2 class="para-title" style="margin-bottom: 10px;"><span class="oi oi-people"></span>关于我们</h2>
       <!-- Example row of columns -->
       <div class="row justify-content-center">
@@ -44,42 +44,38 @@
     </div> <!-- /container -->
 
     <div class="container" id="home-news">
-      <h2 class="para-title"><span class="oi oi-pulse"></span>行业动态</h2>
-      <!-- Example row of columns -->
-
-      <div class="row justify-content-center" style="margin-top:0px;">
-        <div class="list-group col-md-12 text-left">
-          <router-link  v-for="item in latestNews" :to="`/news/${item.id}`" class="list-group-item list-group-item-light">
-            <span class="oi oi-bullhorn"></span>&nbsp;&nbsp;&nbsp;{{item.title}}
-          </router-link>
+      <h2 class="para-title"><span class="oi oi-pulse"></span>行业新闻</h2>
+      <div class="row justify-content-center">
+        <div v-for="item in latestNews.slice(0, 3)" class="col-md-4">
+          <div class="card">
+            <router-link class="" :to="`/news/${item.id}`">
+              <img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>
+            </router-link>
+            <div class="card-body text-left">
+              <p class="card-title font-weight-bold">
+                {{item.title.length > 18 ? item.title.slice(0, 18)+'...' : item.title}}
+              </p>
+              <p class="card-text">{{item.desc.length > 60 ? item.desc.slice(0, 60)+'...' : item.desc}}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div> <!-- /container -->
 
-    <div class="container" id="home-projects">
-      <h2 class="para-title"><span class="oi oi-aperture"></span>成果展示</h2>
-      <div class="row justify-content-center">
-        <div v-for="item in latestProjects.slice(0, 3)" class="col-md-4">
-          <div class="card">
-            <router-link class="card-header" :to="`/projects/${item.id}`">
-              {{item.title.length > 12 ? item.title.slice(0, 12)+'...' : item.title}}
-            </router-link>
-            <div class="card-body">
-              <p class="card-text">{{item.desc.length > 60 ? item.desc.slice(0, 60)+'...' : item.desc}}</p>
-            </div>
-          </div>
+    <div class="container">
+      <div class="row justify-content-center" style="margin-top:0px;">
+        <div class="list-group col-md-6 text-left" id="home-projects">
+          <h2 class="para-title"><span class="oi oi-aperture"></span>成果业绩</h2>
+          <router-link  v-for="item in latestProjects" :to="`/projects/${item.id}`" class="list-group-item list-group-item-light">
+            {{item.title}}
+          </router-link>
         </div>
-      </div>
-      <div class="row justify-content-center">
-        <div v-for="item in latestProjects.slice(3, 6)" class="col-md-4">
-          <div class="card">
-            <router-link class="card-header" :to="`/projects/${item.id}`">
-              {{item.title.length > 12 ? item.title.slice(0, 12)+'...' : item.title}}
-            </router-link>
-            <div class="card-body">
-              <p class="card-text">{{item.desc.length > 60 ? item.desc.slice(0, 60)+'...' : item.desc}}</p>
-            </div>
-          </div>
+        <!--<div class="col-md-1"></div>-->
+        <div class="list-group col-md-6 text-left" id="home-publish">
+          <h2 class="para-title text-left"><span class="oi oi-bullhorn"></span>公示公告</h2>
+          <router-link  v-for="item in latestPublishes" :to="`/publish/${item.id}`" class="list-group-item list-group-item-light">
+            {{item.title}}
+          </router-link>
         </div>
       </div>
     </div> <!-- /container -->
@@ -88,64 +84,75 @@
 </template>
 
 <style>
-  #home-news .row:not(:first-child) {
-    margin-top: 20px;
+
+  #home-about .para-title {
+    background: linear-gradient(to left, transparent, yellowgreen, transparent);
+    color: #fff;
   }
+
+  /*定制新闻板块*/
   #home-news {
     margin: 5rem auto;
   }
-  #home-news a{
-    border-radius: 0px;
-    border: 0 dotted lightseagreen;
-    border-bottom-width: 1px;
-    background-color: transparent;
-  }
-  #home-news a:hover {
-    background-color: #bee5eb;
-    color: #2c3e50;
-    transition-duration: 0.2s;
-    border-color: #fff;
-    border-bottom-style: solid;
-  }
-  #home-news a:not(:last-child) {
-    margin-bottom: 10px;
+  #home-news .para-title {
+    background: linear-gradient(to left, transparent, yellowgreen, transparent);
+    color: #fff;
   }
 
-  #home-projects .row:not(:first-child){
-    margin-top:20px;
-
-  }
-
-  #home-projects .card {
+  #home-news .card {
     border-color: #bee5eb;
     box-shadow: 5px 5px 5px #bee5eb;
+    position: relative;
   }
-  #home-projects .card-body {
+  #home-news .card img {
+    max-height: 10rem;
+    border-bottom: 1px solid #bee5eb;
+  }
+
+  #home-news .card:hover {
+    border: 1px solid darkgreen;
+    transition: all 0.5s ease;
+  }
+  #home-news .card-body {
     color: #818182;
-    max-width: 500px;
-    height: 120px;
+    height: 8rem;
     overflow: hidden;
-  }
-  #home-projects .card-header {
-    color: #818182;
-    font-size: 1.1rem;
-    font-weight:bold;
+    padding:0.5rem;
   }
 
-  #home-projects .card-header:hover {
-    text-decoration: none;
+
+  #home-projects .para-title {
+    background: linear-gradient(to right, yellowgreen, transparent);
+    color: #fff;
   }
 
-  #home-projects .card:hover .card-header {
-    background-color: lightseagreen!important;
-    color: #2c3e50;
-    border-bottom-color: whitesmoke;
+  #home-publish .para-title {
+    background: linear-gradient(to right, yellowgreen, transparent);
+    color: #fff;
   }
-  /*#home-projects .card:hover .card-body {*/
-    /*border-color: lightseagreen;*/
-    /*background-color: lightseagreen!important;*/
-    /*color: #fff;*/
-  /*}*/
+
+  #home-projects a:hover {
+    box-shadow: 5px 5px 5px #bee5eb;
+    position: relative;
+    right: 5px;
+    bottom: 5px;
+    background-color: #ffa777;
+    color: #fff;
+    transition-duration: 0.2s;
+  }
+
+  #home-publish a:hover {
+    box-shadow: 5px 5px 5px #bee5eb;
+    position: relative;
+    right: 5px;
+    bottom: 5px;
+    background-color: #ffa777;
+    color: #fff;
+    transition-duration: 0.2s;
+  }
+
+
+
 
 
 
@@ -180,12 +187,14 @@
     {"id":"6", "title":"海安纪委监察局以四项制度力推“263”专项行动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
     ];
 
-  mockProjects = mockProjects.map(item =>{
-    if (item.title.length > maxTitleLen) {
-      item.title = item.title;
-    }
-    return item;
-  });
+  var mockPublish = [
+    {"id":"1", "title":"县环保局积极开展反贪腐活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"2", "title":"“中科院专家走进海安”能源环保科技成果发布会", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"3", "title":"县环保局：走访企业办实事", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"4", "title":"海安环保：开展“走访企业 服务基层”活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"5", "title":"县环保局召开团支部大会 推选入党积极分子", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"6", "title":"海安纪委监察局以四项制度力推“263”专项行动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
+  ];
 
   export default {
   	name: "Home",
@@ -195,6 +204,9 @@
       },
       latestProjects() {
         return mockProjects;
+      },
+      latestPublishes() {
+        return mockPublish;
       }
     }
   }

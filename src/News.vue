@@ -22,17 +22,24 @@
       </div>
     </div>
 
-    <div class="container" id="news">
-      <h2 class="para-title"><span class="oi oi-globe"></span>新闻动态</h2>
+    <div class="container list-lines">
+      <h2 class="para-title text-left"><span class="oi oi-globe"></span>新闻动态</h2>
 
       <!--新闻列表-->
-      <div v-for="item in items">
+      <div v-for="item in items" class="list-line">
         <div class="row justify-content-center text-left">
-          <div class="col-md-12">
+          <div class="col-md-2 line-img">
+            <router-link :to="`/news/${item.id}`">
+              <img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>
+            </router-link>
+          </div>
+
+          <div class="col-md-10 line-content">
             <div class="card">
                 <router-link class="card-header" :to="`/news/${item.id}`">{{item.title}}</router-link>
               <div class="card-body">
-                <p>{{item.desc}}</p>
+                <p>{{item.desc.length > 110 ? item.desc.slice(0, 110)+'...' : item.desc}}</p>
+                <!--<p>{{item.desc}}</p>-->
               </div>
             </div>
           </div>
@@ -66,13 +73,21 @@
 
 <script>
 
-  var items = Array(5).fill({"id":"1", "title":"新闻标题", "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."});
+  var mockNews = [
+    {"id":"1", "title":"县环保局积极开展反贪腐活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展国际反腐日主题教育活动县环保局积极开展国际反腐日主题教育活动县环保局积极开展国际反腐日主题教育活动县环保局积极开展国际反腐日主题教育活动县环保局积极开展国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"2", "title":"“中科院专家走进海安”能源环保科技成果发布会", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"3", "title":"县环保局：走访企业办实事", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"4", "title":"海安环保：开展“走访企业 服务基层”活动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"5", "title":"县环保局召开团支部大会 推选入党积极分子", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
+    {"id":"6", "title":"海安纪委监察局以四项制度力推“263”专项行动", "desc":"县环保局积极开展“1219”国际反腐日主题教育活动"},
+  ];
+
 
   export default {
     name: "News",
     computed: {
     	items() {
-    		return items;
+    		return mockNews;
       }
     }
   }
@@ -83,45 +98,75 @@
 
 <style>
 
-  #news>div:not(:first-child) {
+  .list-lines>div:not(:first-child) {
     padding: 10px 0;
   }
 
-  .card-header {
+  .list-lines .card-header {
     line-height:1rem;
     padding: 0.75rem 1.25rem;
     font-weight: bold;
     font-size: 1rem;
   }
-  .card-body {
-    padding: 0.5rem;
-  }
-  .card-body p {
+  .list-lines .card-body p {
     margin: 0rem 0;
   }
 
-  #news .card {
+  .list-lines .card {
     border-color: #bee5eb;
+    margin-left:0px;
   }
-  #news .card-body {
+  .list-lines .card-body {
     color: #818182;
     overflow: hidden;
+    padding-left:5px;
+    padding-top:0px;
+    padding-bottom:0px;
   }
-  #news .card-header {
+  .list-lines .card-header {
     color: #818182;
     font-size: 1.1rem;
     font-weight:bold;
+    padding-left:5px;
+    border-radius: 0;
+    background: transparent;
+    /*background: linear-gradient(to right, lightgrey, transparent);*/
   }
 
-  #news .card-header:hover {
-    text-decoration: none;
+  .list-lines .list-line:hover .card {
+    background: none!important;
+    border-bottom-color: lightseagreen;
+  }
+  .list-lines .list-line:hover {
+    box-shadow: 5px 5px 5px lightgrey;
+    background-color: lightseagreen;
+  }
+  .list-lines .list-line:hover .card-header{
+    color: #fff!important;
+    text-decoration: underline!important;
+  }
+  .list-lines .list-line:hover .card-body {
+    color: #fff!important;
   }
 
-  #news .card:hover .card-header {
-    background-color: #bee5eb!important;
-    color: #2c3e50!important;
-    border-bottom-color: #bee5eb;
+  .list-lines .para-title {
+    background: linear-gradient(to right, yellowgreen, transparent);
+    color: white;
   }
+
+  .list-lines .line-img {
+    max-height:6.7rem;
+    overflow: hidden;
+    padding-right:0px;
+  }
+  .list-lines .list-line {
+    border-bottom: 1px solid lightseagreen;
+  }
+
+  .list-lines .line-content .card, .card-header {
+    border: none;
+  }
+
 
 
 

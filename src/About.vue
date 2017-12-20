@@ -21,12 +21,12 @@
       </div>
     </div>
 
-    <div class="container">
-      <h2 class="para-title"><span class="oi oi-people"></span>公司简介</h2>
+    <div class="container" id="about">
+      <h2 class="para-title text-left"><span class="oi oi-people"></span>公司简介</h2>
       <!-- Example row of columns -->
       <div class="row justify-content-center text-left">
         <div class="col-md-4">
-          <img src="../static/img/about-us-left-banner.jpg" class="img-fluid"/>
+          <img src="../static/img/about-1.png" class="img-fluid"/>
         </div>
         <div class="col-md-8">
           <p>
@@ -43,21 +43,28 @@
           </p>
         </div>
       </div>
-      <hr/>
     </div> <!-- /container -->
 
     <div class="container" id="buss">
-      <h2 class="para-title"><span class="oi oi-spreadsheet"></span>业务范围</h2>
+      <h2 class="para-title text-left"><span class="oi oi-spreadsheet"></span>业务范围</h2>
       <!-- Example row of columns -->
       <div class="row justify-content-center">
-        <div class="col-md-6 text-center">
+        <div class="col-md-4 text-center">
           <ul class="list-group">
             <li class="list-group-item">环保技术服务（环保顾问）</li>
             <li class="list-group-item">项目竣工环保验收服务</li>
             <li class="list-group-item">申请排污许可证服务</li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-center">
+          <ul class="list-group">
             <li class="list-group-item">企业环境风险应急预案服务</li>
             <li class="list-group-item">项目环评服务</li>
             <li class="list-group-item">环境污染治理服务</li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-center">
+          <ul class="list-group">
             <li class="list-group-item">环境监测服务</li>
             <li class="list-group-item">水污染治理设施运营服务</li>
             <li class="list-group-item">清洁生产审核服务</li>
@@ -70,14 +77,26 @@
 
 
 <style>
-  #buss li:nth-child(odd) {
-    background: #bee5eb;
-    border: 0px;
-  }
   #buss li:first-child {
     border-radius: 0;
   }
   #buss li:last-child {
     border-radius: 0;
+  }
+  #buss .para-title {
+    background: linear-gradient(to right, yellowgreen, transparent);
+    color: white;
+  }
+  #about .para-title {
+    background: linear-gradient(to right, yellowgreen, transparent);
+    color: white;
+  }
+
+  #buss li {
+    border-top: none;
+    border-bottom: none;
+  }
+  #buss ul:not(:first-child) li {
+    border-right: none;
   }
 </style>

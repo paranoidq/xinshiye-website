@@ -4,7 +4,7 @@
 <template>
   <div id="app">
     <!-- 导航栏 -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <nav id="top-nav" class="navbar navbar-expand-md navbar-light bg-light fixed-top">
       <a class="navbar-brand" href="#"><img src="../static/img/logo.png" style="max-height: 60px;"/></a>
       <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsItems" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">-->
         <!--<span class="navbar-toggler-icon"></span>-->
@@ -112,7 +112,12 @@ export default {
     color: #4fd2c2;
     text-decoration:none!important;
   }
-
+  #top-nav {
+    border-bottom:1px solid #4fd2c2;
+  }
+  #top-nav a:focus {
+    color: black;
+  }
 
   /* 定制友情链接 */
   #relatedLinks{
@@ -161,7 +166,10 @@ export default {
     border-radius: 0px;
   }
   .breadcrumb-item a {
-    color: #4fd2c2;
+    color: lightseagreen;
+  }
+  .breadcrumb {
+    font-weight: bold;
   }
 
   /* 定制页面title */
@@ -189,5 +197,6 @@ export default {
   .container h2 .oi {
     padding-right:1rem;
   }
+
 
 </style>

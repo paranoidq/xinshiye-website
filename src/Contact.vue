@@ -79,6 +79,7 @@
     border: 1px solid #ccc;
     padding: 70px 20px 0px 20px;
     margin-top:  60px;
+    box-shadow: 8px 8px 10px lightgrey;
   }
   .contactus-item p {
     letter-spacing: 1px;

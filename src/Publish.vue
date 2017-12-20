@@ -4,7 +4,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../static/img/banner-news.jpg" class="img-fluid center-block"/>
+      <img src="../static/img/banner-publish.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="container" id="news">
+    <div class="container" id="publish">
       <h2 class="para-title"><span class="oi oi-globe"></span>公示公告</h2>
 
       <!--新闻列表-->
@@ -83,7 +83,7 @@
 
 <style>
 
-  #news>div:not(:first-child) {
+  #publish>div:not(:first-child) {
     padding: 10px 0;
   }
 
@@ -100,24 +100,24 @@
     margin: 0rem 0;
   }
 
-  #news .card {
+  #publish .card {
     border-color: #bee5eb;
   }
-  #news .card-body {
+  #publish .card-body {
     color: #818182;
     overflow: hidden;
   }
-  #news .card-header {
+  #publish .card-header {
     color: #818182;
     font-size: 1.1rem;
     font-weight:bold;
   }
 
-  #news .card-header:hover {
+  #publish .card-header:hover {
     text-decoration: none;
   }
 
-  #news .card:hover .card-header {
+  #publish .card:hover .card-header {
     background-color: #bee5eb!important;
     color: #2c3e50!important;
     border-bottom-color: #bee5eb;

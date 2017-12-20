@@ -4,7 +4,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../static/img/banner-news.jpg" class="img-fluid center-block"/>
+      <img src="../static/img/banner-hr.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -23,8 +23,6 @@
     </div>
 
     <div class="container" id="hr">
-      <h2 class="para-title"><span class="oi oi-person"></span>人才招聘</h2>
-
       <div class="row justify-content-center">
         <div class="col-md-12">
           <div class="card">
@@ -176,12 +174,14 @@
   #hr .card {
     border-color: #bee5eb;
     color: #434344;
+    box-shadow: 8px 8px 10px lightgrey;
   }
   #hr .card-body {
     overflow: hidden;
   }
   #hr .card-header {
-    background-color: #bee5eb!important;
+    background-color: lightseagreen !important;
+    color: #fff;
     font-size: 1.1rem;
     border-bottom-color: #bee5eb;
     font-weight:bold;
@@ -191,12 +191,10 @@
     text-decoration: none;
   }
 
-  #hr .card:hover .card-header {
-    background-color: #bee5eb!important;
-    color: #2c3e50!important;
+  #hr .card:hover {
+    cursor: pointer;
     border-bottom-color: #bee5eb;
   }
-
 
   /*定制职位card中的table*/
   #hr .card-body table tr:first-child td{

@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="container" id="news">
+    <div class="container" id="projects">
       <h2 class="para-title"><span class="oi oi-globe"></span>成果业绩</h2>
 
       <!--新闻列表-->
@@ -83,7 +83,7 @@
 
 <style>
 
-  #news>div:not(:first-child) {
+  #projects>div:not(:first-child) {
     padding: 10px 0;
   }
 
@@ -100,20 +100,20 @@
     margin: 0rem 0;
   }
 
-  #news .card {
+  #projects .card {
     border-color: #bee5eb;
   }
-  #news .card-body {
+  #projects .card-body {
     color: #818182;
     overflow: hidden;
   }
-  #news .card-header {
+  #projects .card-header {
     color: #818182;
     font-size: 1.1rem;
     font-weight:bold;
   }
 
-  #news .card-header:hover {
+  #projects .card-header:hover {
     text-decoration: none;
   }
 
