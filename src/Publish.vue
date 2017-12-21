@@ -48,21 +48,28 @@
 
       <div class="row justify-content-center">
         <nav aria-label="">
-          <ul class="pagination">
+          <ul class="pagination" id="news-pagination">
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-              </a>
+              <a class="page-link" v-if="currentPage==1">首页</a>
+              <a class="page-link" v-else href="javascript:;" @click="goPage(1)">首页</a>
             </li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-              </a>
+              <a class="page-link" v-if="currentPage<=1">上一页</a>
+              <a class="page-link" v-else href="javascript:;" @click="goPage(currentPage-1)">上一页</a>
+            </li>
+
+            <li class="page-item" v-for="item in pageList">
+              <a class="page-link" v-if="currentPage == item.key || sign == item.key">{{item.key}}</a>
+              <a class="page-link" v-else href="javascript:;" @click="goPage(item.value)">{{item.key}}</a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link" v-if="currentPage>=totalPageCount">下一页</a>
+              <a class="page-link" v-else href="javascript:;" @click="goPage(currentPage+1)">下一页</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" v-if="currentPage==totalPageCount">尾页</a>
+              <a class="page-link" v-else href="javascript:;" @click="goPage(totalPageCount)">尾页</a>
             </li>
           </ul>
         </nav>
@@ -73,24 +80,90 @@
 
 <script>
   import {getAllPublish} from './Api'
+  import {getPublishTotalPageCount} from './Api'
+  import {getPublishCurrentPage} from './Api'
   import {DateFormatter} from './DateFormatter'
 
 
   export default {
-    name: "Publish",
+    name: "News",
     data() {
       return {
-        items: []
-      }
-    },methods: {
+        items: [],
+        //省略符号
+        sign: '...',
+        // 从page=4开始省略
+        signIndex: 4,
+        // 当前页
+        currentPage: 1,
+        // 总页数
+        totalPageCount: 4,
+        // 页面数组列表
+        pageList: []
+      };
+    },
+    methods: {
       formatDate: function (timestamp) {
         return DateFormatter.formatDate(new Date(timestamp), "yyyy年MM月dd日");
+      },
+      goPage: function (i) {
+        this.currentPage = i;
+        this.fetchData(i);
+      },
+      fetchData: function (i=1) {
+        getPublishTotalPageCount((data) => {
+          this.pageList = [];
+          this.totalPageCount = data;
+          var tmp = null;
+
+          if (this.totalPageCount > 6) {
+            if (((this.totalPageCount-1) == (this.totalPageCount - this.currentPage)) && (this.totalPageCount - this.currentPage) > 5) {
+              for (let i=1; i<7; i++) {
+                if (i < this.signIndex) {
+                  tmp = {key: i, value: i};
+                } else if (i == this.signIndex) {
+                  tmp = {key: this.sign, value: 0};
+                } else if (i == (this.signIndex + 1) ) {
+                  tmp = {key:this.totalPageCount - 1, value:this.totalPageCount - 1 };
+                } else {
+                  tmp = {key:this.totalPageCount, value:this.totalPageCount };
+                }
+                this.pageList.push(tmp)
+              }
+            } else if (((this.totalPageCount - this.currentPage) <= this.signIndex)){
+              var starNum = this.totalPageCount - 5;
+              for (let i=starNum;i<starNum+6;i++) {
+                tmp = {key:i, value:i }
+                this.pageList.push(tmp)
+              }
+            } else {
+              var starNum = this.currentPage - 1;
+              for (let i=1;i<7;i++) {
+                if (i < this.signIndex) {
+                  tmp = {key:(starNum - 1) + i, value:(starNum - 1) + i }
+                } else if (i== this.signIndex) {
+                  tmp = {key:this.sign, value:0 }
+                } else if (i == (this.signIndex + 1) ) {
+                  tmp = {key:this.totalPageCount - 1, value:this.totalPageCount - 1 }
+                } else {
+                  tmp = {key:this.totalPageCount, value:this.totalPageCount }
+                }
+                this.pageList.push(tmp)
+              }
+            }
+          } else {
+            for (var i =0; i <this.totalPageCount; i++) {
+              tmp = {key:i+1, value:i+1 }
+              this.pageList.push(tmp)
+            }
+          }
+        }).then(getPublishCurrentPage(i, (data) => {
+          this.items = data;
+        }));
       }
     },
     mounted: function () {
-      var rst = getAllPublish((data) => {
-        this.items = data;
-      });
+      this.fetchData();
     },
   }
 

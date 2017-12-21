@@ -1,65 +1,64 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import vue from 'vue'
+import vuerouter from 'vue-router'
 
-import App from './App.vue'
+import app from './app.vue'
 
-import Home from './Home'
-import About from './About'
-import News from './News'
-import Contact from './Contact'
-import Project from './Project'
-import Publish from './Publish'
-import Hr from './Hr'
-import NewsDetail from './NewsDetail'
-import ProjectsDetail from './ProjectsDetail'
-import PublishDetail from './PublishDetail'
+import home from './home'
+import about from './about'
+import news from './news'
+import contact from './contact'
+import project from './project'
+import publish from './publish'
+import hr from './hr'
+import newsdetail from './newsdetail'
+import projectsdetail from './projectsdetail'
+import publishdetail from './publishdetail'
 
-Vue.use(VueRouter);
+vue.use(vuerouter);
 
 const routes = [{
   path: '/',
-  component: Home
+  component: home
 }, {
   path: '/home',
-  component: Home
+  component: home
 }, {
   path: '/about',
-  component: About
+  component: about
 }, {
   path: '/news',
-  component: News
+  component: news
 }, {
   path: '/contact',
-  component: Contact
+  component: contact
 }, {
   path: '/projects',
-  component: Project
+  component: project
 }, {
   path: '/publish',
-  component: Publish
+  component: publish
 }, {
   path: '/hr',
-  component: Hr
+  component: hr
 }, {
   path: '/news/:id',
-  component: NewsDetail
+  component: newsdetail
 }, {
   path: '/projects/:id',
-  component: ProjectsDetail
+  component: projectsdetail
 }, {
   path: '/publish/:id',
-  component: PublishDetail
+  component: publishdetail
 },
 ];
 
-const router = new VueRouter({
+const router = new vuerouter({
   routes
 })
 
 
-
-new Vue({
+new vue({
   router,
-  ...App
+  ...app
 }).$mount('#app')
 
