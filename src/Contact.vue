@@ -42,9 +42,19 @@
           </div>
         </div>
       </div>
+      <hr/>
     </div> <!-- /container -->
 
+
     <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <!--百度地图容器-->
+          <div style="max-width:900px;height:500px;border:lightseagreen solid 1px;font-size:12px; border-radius: 10px; box-shadow: 10px 10px 10px lightseagreen" id="map"></div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
     </div>
   </main>
 </template>
@@ -85,4 +95,73 @@
   }
 
 
+  /*定制百度地图*/
+  .BMap_bubble_title {
+    font-size: 1.2rem;
+    color: orangered;
+    border-bottom: 1px solid lightseagreen;
+  }
+
+
 </style>
+
+<script>
+  //创建和初始化地图函数：
+  function initMap(){
+    createMap();//创建地图
+    setMapEvent();//设置地图事件
+    addMapControl();//向地图添加控件
+    addMapOverlay();//向地图添加覆盖物
+  }
+  function createMap(){
+    map = new BMap.Map("map");
+    map.centerAndZoom(new BMap.Point(120.477838,32.552709),19);
+  }
+  function setMapEvent(){
+    map.enableScrollWheelZoom();
+    map.enableKeyboard();
+    map.enableDragging();
+    map.enableDoubleClickZoom()
+  }
+  function addClickHandler(target,window){
+    target.addEventListener("click",function(){
+      target.openInfoWindow(window);
+    });
+  }
+  function addMapOverlay(){
+    var markers = [
+      {content:"海安县高新区曙光新村4号楼3号",title:"新视野环保科技",imageOffset: {width:-46,height:-21},position:{lat:32.552556,lng:120.477591}}
+    ];
+    for(var index = 0; index < markers.length; index++ ){
+      var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+      var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+        imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+      })});
+//      var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+      var opts = {
+        width: 200,
+        title: markers[index].title,
+        enableMessage: true
+      };
+      var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+//      marker.setLabel(label);             // 默认关闭文字标签
+      addClickHandler(marker,infoWindow);
+      map.addOverlay(marker);
+      map.openInfoWindow(infoWindow,point); //默认开启信息窗口
+    };
+  }
+  //向地图添加控件
+  function addMapControl(){
+    var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+    scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+    map.addControl(scaleControl);
+    var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+    map.addControl(navControl);
+  }
+  var map;
+  export default {
+    mounted: function () {
+      initMap();//创建和初始化地图
+    }
+  }
+</script>

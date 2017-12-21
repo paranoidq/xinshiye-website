@@ -5,7 +5,7 @@
   <div id="app">
     <!-- 导航栏 -->
     <nav id="top-nav" class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#"><img src="../static/img/logo.png" style="max-height: 60px;"/></a>
+      <router-link class="navbar-brand" to="/home"><img src="../static/img/logo.png" style="max-height: 60px;"/></router-link>
       <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsItems" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">-->
         <!--<span class="navbar-toggler-icon"></span>-->
       <!--</button>-->
@@ -202,13 +202,13 @@ export default {
   /*定制列表页面和detail日期标签*/
   .detail-container .badge {
     background: coral;
+    margin: 0 0.2rem;
   }
   .list-line .badge {
     vertical-align: 20%;
     background: coral;
     float: right;
   }
-
 
 
 </style>
