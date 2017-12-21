@@ -66,16 +66,18 @@
       <div class="row justify-content-center" style="margin-top:0px;">
         <div class="list-group col-md-6 text-left" id="home-projects">
           <h2 class="para-title"><span class="oi oi-aperture"></span>最新业绩</h2>
-          <router-link  v-for="item in latestProjects" :to="`/projects/${item.id}`" class="list-group-item list-group-item-light">
+          <div v-for="item in latestProjects"><router-link  :to="`/projects/${item.id}`" class="list-group-item list-group-item-light">
             {{item.title}}
-          </router-link>
+          </router-link></div>
         </div>
+
         <!--<div class="col-md-1"></div>-->
         <div class="list-group col-md-6 text-left" id="home-publish">
           <h2 class="para-title text-left"><span class="oi oi-bullhorn"></span>最新公告</h2>
-          <router-link  v-for="item in latestPublishes" :to="`/publish/${item.id}`" class="list-group-item list-group-item-light">
+          <div v-for="item in latestPublishes"><router-link :to="`/publish/${item.id}`" class="list-group-item list-group-item-light">
             {{item.title.length> 30 ? item.title.slice(0, 30)+'...' : item.title}}
           </router-link>
+          </div>
         </div>
       </div>
     </div> <!-- /container -->
