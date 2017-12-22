@@ -79,9 +79,9 @@
 </template>
 
 <script>
-  import {getAllPublish} from '../utils/Api'
-  import {getPublishTotalPageCount} from '../utils/Api'
-  import {getPublishCurrentPage} from '../utils/Api'
+  import {getAllPublish} from '../utils/api'
+  import {getPublishTotalPageCount} from '../utils/api'
+  import {getPublishCurrentPage} from '../utils/api'
   import {DateFormatter} from '../utils/DateFormatter'
 
 

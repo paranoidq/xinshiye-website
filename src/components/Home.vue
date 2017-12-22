@@ -163,9 +163,9 @@
 <script>
 
   const maxTitleLen = 12;
-  import {getNewsLatest} from '../utils/Api'
-  import {getPublishLatest} from '../utils/Api'
-  import {getProjectsLatest} from '../utils/Api'
+  import {getNewsLatest} from '../utils/api'
+  import {getPublishLatest} from '../utils/api'
+  import {getProjectsLatest} from '../utils/api'
 
 
   export default {

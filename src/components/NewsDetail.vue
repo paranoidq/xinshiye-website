@@ -45,7 +45,7 @@
 
 <script>
 
-  import {getNews} from '../utils/Api'
+  import {getNews} from '../utils/api'
   import {DateFormatter} from '../utils/DateFormatter'
 
 

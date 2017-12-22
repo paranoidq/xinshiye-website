@@ -44,7 +44,7 @@
 </template>
 
 <script>
-  import {getPublish} from '../utils/Api'
+  import {getPublish} from '../utils/api'
   import {DateFormatter} from '../utils/DateFormatter'
 
   export default {

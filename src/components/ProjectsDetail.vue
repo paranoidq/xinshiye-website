@@ -39,7 +39,7 @@
 </template>
 
 <script>
-  import {getProject} from '../utils/Api'
+  import {getProject} from '../utils/api'
 
   export default {
     name: "item",

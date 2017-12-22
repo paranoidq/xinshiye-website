@@ -78,9 +78,9 @@
 </template>
 
 <script>
-  import {getAllProjects} from '../utils/Api'
-  import {getProjectsTotalPageCount} from '../utils/Api'
-  import {getProjectsCurrentPage} from '../utils/Api'
+  import {getAllProjects} from '../utils/api'
+  import {getProjectsTotalPageCount} from '../utils/api'
+  import {getProjectsCurrentPage} from '../utils/api'
   import {DateFormatter} from '../utils/DateFormatter'
 
 

@@ -16,7 +16,6 @@ import publishdetail from './components/publishdetail'
 
 vue.config.productionTip = false
 
-
 vue.use(vuerouter);
 
 const routes = [{
