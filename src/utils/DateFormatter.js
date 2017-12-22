@@ -62,9 +62,13 @@ const DateFormatter = {
         return nameArray[value];
       return s;
     })
+  },
+  formatTimestamp: function(timestamp) {
+    return DateFormatter.formatDate(new Date(timestamp), "yyyy年MM月dd日");
   }
 }
 
-export {
-  DateFormatter,
+
+exports.install = function (Vue, options) {
+  Vue.prototype.DateFormatter = DateFormatter;
 }

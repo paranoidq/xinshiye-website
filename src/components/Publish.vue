@@ -37,7 +37,7 @@
           <div class="col-md-10 line-content">
             <div class="card">
               <router-link class="card-header" :to="`/publish/${item.id}`">{{item.title}}
-                <span class="badge badge-primary" v-text="formatDate(item.publishTimestamp)"></span></router-link>
+                <span class="badge badge-primary" v-text="DateFormatter.formatTimestamp(item.publishTimestamp)"></span></router-link>
               <div class="card-body">
                 <p>{{item.detail.length > 110 ? item.detail.slice(0, 110)+'...' : item.detail}}</p>
               </div>
@@ -61,21 +61,16 @@
 <script>
   import {getPublishTotalPageCount} from '../utils/api'
   import {getPublishCurrentPage} from '../utils/api'
-  import {DateFormatter} from '../utils/DateFormatter'
 
   import Pagination from './common/Pagination';
 
 
   export default {
     components: {Pagination},
-    name: "News",
+    name: "Publish",
     data() {
       return {
         items: [],
-        //省略符号
-        sign: '...',
-        // 从page=4开始省略
-        signIndex: 4,
         // 当前页
         currentPage: 1,
         // 总页数
@@ -83,9 +78,6 @@
       };
     },
     methods: {
-      formatDate: function (timestamp) {
-        return DateFormatter.formatDate(new Date(timestamp), "yyyy年MM月dd日");
-      },
       pageChange: function (page) {
         this.currentPage = page;
         this.renderPage();

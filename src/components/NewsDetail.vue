@@ -28,7 +28,7 @@
       <div class="col-md-12 line-content">
         <h2 class="para-title">{{item.title}}</h2>
         <h6>
-          <span class="badge badge-danger text-white" v-text="'发布时间: ' + formatDate(item.publishTimestamp)"></span>
+          <span class="badge badge-danger text-white" v-text="'发布时间: ' + DateFormatter.formatTimestamp(item.publishTimestamp)"></span>
           <span class="badge badge-danger text-white" v-text="'作者: Admin' "></span>
           <span class="badge badge-danger text-white" v-text="'来源: 网络' "></span>
         </h6>
@@ -46,8 +46,6 @@
 <script>
 
   import {getNews} from '../utils/api'
-  import {DateFormatter} from '../utils/DateFormatter'
-
 
   export default {
     name: "item",
@@ -56,9 +54,6 @@
         item: {}
       }
     }, methods: {
-      formatDate: function (timestamp) {
-        return DateFormatter.formatDate(new Date(timestamp), "yyyy年MM月dd日");
-      }
     },
     mounted: function () {
       var rst = getNews(this.$route.params.id,(data) => {

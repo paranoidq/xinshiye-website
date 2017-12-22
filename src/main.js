@@ -14,9 +14,15 @@ import newsdetail from './components/newsdetail'
 import projectsdetail from './components/projectsdetail'
 import publishdetail from './components/publishdetail'
 
+import DateFormatter from './utils/DateFormatter'
+
 vue.config.productionTip = false
 
 vue.use(vuerouter);
+
+// 全局公共组件
+vue.use(DateFormatter);
+
 
 const routes = [{
   path: '',
