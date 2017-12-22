@@ -53,8 +53,7 @@
         :currentPage="currentPage"
         :totalPageCount="totalPageCount"
         ref="Pagination"
-        @change="pageChange"
-      >
+        @change="pageChange">
       </pagination>
 
     </div> <!-- /container -->
@@ -88,8 +87,10 @@
           return DateFormatter.formatDate(new Date(timestamp), "yyyy年MM月dd日");
       },
       pageChange: function (page) {
-        console.log(page);
       	this.currentPage = page;
+        this.renderPage();
+      },
+      renderPage: function () {
         getNewsTotalPageCount((data) => {
           this.totalPageCount = data;
           getNewsCurrentPage(this.currentPage, (data) => {
@@ -100,13 +101,7 @@
       }
     },
     mounted: function () {
-    	getNewsTotalPageCount((data) => {
-    		this.totalPageCount = data;
-    		getNewsCurrentPage(1, (data) => {
-    			this.items = data;
-    			this.$refs.Pagination.renderPagination();
-        })
-      });
+    	this.renderPage();
     },
   }
 </script>

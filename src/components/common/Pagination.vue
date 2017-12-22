@@ -42,7 +42,7 @@
         signIndex: 4,
         // 页面数组列表
         pageList: [],
-
+        // 暂存当前页码
         index: this.currentPage
       };
     },
@@ -61,9 +61,8 @@
     methods: {
       goPage: function (i) {
       	if (this.index != i) {
-      		console.log(i+'=====')
           this.index = i;
-          // 父组件通过change方法接受当前页码的变化，并作出处理
+          // 父组件通过change方法接受自组件当前页码的变化，并作出处理
           this.$emit('change', this.index);
           this.renderPagination(i);
         }
