@@ -14,6 +14,9 @@ import newsdetail from './components/newsdetail'
 import projectsdetail from './components/projectsdetail'
 import publishdetail from './components/publishdetail'
 
+vue.config.productionTip = false
+
+
 vue.use(vuerouter);
 
 const routes = [{
