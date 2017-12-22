@@ -3,7 +3,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../static/img/banner-contactus.jpg" class="img-fluid center-block"/>
+      <img src="../../static/img/banner-contactus.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -66,13 +66,13 @@
   }
 
   .icon-contactus.icon-address {
-    background: url("../static/img/icon-contactus-address.png");
+    background: url("../../static/img/icon-contactus-address.png");
   }
   .icon-contactus.icon-tel {
-    background: url("../static/img/icon-contactus-tel.png");
+    background: url("../../static/img/icon-contactus-tel.png");
   }
   .icon-contactus.icon-website {
-    background: url("../static/img/icon-contactus-website.png");
+    background: url("../../static/img/icon-contactus-website.png");
   }
   .icon-contactus {
     width: 119px;

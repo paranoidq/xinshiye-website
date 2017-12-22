@@ -3,7 +3,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../static/img/banner-about.jpg" class="img-fluid center-block"/>
+      <img src="../../static/img/banner-about.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -12,7 +12,7 @@
       <!-- Example row of columns -->
       <div class="row justify-content-center">
         <div class="col-md-4" style="max-height: 300px;">
-          <img src="../static/img/about-us-left-banner.jpg" class="img-fluid" style="border-radius: 5px;"/>
+          <img src="../../static/img/about-us-left-banner.jpg" class="img-fluid" style="border-radius: 5px;"/>
         </div>
         <div class="col-md-8 text-left">
           <p>
@@ -163,9 +163,9 @@
 <script>
 
   const maxTitleLen = 12;
-  import {getNewsLatest} from './Api'
-  import {getPublishLatest} from './Api'
-  import {getProjectsLatest} from './Api'
+  import {getNewsLatest} from '../utils/Api'
+  import {getPublishLatest} from '../utils/Api'
+  import {getProjectsLatest} from '../utils/Api'
 
 
   export default {

@@ -4,7 +4,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../static/img/banner-projects.jpg" class="img-fluid center-block"/>
+      <img src="../../static/img/banner-publish.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -15,7 +15,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><span class="oi oi-list"></span></li>
               <li class="breadcrumb-item"><router-link to="/home"><a href="#">首页</a></router-link></li>
-              <li class="breadcrumb-item"><router-link to="/projects">成果业绩</router-link></li>
+              <li class="breadcrumb-item"><router-link to="/publish">公示公告</router-link></li>
               <li class="breadcrumb-item active" aria-current="page">{{$route.params.id}}</li>
             </ol>
           </nav>
@@ -27,6 +27,11 @@
       <!--<h2 class="para-title text-center"></h2>-->
       <div class="col-md-12 line-content">
         <h2 class="para-title">{{item.title}}</h2>
+        <h6>
+          <span class="badge badge-danger text-white" v-text="'发布时间: ' + formatDate(item.publishTimestamp)"></span>
+          <span class="badge badge-danger text-white" v-text="'作者: Admin' "></span>
+          <span class="badge badge-danger text-white" v-text="'来源: Admin' "></span>
+        </h6>
         <div class="card detail-card">
           <div class="card-body">
             <div v-html="`${item.detail}`" class="card-text text-left">
@@ -39,7 +44,8 @@
 </template>
 
 <script>
-  import {getProject} from './Api'
+  import {getPublish} from '../utils/Api'
+  import {DateFormatter} from '../utils/DateFormatter'
 
   export default {
     name: "item",
@@ -47,9 +53,13 @@
       return {
         item: {}
       }
+    }, methods: {
+      formatDate: function (timestamp) {
+        return DateFormatter.formatDate(new Date(timestamp), "yyyy年MM月dd日");
+      }
     },
     mounted: function () {
-      var rst = getProject(this.$route.params.id,(data) => {
+      var rst = getPublish(this.$route.params.id,(data) => {
         this.item = data;
       });
     },

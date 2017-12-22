@@ -3,21 +3,21 @@ import vuerouter from 'vue-router'
 
 import app from './app.vue'
 
-import home from './home'
-import about from './about'
-import news from './news'
-import contact from './contact'
-import project from './project'
-import publish from './publish'
-import hr from './hr'
-import newsdetail from './newsdetail'
-import projectsdetail from './projectsdetail'
-import publishdetail from './publishdetail'
+import home from './components/home'
+import about from './components/about'
+import news from './components/news'
+import contact from './components/contact'
+import project from './components/project'
+import publish from './components/publish'
+import hr from './components/hr'
+import newsdetail from './components/newsdetail'
+import projectsdetail from './components/projectsdetail'
+import publishdetail from './components/publishdetail'
 
 vue.use(vuerouter);
 
 const routes = [{
-  path: '/',
+  path: '',
   component: home
 }, {
   path: '/home',

@@ -1,10 +1,10 @@
-<!--公示公告组件-->
+<!--新闻动态组件-->
 <template>
   <main role="main">
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../static/img/banner-publish.jpg" class="img-fluid center-block"/>
+      <img src="../../static/img/banner-news.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -15,7 +15,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><span class="oi oi-list"></span></li>
               <li class="breadcrumb-item"><router-link to="/home"><a href="#">首页</a></router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">公示公告</li>
+              <li class="breadcrumb-item active" aria-current="page">新闻动态</li>
             </ol>
           </nav>
         </div>
@@ -23,23 +23,25 @@
     </div>
 
     <div class="container list-lines">
-      <h2 class="para-title text-left"><span class="oi oi-globe"></span>公示公告</h2>
+      <h2 class="para-title text-left"><span class="oi oi-globe"></span>新闻动态</h2>
 
-      <!--公告列表-->
+      <!--新闻列表-->
       <div v-for="item in items" class="list-line">
         <div class="row justify-content-center text-left">
           <div class="col-md-2 line-img">
-            <router-link :to="`/publish/${item.id}`">
+            <router-link :to="`/news/${item.id}`">
               <img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>
             </router-link>
           </div>
 
           <div class="col-md-10 line-content">
             <div class="card">
-              <router-link class="card-header" :to="`/publish/${item.id}`">{{item.title}}
-                <span class="badge badge-primary" v-text="formatDate(item.publishTimestamp)"></span></router-link>
+                <router-link class="card-header" :to="`/news/${item.id}`">{{item.title}}
+                  <span class="badge badge-primary" v-text="formatDate(item.publishTimestamp)"></span>
+                </router-link>
               <div class="card-body">
                 <p>{{item.detail.length > 110 ? item.detail.slice(0, 110)+'...' : item.detail}}</p>
+                <!--<p>{{item.desc}}</p>-->
               </div>
             </div>
           </div>
@@ -79,11 +81,10 @@
 </template>
 
 <script>
-  import {getAllPublish} from './Api'
-  import {getPublishTotalPageCount} from './Api'
-  import {getPublishCurrentPage} from './Api'
-  import {DateFormatter} from './DateFormatter'
-
+  import {getAllNews} from '../utils/Api'
+  import {getNewsTotalPageCount} from '../utils/Api'
+  import {getNewsCurrentPage} from '../utils/Api'
+  import {DateFormatter} from '../utils/DateFormatter'
 
   export default {
     name: "News",
@@ -104,25 +105,25 @@
     },
     methods: {
       formatDate: function (timestamp) {
-        return DateFormatter.formatDate(new Date(timestamp), "yyyy年MM月dd日");
+          return DateFormatter.formatDate(new Date(timestamp), "yyyy年MM月dd日");
       },
       goPage: function (i) {
-        this.currentPage = i;
-        this.fetchData(i);
+          this.currentPage = i;
+          this.fetchData(i);
       },
       fetchData: function (i=1) {
-        getPublishTotalPageCount((data) => {
-          this.pageList = [];
-          this.totalPageCount = data;
+        getNewsTotalPageCount((data) => {
+        	this.pageList = [];
+        	this.totalPageCount = data;
           var tmp = null;
 
-          if (this.totalPageCount > 6) {
+        	if (this.totalPageCount > 6) {
             if (((this.totalPageCount-1) == (this.totalPageCount - this.currentPage)) && (this.totalPageCount - this.currentPage) > 5) {
               for (let i=1; i<7; i++) {
-                if (i < this.signIndex) {
-                  tmp = {key: i, value: i};
+              	if (i < this.signIndex) {
+              		tmp = {key: i, value: i};
                 } else if (i == this.signIndex) {
-                  tmp = {key: this.sign, value: 0};
+              		tmp = {key: this.sign, value: 0};
                 } else if (i == (this.signIndex + 1) ) {
                   tmp = {key:this.totalPageCount - 1, value:this.totalPageCount - 1 };
                 } else {
@@ -157,8 +158,8 @@
               this.pageList.push(tmp)
             }
           }
-        }).then(getPublishCurrentPage(i, (data) => {
-          this.items = data;
+        }).then(getNewsCurrentPage(i, (data) => {
+        	this.items = data;
         }));
       }
     },
@@ -166,7 +167,6 @@
       this.fetchData();
     },
   }
-
 </script>
 
 
@@ -241,9 +241,6 @@
   .list-lines .line-content .card, .card-header {
     border: none;
   }
-
-
-
 
 </style>
 

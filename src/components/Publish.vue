@@ -1,10 +1,10 @@
-<!--成果展示组件-->
+<!--公示公告组件-->
 <template>
   <main role="main">
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../static/img/banner-projects.jpg" class="img-fluid center-block"/>
+      <img src="../../static/img/banner-publish.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -15,7 +15,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><span class="oi oi-list"></span></li>
               <li class="breadcrumb-item"><router-link to="/home"><a href="#">首页</a></router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">成果业绩</li>
+              <li class="breadcrumb-item active" aria-current="page">公示公告</li>
             </ol>
           </nav>
         </div>
@@ -23,20 +23,21 @@
     </div>
 
     <div class="container list-lines">
-      <h2 class="para-title text-left"><span class="oi oi-globe"></span>成果业绩</h2>
+      <h2 class="para-title text-left"><span class="oi oi-globe"></span>公示公告</h2>
 
       <!--公告列表-->
       <div v-for="item in items" class="list-line">
         <div class="row justify-content-center text-left">
           <div class="col-md-2 line-img">
-            <router-link :to="`/projects/${item.id}`">
+            <router-link :to="`/publish/${item.id}`">
               <img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>
             </router-link>
           </div>
 
           <div class="col-md-10 line-content">
             <div class="card">
-              <router-link class="card-header" :to="`/projects/${item.id}`">{{item.title}}</router-link>
+              <router-link class="card-header" :to="`/publish/${item.id}`">{{item.title}}
+                <span class="badge badge-primary" v-text="formatDate(item.publishTimestamp)"></span></router-link>
               <div class="card-body">
                 <p>{{item.detail.length > 110 ? item.detail.slice(0, 110)+'...' : item.detail}}</p>
               </div>
@@ -78,14 +79,14 @@
 </template>
 
 <script>
-  import {getAllProjects} from './Api'
-  import {getProjectsTotalPageCount} from './Api'
-  import {getProjectsCurrentPage} from './Api'
-  import {DateFormatter} from './DateFormatter'
+  import {getAllPublish} from '../utils/Api'
+  import {getPublishTotalPageCount} from '../utils/Api'
+  import {getPublishCurrentPage} from '../utils/Api'
+  import {DateFormatter} from '../utils/DateFormatter'
 
 
   export default {
-    name: "Projects",
+    name: "News",
     data() {
       return {
         items: [],
@@ -110,7 +111,7 @@
         this.fetchData(i);
       },
       fetchData: function (i=1) {
-        getProjectsTotalPageCount((data) => {
+        getPublishTotalPageCount((data) => {
           this.pageList = [];
           this.totalPageCount = data;
           var tmp = null;
@@ -156,7 +157,7 @@
               this.pageList.push(tmp)
             }
           }
-        }).then(getProjectsCurrentPage(i, (data) => {
+        }).then(getPublishCurrentPage(i, (data) => {
           this.items = data;
         }));
       }
@@ -165,6 +166,7 @@
       this.fetchData();
     },
   }
+
 </script>
 
 

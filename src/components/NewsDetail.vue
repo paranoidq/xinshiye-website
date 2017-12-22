@@ -4,7 +4,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../static/img/banner-news.jpg" class="img-fluid center-block"/>
+      <img src="../../static/img/banner-news.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -45,8 +45,8 @@
 
 <script>
 
-  import {getNews} from './Api'
-  import {DateFormatter} from './DateFormatter'
+  import {getNews} from '../utils/Api'
+  import {DateFormatter} from '../utils/DateFormatter'
 
 
   export default {

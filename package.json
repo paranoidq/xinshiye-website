@@ -1,6 +1,6 @@
 {
   "name": "xinshiye",
-  "description": "A Vue.js project",
+  "description": "A Xinshiye cooperation official website project",
   "version": "1.0.0",
   "author": "paranoid_qian@163.com",
   "license": "MIT",
@@ -12,9 +12,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "vue": "^2.4.4",
-    "vue-resource": "^1.3.4",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vue-router": "^3.0.1"
   },
   "browserslist": [
     "> 1%",
