@@ -8,19 +8,8 @@
       <!--</div>-->
     </div>
 
-    <div class="container">
-      <div class="row justify-content-left">
-        <div class="col-md-12">
-          <nav aria-label="breadcrumb" role="navigation">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><span class="oi oi-list"></span></li>
-              <li class="breadcrumb-item"><router-link to="/home"><a href="#">首页</a></router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">成果业绩</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </div>
+    <!-- 导航组件 -->
+    <navMap :currentNav="currentNav"></navMap>
 
     <div class="container list-lines">
       <h2 class="para-title text-left"><span class="oi oi-globe"></span>成果业绩</h2>
@@ -60,13 +49,18 @@
 <script>
   import {getProjectsTotalPageCount} from '../utils/api'
   import {getProjectsCurrentPage} from '../utils/api'
-  import Pagination from "./common/Pagination";
+  import pagination from './common/Pagination'
+  import navMap from './common/NavMap'
 
   export default {
-    components: {Pagination},
+    components: {
+      navMap,
+      pagination
+    },
     name: "Projects",
     data() {
       return {
+        currentNav: "成果业绩",
       	items: [],
         // 当前页
         currentPage: 1,
@@ -84,7 +78,7 @@
           this.totalPageCount = data;
           getProjectsCurrentPage(this.currentPage, (data) => {
             this.items = data;
-            this.$refs.Pagination.renderPagination();
+            this.$refs.pagination.renderPagination();
           })
         });
       }

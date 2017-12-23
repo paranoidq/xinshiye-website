@@ -55,19 +55,6 @@
     margin-bottom: 0rem;
   }
 
-  /* 定制面包屑 */
-  .breadcrumb {
-    background-color: transparent;
-    border-bottom: 1px solid #4fd2c2;
-    border-radius: 0px;
-  }
-  .breadcrumb-item a {
-    color: lightseagreen;
-  }
-  .breadcrumb {
-    font-weight: bold;
-  }
-
   /* 定制页面title */
   .container .para-title {
     transform-style: preserve-3d;

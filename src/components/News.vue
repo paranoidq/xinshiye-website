@@ -8,21 +8,15 @@
       <!--</div>-->
     </div>
 
-    <div class="container">
-      <div class="row justify-content-left">
-        <div class="col-md-12">
-          <nav aria-label="breadcrumb" role="navigation">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><span class="oi oi-list"></span></li>
-              <li class="breadcrumb-item"><router-link to="/home"><a href="#">首页</a></router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">新闻动态</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </div>
+    <navMap :currentNav="currentNav"></navMap>
 
-    <div class="container list-lines">
+    <transition name="fade">
+    <div class="container list-lines" v-show="isLoading" style="min-height: 800px; position: relative">
+      aaa
+    </div>
+    </transition>
+    <transition name="fade">
+    <div class="container list-lines" v-show="!isLoading">
       <h2 class="para-title text-left"><span class="oi oi-globe"></span>新闻动态</h2>
 
       <!--新闻列表-->
@@ -52,24 +46,31 @@
       <pagination
         :currentPage="currentPage"
         :totalPageCount="totalPageCount"
-        ref="Pagination"
+        ref="pagination"
         @change="pageChange">
       </pagination>
 
     </div> <!-- /container -->
+    </transition>
   </main>
 </template>
 
 <script>
   import {getNewsTotalPageCount} from '../utils/api'
-  import {getNewsCurrentPage} from '../utils/api';
-  import Pagination from "./common/Pagination";
+  import {getNewsCurrentPage} from '../utils/api'
+  import pagination from "./common/Pagination"
+  import navMap from './common/NavMap'
 
   export default {
-    components: {Pagination},
+    components: {
+      navMap,
+      pagination,
+    },
     name: "News",
     data() {
       return {
+      	currentNav: "新闻动态",
+        isLoading: true,
       	items: [],
         // 当前页
         currentPage: 1,
@@ -87,7 +88,8 @@
           this.totalPageCount = data;
           getNewsCurrentPage(this.currentPage, (data) => {
             this.items = data;
-            this.$refs.Pagination.renderPagination();
+            this.$refs.pagination.renderPagination();
+            this.isLoading = false;
           })
         });
       }
@@ -169,6 +171,13 @@
 
   .list-lines .line-content .card, .card-header {
     border: none;
+  }
+
+  .fade-enter-active, fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
   }
 
 </style>
