@@ -8,19 +8,7 @@
       <!--</div>-->
     </div>
 
-    <div class="container">
-      <div class="row justify-content-left">
-        <div class="col-md-12">
-          <nav aria-label="breadcrumb" role="navigation">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><span class="oi oi-list"></span></li>
-              <li class="breadcrumb-item"><router-link to="/home"><a href="#">首页</a></router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">人才招聘</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </div>
+    <navMap :currentNav="currentNav"></navMap>
 
     <div class="container" id="hr">
       <div class="row justify-content-center">
@@ -136,11 +124,18 @@
 </template>
 
 <script>
-
-  var items = Array(5).fill({"id":"1", "title":"新闻标题", "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."});
+  import navMap from './common/NavMap'
 
   export default {
-    name: "News",
+    name: "Hr",
+    components: {
+      navMap,
+    },
+    data() {
+    	return {
+    	  currentNav: "人才招聘",
+      }
+    },
     computed: {
     	items() {
     		return items;

@@ -7,19 +7,8 @@
       <!--</div>-->
     </div>
 
-    <div class="container">
-      <div class="row justify-content-left">
-        <div class="col-md-12">
-          <nav aria-label="breadcrumb" role="navigation">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><span class="oi oi-list"></span></li>
-              <li class="breadcrumb-item"><router-link to="/home"><a href="#">首页</a></router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">联系我们</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </div>
+    <navMap :currentNav="currentNav"></navMap>
+
 
     <div class="container">
       <div class="row row-contactus-info">
@@ -159,7 +148,20 @@
     map.addControl(navControl);
   }
   var map;
+
+
+  import navMap from './common/NavMap'
+
   export default {
+  	name: "Contact",
+    components: {
+  		navMap,
+    },
+    data() {
+  		return {
+  			currentNav: "联系我们"
+      }
+    },
     mounted: function () {
       initMap();//创建和初始化地图
     }

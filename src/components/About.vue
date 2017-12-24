@@ -7,19 +7,7 @@
       <!--</div>-->
     </div>
 
-    <div class="container">
-      <div class="row justify-content-left">
-        <div class="col-md-12">
-          <nav aria-label="breadcrumb" role="navigation">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><span class="oi oi-list"></span></li>
-              <li class="breadcrumb-item"><router-link to="/home"><a href="#">首页</a></router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">公司简介</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </div>
+    <navMap :currentNav="currentNav"></navMap>
 
     <div class="container" id="about">
       <h2 class="para-title text-left"><span class="oi oi-people"></span>公司简介</h2>
@@ -75,6 +63,22 @@
   </main>
 </template>
 
+<script>
+  import navMap from './common/NavMap'
+
+  export default {
+  	name: "About",
+    data() {
+      return {
+      	currentNav: "公司简介",
+      }
+    },
+    components: {
+  		navMap,
+    },
+  }
+
+</script>
 
 <style>
   #buss li:first-child {
