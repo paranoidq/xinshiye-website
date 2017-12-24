@@ -38,7 +38,7 @@
       <pagination
         :currentPage="currentPage"
         :totalPageCount="totalPageCount"
-        ref="Pagination"
+        ref="pagination"
         @change="pageChange">
       </pagination>
 
