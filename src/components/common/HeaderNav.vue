@@ -45,7 +45,7 @@
     font-weight: bold;
   }
   .navbar-light .navbar-nav .nav-link:hover {
-    color: #4fd2c2;
+    color: #FF6D00;
     text-decoration:none!important;
   }
   #top-nav {

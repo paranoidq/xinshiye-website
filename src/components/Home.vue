@@ -3,22 +3,24 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../../static/img/banner-about.jpg" class="img-fluid center-block"/>
+      <img src="../../static/img/banner.png" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
-    <div class="container" id="home-about">
+    <div class="home-line" id="home-about">
       <h2 class="para-title" style="margin-bottom: 10px;"><span class="oi oi-people"></span>关于我们</h2>
       <!-- Example row of columns -->
       <div class="row justify-content-center">
-        <div class="col-md-4" style="max-height: 300px;">
-          <img src="../../static/img/about-us-left-banner.jpg" class="img-fluid" style="border-radius: 5px;"/>
+        <div class="col-md-4" style="max-height: 20rem; overflow: hidden;">
+          <img src="../../static/img/about-us-left-banner.jpg" class="img-fluid" style=""/>
         </div>
         <div class="col-md-8 text-left">
-          <p>
-            南通新视野环保科技有限公司是综合性环保技术服务性公司。公司凭借专业、严谨的技术能力和灵活、高效的协调能力，得到了客户及各级环境管理部门的认可和支持，享有良好的认可度及信誉度。<br/><br/>
+          <p style="margin-bottom: 0.7rem;">
+            南通新视野环保科技有限公司是综合性环保技术服务性公司。公司凭借专业、严谨的技术能力和灵活、高效的协调能力，得到了客户及各级环境管理部门的认可和支持，享有良好的认可度及信誉度。
+            <br/>
+            公司秉承“科学严谨、优质高效”的服务宗旨，遵循“诚信为本、互利共赢”的经营方针，以科技为先导，以人才为基础，始终不渝地坚持科学、严谨、求实的工作作风，通过不断吸收新的环保政策和环保理念，广集先进的环保技术，为客户提供最佳解决方案。期望通过我们的努力，能为更多的客户解决更多的环保问题，提升客户的企业整体形象。
+            <br/><br/>
             <span class="font-weight-bold">服务范围：</span><br/>
-            <!--、、、、、、、、水污染治理设施运营服务等。-->
           </p>
           <table class="table table-striped">
             <tbody>
@@ -43,13 +45,14 @@
       </div>
     </div> <!-- /container -->
 
-    <div class="container" id="home-news">
+    <div class="home-line" id="home-news">
       <h2 class="para-title"><span class="oi oi-pulse"></span>行业新闻</h2>
       <div class="row justify-content-center">
         <div v-for="item in latestNews.slice(0, 3)" class="col-md-4">
           <div class="card">
             <router-link class="" :to="`/news/${item.id}`">
-              <img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>
+              <!--<img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>-->
+              <img class="card-img-top" :src="`../static/news-img/3.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>
             </router-link>
             <div class="card-body text-left">
               <p class="card-title font-weight-bold">
@@ -62,7 +65,7 @@
       </div>
     </div> <!-- /container -->
 
-    <div class="container">
+    <div class="home-line" id="">
       <div class="row justify-content-center" style="margin-top:0px;">
         <div class="list-group col-md-6 text-left" id="home-projects">
           <h2 class="para-title"><span class="oi oi-aperture"></span>最新业绩</h2>
@@ -75,7 +78,7 @@
         <div class="list-group col-md-6 text-left" id="home-publish">
           <h2 class="para-title text-left"><span class="oi oi-bullhorn"></span>最新公告</h2>
           <div v-for="item in latestPublishes"><router-link :to="`/publish/${item.id}`" class="list-group-item list-group-item-light">
-            {{item.title.length> 30 ? item.title.slice(0, 30)+'...' : item.title}}
+            {{item.title.length> 30? item.title.slice(0, 30)+'...' : item.title}}
           </router-link>
           </div>
         </div>
@@ -87,23 +90,25 @@
 
 <style>
 
-  #home-about .para-title {
-    background: linear-gradient(to left, transparent, lightseagreen, transparent);
-    color: #fff;
+  .home-line {
+    padding: 2rem 3rem;
+  }
+
+  /*定制icon*/
+  .home-line h2 .oi {
+    padding-right:1rem;
   }
 
   /*定制新闻板块*/
   #home-news {
-    margin: 5rem auto;
-  }
-  #home-news .para-title {
-    background: linear-gradient(to left, transparent, lightseagreen, transparent);
-    color: #fff;
+    margin: 0rem auto;
+    background: #f7f9f2;
+    padding-bottom: 6rem;
   }
 
   #home-news .card {
     border-color: #bee5eb;
-    box-shadow: 5px 5px 5px #bee5eb;
+    box-shadow: 5px 5px 5px #4DB6AC;
     position: relative;
   }
   #home-news .card img {
@@ -122,22 +127,10 @@
     padding:0.5rem;
   }
 
-
-  #home-projects .para-title {
-    background: linear-gradient(to right, lightseagreen, transparent);
-    color: #fff;
-  }
-
-  #home-publish .para-title {
-    background: linear-gradient(to right, lightseagreen, transparent);
-    color: #fff;
-  }
-
   #home-projects a:hover {
     box-shadow: 5px 5px 5px #bee5eb;
     position: relative;
-    right: 5px;
-    bottom: 5px;
+    right: 8px;
     background-color: #ffa777;
     color: #fff;
     transition-duration: 0.2s;
@@ -146,14 +139,33 @@
   #home-publish a:hover {
     box-shadow: 5px 5px 5px #bee5eb;
     position: relative;
-    right: 5px;
-    bottom: 5px;
+    right: 8px;
     background-color: #ffa777;
     color: #fff;
     transition-duration: 0.2s;
   }
 
+  #home-projects  .list-group-item {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+  #home-publish .list-group-item {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
 
+
+    /* 定制页面title */
+  .home-line .para-title {
+    transform-style: preserve-3d;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #00796B;
+  }
 
 
 

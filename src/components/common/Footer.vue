@@ -61,7 +61,7 @@
 
   /* 定制footer */
   footer {
-    margin: 5rem 0 0 0;
+    margin: 2rem 0 0 0;
     font-weight: bold;
   }
   footer #rightsDeclare {
