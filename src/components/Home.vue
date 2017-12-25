@@ -11,7 +11,7 @@
       <h2 class="para-title" style="margin-bottom: 10px;"><span class="oi oi-people"></span>关于我们</h2>
       <!-- Example row of columns -->
       <div class="row justify-content-center">
-        <div class="col-md-4" style="max-height: 20rem; overflow: hidden;">
+        <div class="col-md-4">
           <img src="../../static/img/about-us-left-banner.jpg" class="img-fluid" style=""/>
         </div>
         <div class="col-md-8 text-left">
@@ -98,6 +98,12 @@
   .home-line h2 .oi {
     padding-right:1rem;
   }
+
+  /*定制home-about板块*/
+  #home-about .col-md-4 {
+    max-height: 20rem; overflow: hidden; padding: 0.5rem;
+  }
+
 
   /*定制新闻板块*/
   #home-news {

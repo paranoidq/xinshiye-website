@@ -14,7 +14,7 @@
       <div class="row justify-content-center">
         <div class="col-md-12">
           <div class="card">
-            <h4 class="card-header">环保工程师 (4人)</h4>
+            <h4 class="card-header">环保工程师 (2人)</h4>
             <div class="card-body text-left">
               <table class="table">
                 <tbody>
@@ -52,7 +52,7 @@
       <div class="row justify-content-center">
         <div class="col-md-12">
           <div class="card">
-            <h4 class="card-header">环评工程师 (5人)</h4>
+            <h4 class="card-header">环评工程师 (2人)</h4>
             <div class="card-body text-left">
               <table class="table">
                 <tbody>
@@ -89,7 +89,7 @@
       <div class="row justify-content-center">
         <div class="col-md-12">
           <div class="card">
-            <h4 class="card-header">环保技术人员 (5人)</h4>
+            <h4 class="card-header">环保技术人员 (2人)</h4>
             <div class="card-body text-left">
               <table class="table">
                 <tbody>

@@ -60,7 +60,7 @@
     transform-style: preserve-3d;
     padding: 10px 20px;
     border-radius: 5px;
-    color: lightseagreen;
+    color: #6e6968;
   }
 
   .container .para-title .oi {
