@@ -61,6 +61,7 @@ const routes = [{
 ];
 
 const router = new vuerouter({
+  mode: 'history',
   routes
 })
 
