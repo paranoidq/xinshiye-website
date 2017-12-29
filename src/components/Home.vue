@@ -48,7 +48,7 @@
     <div class="home-line" id="home-news">
       <h2 class="para-title"><span class="oi oi-pulse"></span>行业新闻</h2>
       <div class="row justify-content-center">
-        <div v-for="item in latestNews.slice(0, 3)" class="col-md-4">
+        <div v-for="item in latestNews" class="col-md-4">
           <div class="card">
             <router-link class="" :to="`/news/${item.id}`">
               <!--<img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>-->
@@ -56,9 +56,9 @@
             </router-link>
             <div class="card-body text-left">
               <p class="card-title font-weight-bold">
-                {{item.title.length > 18 ? item.title.slice(0, 18)+'...' : item.title}}
+                {{item.title.length > newsTitleLen ? item.title.slice(0, newsTitleLen)+'...' : item.title}}
               </p>
-              <p class="card-text">{{item.detail.length > 60 ? item.detail.slice(0, 60)+'...' : item.detail}}</p>
+              <p class="card-text" v-html="item.detail.length > newsDetailLen ? item.detail.slice(0, newsDetailLen)+'...' : item.detail"></p>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@
         <div class="list-group col-md-6 text-left" id="home-projects">
           <h2 class="para-title"><span class="oi oi-aperture"></span>最新业绩</h2>
           <div v-for="item in latestProjects"><router-link  :to="`/projects/${item.id}`" class="list-group-item list-group-item-light">
-            {{item.title}}
+            {{item.title.length> cardTitleLen? item.title.slice(0, cardTitleLen)+'...' : item.title}}
           </router-link></div>
         </div>
 
@@ -78,7 +78,7 @@
         <div class="list-group col-md-6 text-left" id="home-publish">
           <h2 class="para-title text-left"><span class="oi oi-bullhorn"></span>最新公告</h2>
           <div v-for="item in latestPublishes"><router-link :to="`/publish/${item.id}`" class="list-group-item list-group-item-light">
-            {{item.title.length> 30? item.title.slice(0, 30)+'...' : item.title}}
+            {{item.title.length> cardTitleLen? item.title.slice(0, cardTitleLen)+'...' : item.title}}
           </router-link>
           </div>
         </div>
@@ -87,6 +87,47 @@
 
   </main>
 </template>
+
+<script>
+
+  import {getNewsLatest} from '../utils/api'
+  import {getPublishLatest} from '../utils/api'
+  import {getProjectsLatest} from '../utils/api'
+
+
+  export default {
+    name: "Home",
+    computed: {
+    },
+    data() {
+      return {
+        latestNews: [],
+        latestPublishes: [],
+        latestProjects: [],
+
+        newsTitleLen: 20,
+        newsDetailLen: 80,
+
+        cardTitleLen: 40,
+      }
+    },
+    mounted: function () {
+      let store = this.$store;
+      let types = this.types;
+
+      getNewsLatest(3, (data) => {
+        this.latestNews = data;
+      });
+      getProjectsLatest(6, (data) => {
+        this.latestProjects = data;
+      });
+      getPublishLatest(6, (data) => {
+        this.latestPublishes = data;
+        store.commit(types.LOADED);
+      });
+    },
+  }
+</script>
 
 <style>
 
@@ -134,21 +175,17 @@
   }
 
   #home-projects a:hover {
-    box-shadow: 5px 5px 5px #bee5eb;
     position: relative;
-    right: 8px;
-    background-color: #ffa777;
-    color: #fff;
-    transition-duration: 0.2s;
+    background-color: #ffa777!important;
+    color: #fff!important;
+    transition: transform 0.5s;
   }
 
   #home-publish a:hover {
-    box-shadow: 5px 5px 5px #bee5eb;
     position: relative;
-    right: 8px;
-    background-color: #ffa777;
-    color: #fff;
-    transition-duration: 0.2s;
+    background-color: #ffa777!important;
+    color: #fff!important;
+    transition: transform 0.5s;
   }
 
   #home-projects  .list-group-item {
@@ -173,40 +210,14 @@
     color: #00796B;
   }
 
+  .home-line .card-text *{
+    font-size: 1rem;
+    font-weight:normal;
+    line-height: 1.5;
+  }
+
 
 
 
 </style>
 
-<script>
-
-  const maxTitleLen = 12;
-  import {getNewsLatest} from '../utils/api'
-  import {getPublishLatest} from '../utils/api'
-  import {getProjectsLatest} from '../utils/api'
-
-
-  export default {
-  	name: "Home",
-    computed: {
-    },
-    data() {
-  		return {
-        latestNews: [],
-        latestPublishes: [],
-        latestProjects: [],
-      }
-    },
-    mounted: function () {
-        getNewsLatest(3, (data) => {
-        	this.latestNews = data;
-        });
-        getPublishLatest(6, (data) => {
-          this.latestPublishes = data;
-        });
-        getProjectsLatest(6, (data) => {
-          this.latestProjects = data;
-        });
-    },
-  }
-</script>

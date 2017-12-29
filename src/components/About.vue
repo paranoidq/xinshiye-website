@@ -76,6 +76,10 @@
     components: {
   		navMap,
     },
+    mounted() {
+      let types = this.types;
+      this.$store.commit(types.LOADED);
+    }
   }
 
 </script>

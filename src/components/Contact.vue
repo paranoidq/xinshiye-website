@@ -164,6 +164,9 @@
     },
     mounted: function () {
       initMap();//创建和初始化地图
+
+      let types = this.types;
+      this.$store.commit(types.LOADED);
     }
   }
 </script>
