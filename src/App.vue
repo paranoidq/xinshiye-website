@@ -6,7 +6,7 @@
     <!-- 引用HeaderNav组件 -->
     <HeaderNav></HeaderNav>
 
-    <transition :name="transitionName" appear appearClass="slide-fade-appear-class" appearActiveClass="slide-fade-appear-active-class">
+    <transition :name="transitionName">
       <router-view class="child-view"></router-view>
     </transition>
 
@@ -98,19 +98,19 @@
     /*transform: rotateY(45deg);*/
   }
 
-  /*.slide-left-enter-active, .slide-right-leave-active {*/
-    /*opacity: 0.5;*/
-    /*transform: translate(-100px, 0);*/
-    /*!*transform: rotateY(45deg);*!*/
-  /*}*/
-  /*.slide-left-leave-active, .slide-right-enter {*/
-    /*opacity: 0.8;*/
-    /*transform: translate(-100px, 0);*/
-    /*!*transform: rotateY(45deg);*!*/
-  /*}*/
-  /*.child-view {*/
-    /*transition: all .8s cubic-bezier(.55,0,.1,1);*/
-  /*}*/
+  .slide-left-enter-active, .slide-right-leave-active {
+    opacity: 0.5;
+    transform: translate(-100px, 0);
+    /*transform: rotateY(45deg);*/
+  }
+  .slide-left-leave-active, .slide-right-enter {
+    opacity: 0.8;
+    transform: translate(-100px, 0);
+    /*transform: rotateY(45deg);*/
+  }
+  .child-view {
+    transition: all .8s cubic-bezier(.55,0,.1,1);
+  }
 
 
 

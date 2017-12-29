@@ -1,5 +1,5 @@
 <template id="footer">
-  <footer>
+  <footer v-show="!this.$store.state.isLoading">
     <div class="" id="relatedLinks">
       <h2>友情链接</h2>
       <!-- Example row of columns -->

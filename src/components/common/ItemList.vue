@@ -10,12 +10,8 @@
 
     <navMap :currentNav="currentSection"></navMap>
 
-    <transition name="fade">
-      <div class="container list-lines" v-show="isLoading" style="min-height: 800px; position: relative">
-      </div>
-    </transition>
-    <transition name="fade">
-      <div class="container list-lines" v-show="!isLoading">
+    <transition name="fade" v-show="!this.$store.state.isLoading">
+      <div class="container list-lines">
         <h2 class="para-title text-left"><span class="oi oi-globe"></span>{{currentSection}}</h2>
 
         <!--列表-->
@@ -46,7 +42,8 @@
           :currentPage="currentPage"
           :totalPageCount="totalPageCount"
           ref="pagination"
-          @change="pageChange">
+          @change="pageChange"
+          v-show="!this.$store.state.isLoading">
         </pagination>
 
       </div> <!-- /container -->
@@ -94,7 +91,7 @@
         // 总页数
         totalPageCount: 1,
         // 正在加载数据
-        isLoading: true,
+        minHeight: '500px'
       }
     },
     methods: {
@@ -104,13 +101,15 @@
       },
       renderPage: function () {
         let pagination = this.$refs.pagination;
+        let store = this.$store;
+        let types = this.types;
 
         this.totalPageCountFun((data) => {
           this.totalPageCount = data;
           this.currentPageFun(this.currentPage, (data) => {
             this.items = data;
             pagination.renderPagination();
-            this.isLoading = false;
+            store.commit(types.LOADED);
           })
         });
       }
@@ -191,7 +190,7 @@
   }
 
   .fade-enter-active, fade-leave-active {
-    transition: opacity 0.5s;
+    transition: opacity 2s;
   }
   .fade-enter, .fade-leave-to {
     opacity: 0;

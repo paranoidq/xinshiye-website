@@ -20,8 +20,13 @@ vue.config.productionTip = false
 
 vue.use(vuerouter);
 
+import store from './utils/store';
+import types from './utils/types';
+
+
 // 全局公共组件
 vue.use(DateFormatter);
+vue.prototype.types = types;
 
 
 const routes = [{
@@ -65,9 +70,16 @@ const router = new vuerouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  store.commit(types.LOADING);
+  next();
+});
+
 
 new vue({
   router,
+  store,
+  types,
   ...app
 }).$mount('#app')
 
