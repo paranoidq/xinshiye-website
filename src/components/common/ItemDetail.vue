@@ -1,35 +1,39 @@
 <template>
-  <main role="main">
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="" id="banner">
-      <!--<div class="col-md-12">-->
-      <img :src="bannerSrc" class="img-fluid center-block"/>
-      <!--</div>-->
-    </div>
+    <main role="main">
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="" id="banner">
+        <!--<div class="col-md-12">-->
+        <img :src="bannerSrc" class="img-fluid center-block" />
+        <!--</div>-->
+      </div>
 
-    <navMap
-      :currentNav="currentSection"
-      :sectionBaseUrl="sectionBaseUrl"
-    ></navMap>
+      <navMap
+        :currentNav="currentSection"
+        :sectionBaseUrl="sectionBaseUrl"
+      ></navMap>
 
-    <div class="container detail-container">
-      <!--<h2 class="para-title text-center"></h2>-->
-      <div class="col-md-12 line-content">
-        <h2 class="para-title">{{item.title}}</h2>
-        <h6>
-          <span class="badge badge-danger text-white" v-text="'发布时间: ' + DateFormatter.formatTimestamp(item.publishTimestamp)"></span>
-          <span class="badge badge-danger text-white" v-text="'作者: Admin' "></span>
-          <span class="badge badge-danger text-white" v-text="'来源: 网络' "></span>
-        </h6>
-        <div class="card detail-card">
-          <div class="card-body">
-            <div v-html="`${item.detail}`" class="card-text text-left">
+      <transition name="fade">
+
+      <div class="container detail-container" v-show="!this.$store.state.isLoading">
+        <!--<h2 class="para-title text-center"></h2>-->
+        <div class="col-md-12 line-content">
+          <h2 class="para-title">{{item.title}}</h2>
+          <h6>
+            <span class="badge badge-danger text-white" v-text="'发布时间: ' + DateFormatter.formatTimestamp(item.publishTimestamp)"></span>
+            <span class="badge badge-danger text-white" v-text="'作者: Admin' "></span>
+            <span class="badge badge-danger text-white" v-text="'来源: 网络' "></span>
+          </h6>
+          <div class="card detail-card">
+            <div class="card-body">
+              <div v-html="`${item.detail}`" class="card-text text-left">
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div> <!-- /container -->
-  </main>
+      </div> <!-- /container -->
+      </transition>
+
+    </main>
 </template>
 
 <script>
@@ -87,6 +91,15 @@
     border: 1px solid lightseagreen ;
     box-shadow: 10px 10px 10px lightseagreen;
     background: whitesmoke;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: all 0.5s;
+  }
+  .fade-enter, .fade-leave-to
+    /* .list-leave-active for below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateX(30px);
   }
 
 

@@ -10,12 +10,12 @@
 
     <navMap :currentNav="currentSection"></navMap>
 
-    <transition name="fade" v-show="!this.$store.state.isLoading">
-      <div class="container list-lines">
+    <div class="container list-lines">
         <h2 class="para-title text-left"><span class="oi oi-globe"></span>{{currentSection}}</h2>
 
+        <transition-group name="fade" tag="div">
         <!--列表-->
-        <div v-for="item in items" class="list-line">
+        <div v-for="item in items" class="list-line" v-bind:key="item.id">
           <div class="row justify-content-center text-left">
             <div class="col-md-2 line-img">
               <router-link :to="sectionBaseUrl + '/' + item.id">
@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-
+        </transition-group>
         <!-- 分页组件 -->
         <pagination
           :currentPage="currentPage"
@@ -47,8 +47,8 @@
         </pagination>
 
       </div> <!-- /container -->
-    </transition>
   </main>
+
 </template>
 
 <script>
@@ -163,7 +163,6 @@
     border-bottom-color: lightseagreen;
   }
   .list-lines .list-line:hover {
-    box-shadow: 5px 5px 5px lightgrey;
     background-color: lightseagreen;
   }
   .list-lines .list-line:hover .card-header{
@@ -189,13 +188,6 @@
     border: none;
   }
 
-  .fade-enter-active, fade-leave-active {
-    transition: opacity 2s;
-  }
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
-  }
-
   .card-body p * {
     font-size: 1rem;
     font-weight:normal;
@@ -206,6 +198,15 @@
   }
   .list-lines .list-line:hover .card-body {
     color: #fff!important;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: all 0.5s;
+  }
+  .fade-enter, .fade-leave-to
+    /* .list-leave-active for below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateX(30px);
   }
 
 </style>

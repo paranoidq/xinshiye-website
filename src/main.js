@@ -67,7 +67,8 @@ const routes = [{
 
 const router = new vuerouter({
   mode: 'history',
-  routes
+  routes,
+  saveScrollPosition: true //记住页面的滚动位置 html5模式适用
 })
 
 router.beforeEach((to, from, next) => {

@@ -5,11 +5,7 @@
   <div id="app">
     <!-- 引用HeaderNav组件 -->
     <HeaderNav></HeaderNav>
-
-    <transition :name="transitionName">
       <router-view class="child-view"></router-view>
-    </transition>
-
     <!-- 引用Footer组件-->
     <Footer></Footer>
   </div>
@@ -92,25 +88,24 @@
     float: right;
   }
 
-  .slide-left-enter {
-    opacity: 0.5;
-    transform: translate(-100px, 0);
-    /*transform: rotateY(45deg);*/
-  }
-
-  .slide-left-enter-active, .slide-right-leave-active {
-    opacity: 0.5;
-    transform: translate(-100px, 0);
-    /*transform: rotateY(45deg);*/
-  }
-  .slide-left-leave-active, .slide-right-enter {
-    opacity: 0.8;
-    transform: translate(-100px, 0);
-    /*transform: rotateY(45deg);*/
-  }
-  .child-view {
-    transition: all .8s cubic-bezier(.55,0,.1,1);
-  }
+  /*.slide-left-enter-active {*/
+    /*opacity: 0.5;*/
+    /*transform: translate(-100px, 0);*/
+    /*position: relative;*/
+    /*!*transform: rotateY(45deg);*!*/
+  /*}*/
+  /*.slide-left-enter-to {*/
+    /*position: static;*/
+    /*!*transform: rotateY(45deg);*!*/
+  /*}*/
+  /*.slide-left-leave-active {*/
+    /*opacity: 0.8;*/
+    /*transform: translate(-100px, 0);*/
+    /*!*transform: rotateY(45deg);*!*/
+  /*}*/
+  /*.child-view {*/
+    /*transition: all .8s cubic-bezier(.55,0,.1,1);*/
+  /*}*/
 
 
 

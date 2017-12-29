@@ -12,25 +12,25 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarsItems">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link to="/home" class="nav-link">首页</router-link>
+          <router-link to="/home" class="nav-link" v-bind:class="{'highlight-section': this.$route.path.match('/home/*')}">首页</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/about" class="nav-link">公司简介</router-link>
+          <router-link to="/about" class="nav-link" v-bind:class="{'highlight-section': this.$route.path.match('/about/*')}">公司简介</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/news" class="nav-link">新闻动态</router-link>
+          <router-link to="/news" class="nav-link" v-bind:class="{'highlight-section': this.$route.path.match('/news/*')}">新闻动态</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/projects" class="nav-link">成果业绩</router-link>
+          <router-link to="/projects" class="nav-link" v-bind:class="{'highlight-section': this.$route.path.match('/projects/*')}">成果业绩</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/publish" class="nav-link">公示公告</router-link>
+          <router-link to="/publish" class="nav-link" v-bind:class="{'highlight-section': this.$route.path.match('/publish/*')}">公示公告</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/hr" class="nav-link">人才招聘</router-link>
+          <router-link to="/hr" class="nav-link" v-bind:class="{'highlight-section': this.$route.path.match('/hr/*')}">人才招聘</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/contact" class="nav-link">联系我们</router-link>
+          <router-link to="/contact" class="nav-link" v-bind:class="{'highlight-section': this.$route.path.match('/contact/*')}">联系我们</router-link>
         </li>
       </ul>
     </div>
@@ -53,6 +53,11 @@
   }
   #top-nav a:focus {
     color: black;
+  }
+
+  .highlight-section {
+    color: #FF6D00!important;
+    border-bottom: 1px solid #FF6D00;
   }
 </style>
 
