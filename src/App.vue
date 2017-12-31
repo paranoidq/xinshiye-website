@@ -84,7 +84,7 @@
   }
   .list-line .badge {
     vertical-align: 20%;
-    background: coral;
+    background: deepskyblue;
   }
 
   /*.slide-left-enter-active {*/

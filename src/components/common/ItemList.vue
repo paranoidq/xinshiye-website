@@ -26,14 +26,14 @@
             <div class="col-md-10 line-content">
               <div class="card">
                 <div class="card-header">
-                  <p class="badge badge-primary" v-text="DateFormatter.formatTimestamp(item.publishTimestamp)"></p>
-                  <p class="overflow-ellipsis">
+                  <p class="overflow-ellipsis" style="margin-bottom: 0.5rem;">
                     <router-link class="card-header" :to="sectionBaseUrl + '/' + item.id">{{item.title}}
                     </router-link>
                   </p>
+                  <p class="badge badge-primary" v-text="DateFormatter.formatTimestamp(item.publishTimestamp)"></p>
                 </div>
                 <div class="card-body">
-                  <p v-html="item.detail.length > 110 ? item.detail.slice(0, 110)+'...' : item.detail"></p>
+                  <p v-html="item.detail.length > 100 ? item.detail.slice(0, 100)+'...' : item.detail"></p>
                   <!--<p>{{item.desc}}</p>-->
                 </div>
               </div>
@@ -176,12 +176,25 @@
   }
 
   .list-lines .line-img {
-    height:6.7rem;
     overflow: hidden;
-    padding-right:0px;
+    padding-right: 0;
+    padding-left: 0;
+    max-height: 7.5rem;
+  }
+  .list-lines .line-img img {
+    border-radius: 0;
+    height:100%;
+  }
+  .card-img-top {
+    border-radius: 0;
   }
   .list-lines .list-line {
     border-bottom: 1px solid lightseagreen;
+  }
+
+  .list-lines .list-line .row {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .list-lines .line-content .card, .card-header {
