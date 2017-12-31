@@ -1,10 +1,11 @@
 <template id="head-nav">
   <!-- 导航栏 -->
-  <nav id="top-nav" class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsItems" aria-controls="navbarsItems" aria-expanded="false" aria-label="Toggle navigation">
+  <nav id="top-nav" class="navbar navbar-expand-md navbar-light bg-light fixed-top"
+  style="padding-left: 0.5rem; padding-right: 0.5rem;">
+    <button class="navbar-toggler" style="padding-left: 0px;padding-right: 0px;" type="button" data-toggle="collapse" data-target="#navbarsItems" aria-controls="navbarsItems" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <router-link class="navbar-brand col-sm-3" style="width: 80%; margin-right: 0;" to="/home"><img src="/static/img/logo.png" class="img-fluid"/></router-link>
+    <router-link class="navbar-brand col-sm-3" style="width: 90%; padding-left: 0; margin-right: 0; padding-right: 0;" to="/home"><img src="/static/img/logo.png" class="img-fluid"/></router-link>
 
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarsItems">

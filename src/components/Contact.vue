@@ -104,7 +104,7 @@
   }
   function createMap(){
     map = new BMap.Map("map");
-    map.centerAndZoom(new BMap.Point(120.477838,32.552709),19);
+    map.centerAndZoom(new BMap.Point(120.488413,32.543063),19);
   }
   function setMapEvent(){
     map.enableScrollWheelZoom();
@@ -119,7 +119,7 @@
   }
   function addMapOverlay(){
     var markers = [
-      {content:"海安县长江中路1号3幢",title:"新视野环保科技",imageOffset: {width:-46,height:-21},position:{lat:32.552556,lng:120.477591}}
+      {content:"海安县长江中路1号3幢",title:"新视野环保科技",imageOffset: {width:-46,height:-21},position:{lat:32.54282,lng:120.488782}}
     ];
     for(var index = 0; index < markers.length; index++ ){
       var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
