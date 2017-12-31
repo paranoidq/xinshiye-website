@@ -85,7 +85,6 @@
   .list-line .badge {
     vertical-align: 20%;
     background: coral;
-    float: right;
   }
 
   /*.slide-left-enter-active {*/

@@ -25,9 +25,13 @@
 
             <div class="col-md-10 line-content">
               <div class="card">
-                <router-link class="card-header" :to="sectionBaseUrl + '/' + item.id">{{item.title}}
-                  <span class="badge badge-primary" v-text="DateFormatter.formatTimestamp(item.publishTimestamp)"></span>
-                </router-link>
+                <div class="card-header">
+                  <p class="badge badge-primary" v-text="DateFormatter.formatTimestamp(item.publishTimestamp)"></p>
+                  <p class="overflow-ellipsis">
+                    <router-link class="card-header" :to="sectionBaseUrl + '/' + item.id">{{item.title}}
+                    </router-link>
+                  </p>
+                </div>
                 <div class="card-body">
                   <p v-html="item.detail.length > 110 ? item.detail.slice(0, 110)+'...' : item.detail"></p>
                   <!--<p>{{item.desc}}</p>-->
@@ -127,19 +131,21 @@
     padding: 10px 0;
   }
 
-  .list-lines .card-header {
-    line-height:1rem;
-    padding: 0.75rem 1.25rem;
-    font-weight: bold;
-    font-size: 1rem;
-  }
-  .list-lines .card-body p {
-    margin: 0rem 0;
-  }
-
   .list-lines .card {
     border-color: #bee5eb;
     margin-left:0px;
+  }
+
+  .list-lines .card-header {
+    color: #818182;
+    line-height:1rem;
+    font-size: 1rem;
+    font-weight:bold;
+    padding-left:5px;
+    border-radius: 0;
+    background: transparent;
+    padding-bottom:0;
+    /*background: linear-gradient(to right, lightgrey, transparent);*/
   }
   .list-lines .card-body {
     color: #818182;
@@ -148,14 +154,8 @@
     padding-top:0px;
     padding-bottom:0px;
   }
-  .list-lines .card-header {
-    color: #818182;
-    font-size: 1.1rem;
-    font-weight:bold;
-    padding-left:5px;
-    border-radius: 0;
-    background: transparent;
-    /*background: linear-gradient(to right, lightgrey, transparent);*/
+  .list-lines .card-body p {
+    margin: 0rem 0;
   }
 
   .list-lines .list-line:hover .card {
@@ -165,7 +165,7 @@
   .list-lines .list-line:hover {
     background-color: lightseagreen;
   }
-  .list-lines .list-line:hover .card-header{
+  .list-lines .list-line:hover .card-header a{
     color: #fff!important;
     text-decoration: underline!important;
   }

@@ -1,3 +1,11 @@
 body {
   padding-top: 3.5rem;
 }
+
+/* 定制超出文本省略号 */
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+}

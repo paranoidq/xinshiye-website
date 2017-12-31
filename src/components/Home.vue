@@ -55,8 +55,8 @@
               <img class="card-img-top" :src="`../static/news-img/3.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>
             </router-link>
             <div class="card-body text-left">
-              <p class="card-title font-weight-bold">
-                {{item.title.length > newsTitleLen ? item.title.slice(0, newsTitleLen)+'...' : item.title}}
+              <p class="card-title font-weight-bold overflow-ellipsis">
+                {{item.title}}
               </p>
               <p class="card-text" v-html="item.detail.length > newsDetailLen ? item.detail.slice(0, newsDetailLen)+'...' : item.detail"></p>
             </div>
@@ -69,16 +69,16 @@
       <div class="row justify-content-center" style="margin-top:0px;">
         <div class="list-group col-md-6 text-left" id="home-projects">
           <h2 class="para-title"><span class="oi oi-aperture"></span>最新业绩</h2>
-          <div v-for="item in latestProjects"><router-link  :to="`/projects/${item.id}`" class="list-group-item list-group-item-light">
-            {{item.title.length> cardTitleLen? item.title.slice(0, cardTitleLen)+'...' : item.title}}
+          <div v-for="item in latestProjects"><router-link  :to="`/projects/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
+            {{item.title}}
           </router-link></div>
         </div>
 
         <!--<div class="col-md-1"></div>-->
         <div class="list-group col-md-6 text-left" id="home-publish">
           <h2 class="para-title text-left"><span class="oi oi-bullhorn"></span>最新公告</h2>
-          <div v-for="item in latestPublishes"><router-link :to="`/publish/${item.id}`" class="list-group-item list-group-item-light">
-            {{item.title.length> cardTitleLen? item.title.slice(0, cardTitleLen)+'...' : item.title}}
+          <div v-for="item in latestPublishes"><router-link :to="`/publish/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
+            {{item.title}}
           </router-link>
           </div>
         </div>
@@ -105,10 +105,7 @@
         latestPublishes: [],
         latestProjects: [],
 
-        newsTitleLen: 20,
         newsDetailLen: 60,
-
-        cardTitleLen: 30,
       }
     },
     mounted: function () {
@@ -150,17 +147,21 @@
   #home-news {
     margin: 0rem auto;
     background: #f7f9f2;
-    padding-bottom: 6rem;
+    padding-bottom: 5rem;
   }
 
   #home-news .card {
     border-color: #bee5eb;
     box-shadow: 5px 5px 5px #4DB6AC;
     position: relative;
+    margin-bottom:0.5rem;
   }
   #home-news .card img {
     max-height: 10rem;
     border-bottom: 1px solid #bee5eb;
+  }
+  #home-news .card-title {
+
   }
 
   #home-news .card:hover {
@@ -206,7 +207,6 @@
   .home-line .para-title {
     transform-style: preserve-3d;
     padding: 10px 20px;
-    border-radius: 5px;
     color: #00796B;
   }
 
@@ -215,8 +215,6 @@
     font-weight:normal;
     line-height: 1.5;
   }
-
-
 
 
 </style>
