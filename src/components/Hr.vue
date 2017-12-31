@@ -4,7 +4,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../../static/img/banner-hr.jpg" class="img-fluid center-block"/>
+      <img src="/static/img/banner-hr.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -26,7 +26,7 @@
                   </tr>
                   <tr>
                     <td>主要职责</td>
-                    <td>负责废气、废水处理项目的方案设计、工程设计、技术交流、市场推广、参与项目管理等工作。</td>
+                    <td>负责企业环境管理、环保技术的指导和策划；废气、废水处理项目的方案设计、工程设计、参与项目管理等工作。</td>
                   </tr>
                   <tr>
                     <td>职位要求</td>
@@ -99,7 +99,7 @@
                 </tr>
                 <tr>
                   <td>主要职责</td>
-                  <td>负责环保技术业务工作，并参与环境工程或项目环评相关工作。</td>
+                  <td>协助企业环境管理、环保技术的指导和策划；负责环保技术业务工作，并参与环境工程或项目环评相关工作。</td>
                 </tr>
                 <tr>
                   <td>职位要求</td>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URI_BASE = "http://localhost:16002/boot/api";
+const URI_BASE = "http://localhost:8080/boot/api";
 
 const URIS = {
   "news": URI_BASE + "/news",

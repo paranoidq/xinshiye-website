@@ -3,7 +3,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../../static/img/banner-about.jpg" class="img-fluid center-block"/>
+      <img src="/static/img/banner-about.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -14,7 +14,7 @@
       <!-- Example row of columns -->
       <div class="row justify-content-center text-left">
         <div class="col-md-4">
-          <img src="../../static/img/about-1.png" class="img-fluid"/>
+          <img src="/static/img/about-1.png" class="img-fluid"/>
         </div>
         <div class="col-md-8">
           <p>

@@ -1,13 +1,11 @@
 <template id="head-nav">
   <!-- 导航栏 -->
   <nav id="top-nav" class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-    <router-link class="navbar-brand" to="/home"><img src="/static/img/logo.png" style="max-height: 60px;"/></router-link>
-    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsItems" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">-->
-    <!--<span class="navbar-toggler-icon"></span>-->
-    <!--</button>-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsItems" aria-controls="navbarsItems" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <router-link class="navbar-brand col-sm-3" style="width: 80%; margin-right: 0;" to="/home"><img src="/static/img/logo.png" class="img-fluid"/></router-link>
+
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarsItems">
       <ul class="navbar-nav">

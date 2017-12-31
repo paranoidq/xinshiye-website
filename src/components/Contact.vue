@@ -3,7 +3,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../../static/img/banner-contactus.jpg" class="img-fluid center-block"/>
+      <img src="/static/img/banner-contactus.jpg" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -15,7 +15,7 @@
         <div class="col-lg-4 col-xs-4">
           <span class="icon-contactus icon-address"></span>
           <div class="contactus-item">
-            <p>注册地址：江苏省南通市海安县高新区曙光新村4号楼3号</p>
+            <p>注册地址：海安县曙光新村4号楼3号<br/>办公地址：海安县长江中路1号3幢</p>
           </div>
         </div>
         <div class="col-lg-4 col-xs-4">
@@ -55,13 +55,13 @@
   }
 
   .icon-contactus.icon-address {
-    background: url("../../static/img/icon-contactus-address.png");
+    background: url("/static/img/icon-contactus-address.png");
   }
   .icon-contactus.icon-tel {
-    background: url("../../static/img/icon-contactus-tel.png");
+    background: url("/static/img/icon-contactus-tel.png");
   }
   .icon-contactus.icon-website {
-    background: url("../../static/img/icon-contactus-website.png");
+    background: url("/static/img/icon-contactus-website.png");
   }
   .icon-contactus {
     width: 119px;
@@ -119,7 +119,7 @@
   }
   function addMapOverlay(){
     var markers = [
-      {content:"海安县高新区曙光新村4号楼3号",title:"新视野环保科技",imageOffset: {width:-46,height:-21},position:{lat:32.552556,lng:120.477591}}
+      {content:"海安县长江中路1号3幢",title:"新视野环保科技",imageOffset: {width:-46,height:-21},position:{lat:32.552556,lng:120.477591}}
     ];
     for(var index = 0; index < markers.length; index++ ){
       var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);

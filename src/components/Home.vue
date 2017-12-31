@@ -3,7 +3,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="../../static/img/banner.png" class="img-fluid center-block"/>
+      <img src="/static/img/banner.png" class="img-fluid center-block"/>
       <!--</div>-->
     </div>
 
@@ -12,7 +12,7 @@
       <!-- Example row of columns -->
       <div class="row justify-content-center">
         <div class="col-md-4">
-          <img src="../../static/img/about-us-left-banner.jpg" class="img-fluid" style=""/>
+          <img src="/static/img/about-us-left-banner.jpg" class="img-fluid" style="box-shadow: 5px 5px 5px"/>
         </div>
         <div class="col-md-8 text-left">
           <p style="margin-bottom: 0.7rem;">
@@ -106,9 +106,9 @@
         latestProjects: [],
 
         newsTitleLen: 20,
-        newsDetailLen: 80,
+        newsDetailLen: 60,
 
-        cardTitleLen: 40,
+        cardTitleLen: 30,
       }
     },
     mounted: function () {
@@ -142,7 +142,7 @@
 
   /*定制home-about板块*/
   #home-about .col-md-4 {
-    max-height: 20rem; overflow: hidden; padding: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
 

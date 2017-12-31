@@ -66,7 +66,8 @@ const routes = [{
 ];
 
 const router = new vuerouter({
-  mode: 'history',
+  // history模式在SPA的情况下，会导致刷新页面404，这是vue的机制决定的
+  mode: 'hash',
   routes,
   saveScrollPosition: true //记住页面的滚动位置 html5模式适用
 })
