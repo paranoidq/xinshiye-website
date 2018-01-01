@@ -9,7 +9,7 @@
             <li class="breadcrumb-item" v-if="sectionBaseUrl" aria-current="page"><router-link :to="sectionBaseUrl">{{this.currentNav}}</router-link>
             </li>
             <li class="breadcrumb-item active" v-else aria-current="page">{{this.currentNav}}</li>
-            
+
             <li class="breadcrumb-item active" v-show="sectionBaseUrl" aria-current="page">{{this.$route.params.id}}
             </li>
           </ol>

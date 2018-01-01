@@ -2,11 +2,7 @@
 <template>
   <main role="main">
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="" id="banner">
-      <!--<div class="col-md-12">-->
-      <img :src="bannerSrc" class="img-fluid center-block"/>
-      <!--</div>-->
-    </div>
+    <banner :bannerSrc="bannerSrc"></banner>
 
     <navMap :currentNav="currentSection"></navMap>
 
@@ -58,11 +54,13 @@
 <script>
   import pagination from "./Pagination"
   import navMap from './NavMap'
+  import banner from './Banner'
 
   export default {
     components: {
       navMap,
       pagination,
+      banner,
     },
     props: {
     	bannerSrc: {

@@ -1,13 +1,9 @@
 <template>
   <main role="main">
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="" id="banner">
-      <!--<div class="col-md-12">-->
-      <img src="/static/img/banner.png" class="img-fluid center-block" style="width: 100%;"/>
-      <!--</div>-->
-    </div>
+    <banner :bannerSrc="bannerSrc"></banner>
 
-    <div class="home-line" id="home-about">
+    <div class="home-line container" id="home-about">
       <h2 class="para-title" style="margin-bottom: 10px;"><span class="oi oi-people"></span>关于我们</h2>
       <!-- Example row of columns -->
       <div class="row justify-content-center">
@@ -45,7 +41,7 @@
       </div>
     </div> <!-- /container -->
 
-    <div class="home-line" id="home-news">
+    <div class="home-line container" id="home-news">
       <h2 class="para-title"><span class="oi oi-pulse"></span>行业新闻</h2>
       <div class="row justify-content-center">
         <div v-for="item in latestNews" class="col-md-4">
@@ -65,7 +61,7 @@
       </div>
     </div> <!-- /container -->
 
-    <div class="home-line" id="">
+    <div class="home-line container">
       <div class="row justify-content-center" style="margin-top:0px;">
         <div class="list-group col-md-6 text-left" id="home-projects">
           <h2 class="para-title"><span class="oi oi-aperture"></span>最新业绩</h2>
@@ -93,9 +89,11 @@
   import {getNewsLatest} from '../utils/api'
   import {getPublishLatest} from '../utils/api'
   import {getProjectsLatest} from '../utils/api'
+  import Banner from "./common/Banner";
 
 
   export default {
+    components: {Banner},
     name: "Home",
     computed: {
     },
@@ -106,6 +104,8 @@
         latestProjects: [],
 
         newsDetailLen: 60,
+
+        bannerSrc: '/static/img/banner.png',
       }
     },
     mounted: function () {
@@ -152,24 +152,25 @@
   }
   #home-news .card img {
     border-bottom: 1px solid #bee5eb;
+    height: 10rem;
   }
 
-  /* 响应式图片大小 */
-  @media(max-width: 1200px) {
-    #home-news .card img {
-      height: 10rem;
-    }
-  }
-  @media(min-width: 1200px) {
-    #home-news .card img {
-      height: 15rem;
-    }
-  }
-  @media(min-width: 1400px) {
-    #home-news .card img {
-      height: 20rem;
-    }
-  }
+  /*!* 响应式图片大小 *!*/
+  /*@media(max-width: 960px) {*/
+    /*#home-news .card img {*/
+      /*height: 10rem;*/
+    /*}*/
+  /*}*/
+  /*@media(min-width: 1200px) {*/
+    /*#home-news .card img {*/
+      /*height: 15rem;*/
+    /*}*/
+  /*}*/
+  /*@media(min-width: 1400px) {*/
+    /*#home-news .card img {*/
+      /*height: 20rem;*/
+    /*}*/
+  /*}*/
 
 
 

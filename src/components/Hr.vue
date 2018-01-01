@@ -4,7 +4,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="/static/img/banner-hr.jpg" class="img-fluid center-block"/>
+      <img src="/static/img/banner-hr.jpg" class="img-fluid center-block" style="width: 100%;"/>
       <!--</div>-->
     </div>
 

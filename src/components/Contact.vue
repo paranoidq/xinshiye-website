@@ -1,14 +1,9 @@
 <template>
   <main role="main">
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="" id="banner">
-      <!--<div class="col-md-12">-->
-      <img src="/static/img/banner-contactus.jpg" class="img-fluid center-block"/>
-      <!--</div>-->
-    </div>
+    <banner :bannerSrc="bannerSrc"></banner>
 
     <navMap :currentNav="currentNav"></navMap>
-
 
     <div class="container">
       <div class="row row-contactus-info">
@@ -40,7 +35,7 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <!--百度地图容器-->
-          <div style="max-width:900px;height:500px;border:lightseagreen solid 1px;font-size:12px; border-radius: 10px; box-shadow: 10px 10px 10px lightseagreen" id="map"></div>
+          <div style="max-width:100%;height:500px;border:lightseagreen solid 1px;font-size:12px; border-radius: 10px; box-shadow: 10px 10px 10px lightseagreen" id="map"></div>
         </div>
         <div class="col-md-1"></div>
       </div>
@@ -151,15 +146,18 @@
 
 
   import navMap from './common/NavMap'
+  import Banner from "./common/Banner";
 
   export default {
   	name: "Contact",
     components: {
-  		navMap,
+      Banner,
+      navMap,
     },
     data() {
   		return {
-  			currentNav: "联系我们"
+  			currentNav: "联系我们",
+        bannerSrc: '/static/img/banner-contactus.jpg',
       }
     },
     mounted: function () {

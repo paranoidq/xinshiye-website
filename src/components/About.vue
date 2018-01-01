@@ -1,11 +1,7 @@
 <template>
   <main role="main">
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="" id="banner">
-      <!--<div class="col-md-12">-->
-      <img src="/static/img/banner-about.jpg" class="img-fluid center-block"/>
-      <!--</div>-->
-    </div>
+    <banner :bannerSrc="bannerSrc"></banner>
 
     <navMap :currentNav="currentNav"></navMap>
 
@@ -65,16 +61,19 @@
 
 <script>
   import navMap from './common/NavMap'
+  import banner from "./common/Banner";
 
   export default {
   	name: "About",
     data() {
       return {
       	currentNav: "公司简介",
+        bannerSrc: '/static/img/banner-about.jpg',
       }
     },
     components: {
-  		navMap,
+      banner,
+      navMap,
     },
     mounted() {
       let types = this.types;
