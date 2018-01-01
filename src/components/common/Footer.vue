@@ -1,7 +1,7 @@
 <template id="footer">
   <footer v-show="!this.$store.state.isLoading">
     <div class="" id="relatedLinks">
-      <h2>友情链接</h2>
+      <h4>友情链接</h4>
       <!-- Example row of columns -->
       <div class="row justify-content-center link-col">
         <div class="col-md-2">
@@ -26,8 +26,8 @@
           </p>
         </div>
       </div>
+      <section id="rightsDeclare">&copy;2018 All right reserved. 南通新视野环保科技有限公司版权所有</section>
     </div> <!-- /container -->
-    <section id="rightsDeclare"><p>&copy;2018 All right reserved. 南通新视野环保科技有限公司版权所有</p></section>
   </footer>
 </template>
 <script>
@@ -37,28 +37,6 @@
 </script>
 
 <style>
-  /* 定制友情链接 */
-  #relatedLinks{
-    padding: 20px 10px 10px 10px;
-    background-color: #5d5857;
-  }
-  #relatedLinks a {
-    display: block;
-    color: #c4c4c4;
-    font-size: 0.8rem;
-  }
-  #relatedLinks h2 {
-    color: #fff;
-    margin-bottom:1rem;
-  }
-  .link-col div:not(:last-child) {
-    border-right: 1px solid #989898;
-  }
-  .link-col p {
-    margin-bottom: 0.2rem;
-  }
-
-
   /* 定制footer */
   footer {
     margin: 2rem 0 0 0;
@@ -66,9 +44,30 @@
   }
   footer #rightsDeclare {
     font-size: 0.8rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    border-top: 1px solid #6f6f6f;
+    color: #c4c4c4;
+    padding-top: 1rem;
   }
-  footer #rightsDeclare p {
-    margin-bottom: 0.4rem;
+
+  /* 定制友情链接 */
+  #relatedLinks{
+    padding: 20px 10px 10px 10px;
+    background-color: #5d5857;
+    color: #fff;
   }
+  #relatedLinks a {
+    display: block;
+    color: #c4c4c4;
+    font-size: 0.8rem;
+  }
+
+  /* 定制友情链接栏目边框 */
+  .link-col div:not(:last-child) {
+    border-right: 1px solid #989898;
+  }
+  .link-col p {
+    margin-bottom: 0.2rem;
+  }
+
 </style>
