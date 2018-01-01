@@ -11,8 +11,8 @@
       <h2 class="para-title" style="margin-bottom: 10px;"><span class="oi oi-people"></span>关于我们</h2>
       <!-- Example row of columns -->
       <div class="row justify-content-center">
-        <div class="col-md-4" style="overflow: hidden; max-height: 20rem; border-radius: 10px;">
-          <img src="/static/img/about-us-left-banner.jpg" class="img-fluid" style="border-radius: 10px;"/>
+        <div class="col-md-4" style="overflow: hidden; max-height: 20rem;">
+          <img src="/static/img/about-us-left-banner.jpg" class="img-fluid"/>
         </div>
         <div class="col-md-8 text-left">
           <p style="text-align:justify">

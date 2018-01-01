@@ -26,7 +26,7 @@
           </p>
         </div>
       </div>
-      <section id="rightsDeclare">&copy;2018 All right reserved. 南通新视野环保科技有限公司版权所有</section>
+      <section id="rightsDeclare">&copy;{{DateFormatter.currentYear()}} All right reserved. 南通新视野环保科技有限公司版权所有</section>
     </div> <!-- /container -->
   </footer>
 </template>
