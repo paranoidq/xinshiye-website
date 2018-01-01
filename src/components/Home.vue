@@ -3,7 +3,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="" id="banner">
       <!--<div class="col-md-12">-->
-      <img src="/static/img/banner.png" class="img-fluid center-block"/>
+      <img src="/static/img/banner.png" class="img-fluid center-block" style="width: 100%;"/>
       <!--</div>-->
     </div>
 
@@ -11,11 +11,11 @@
       <h2 class="para-title" style="margin-bottom: 10px;"><span class="oi oi-people"></span>关于我们</h2>
       <!-- Example row of columns -->
       <div class="row justify-content-center">
-        <div class="col-md-4">
-          <img src="/static/img/about-us-left-banner.jpg" class="img-fluid" style="box-shadow: 5px 5px 5px"/>
+        <div class="col-md-4" style="overflow: hidden; max-height: 20rem; border-radius: 10px;">
+          <img src="/static/img/about-us-left-banner.jpg" class="img-fluid" style="border-radius: 10px;"/>
         </div>
         <div class="col-md-8 text-left">
-          <p style="margin-bottom: 0.7rem;">
+          <p style="text-align:justify">
             南通新视野环保科技有限公司是综合性环保技术服务性公司。公司凭借专业、严谨的技术能力和灵活、高效的协调能力，得到了客户及各级环境管理部门的认可和支持，享有良好的认可度及信誉度。
             <br/>
             公司秉承“科学严谨、优质高效”的服务宗旨，遵循“诚信为本、互利共赢”的经营方针，以科技为先导，以人才为基础，始终不渝地坚持科学、严谨、求实的工作作风，通过不断吸收新的环保政策和环保理念，广集先进的环保技术，为客户提供最佳解决方案。期望通过我们的努力，能为更多的客户解决更多的环保问题，提升客户的企业整体形象。
@@ -137,12 +137,6 @@
     padding-right:1rem;
   }
 
-  /*定制home-about板块*/
-  #home-about .col-md-4 {
-    padding-bottom: 0.5rem;
-  }
-
-
   /*定制新闻板块*/
   #home-news {
     margin: 0rem auto;
@@ -157,12 +151,28 @@
     margin-bottom:0.5rem;
   }
   #home-news .card img {
-    max-height: 10rem;
     border-bottom: 1px solid #bee5eb;
   }
-  #home-news .card-title {
 
+  /* 响应式图片大小 */
+  @media(max-width: 1200px) {
+    #home-news .card img {
+      height: 10rem;
+    }
   }
+  @media(min-width: 1200px) {
+    #home-news .card img {
+      height: 15rem;
+    }
+  }
+  @media(min-width: 1400px) {
+    #home-news .card img {
+      height: 20rem;
+    }
+  }
+
+
+
 
   #home-news .card:hover {
     border: 1px solid darkgreen;

@@ -2,7 +2,7 @@
  主体框架
 -->
 <template>
-  <div id="app" class="container">
+  <div id="app" class="container-fluid">
     <!-- 引用HeaderNav组件 -->
     <HeaderNav></HeaderNav>
       <router-view class="child-view"></router-view>
@@ -36,7 +36,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    box-shadow: 0px 0px 10px 0px lightseagreen;
+    /*box-shadow: 0px 0px 10px 0px lightseagreen;*/
     padding-right: 0px;
     padding-left: 0px;
   }
