@@ -4,11 +4,11 @@
     <banner :bannerSrc="bannerSrc"></banner>
 
     <div class="home-line container" id="home-about">
-      <h2 class="para-title" style="margin-bottom: 10px;"><span class="oi oi-people"></span>关于我们</h2>
+      <h2 class="para-title text-left"><span class="oi oi-person"></span>关于我们</h2>
       <!-- Example row of columns -->
       <div class="row justify-content-center">
         <div class="col-md-4" style="overflow: hidden; max-height: 20rem;">
-          <img src="/static/img/about-us-left-banner.jpg" class="img-fluid"/>
+          <img src="../assets/img/about-us-left-banner.jpg" class="img-fluid"/>
         </div>
         <div class="col-md-8 text-left">
           <p style="text-align:justify">
@@ -41,46 +41,45 @@
       </div>
     </div> <!-- /container -->
 
-    <div class="home-line container" id="home-news">
-      <h2 class="para-title"><span class="oi oi-pulse"></span>行业新闻</h2>
-      <div class="row justify-content-center">
-        <div v-for="item in latestNews" class="col-md-4">
-          <div class="card">
-            <router-link class="" :to="`/news/${item.id}`">
-              <!--<img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>-->
-              <img class="card-img-top" :src="`../static/news-img/3.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>
-            </router-link>
-            <div class="card-body text-left">
-              <p class="card-title font-weight-bold overflow-ellipsis">
-                {{item.title}}
-              </p>
-              <p class="card-text" v-html="item.detail.length > newsDetailLen ? item.detail.slice(0, newsDetailLen)+'...' : item.detail"></p>
+      <div class="home-line container" id="home-news">
+        <h2 class="para-title text-left"><span class="oi oi-external-link"></span>项目展示</h2>
+        <div class="row justify-content-center">
+          <div v-for="item in latestProjects" class="col-md-4">
+            <div class="card">
+              <router-link :to="`/projects/${item.id}`">
+                <!--<img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>-->
+                <img class="card-img-top" :src="`../static/news-img/3.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>
+              </router-link>
+              <div class="card-body text-left">
+                <p class="card-title font-weight-bold overflow-ellipsis">
+                  {{item.title}}
+                </p>
+                <!--<p class="card-text" v-html="item.detail.length > newsDetailLen ? item.detail.slice(0, newsDetailLen)+'...' : item.detail"></p>-->
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div> <!-- /container -->
+      </div> <!-- /container -->
 
-    <div class="home-line container">
-      <div class="row justify-content-center" style="margin-top:0px;">
-        <div class="list-group col-md-6 text-left" id="home-projects">
-          <h2 class="para-title"><span class="oi oi-aperture"></span>最新业绩</h2>
-          <div v-for="item in latestProjects"><router-link  :to="`/projects/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
-            {{item.title}}
-          </router-link></div>
-        </div>
+      <div class="home-line container">
+        <div class="row justify-content-center" style="margin-top:0px;">
+          <div class="list-group col-md-6 text-left" id="home-projects">
+            <h2 class="para-title"><span class="oi oi-audio-spectrum"></span>新闻动态</h2>
+            <div v-for="item in latestNews"><router-link  :to="`/news/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
+              {{item.title}}
+            </router-link></div>
+          </div>
 
-        <!--<div class="col-md-1"></div>-->
-        <div class="list-group col-md-6 text-left" id="home-publish">
-          <h2 class="para-title text-left"><span class="oi oi-bullhorn"></span>最新公告</h2>
-          <div v-for="item in latestPublishes"><router-link :to="`/publish/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
-            {{item.title}}
-          </router-link>
+          <!--<div class="col-md-1"></div>-->
+          <div class="list-group col-md-6 text-left" id="home-publish">
+            <h2 class="para-title text-left"><span class="oi oi-bell"></span>最新公告</h2>
+            <div v-for="item in latestPublishes"><router-link :to="`/publish/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
+              {{item.title}}
+            </router-link>
+            </div>
           </div>
         </div>
-      </div>
-    </div> <!-- /container -->
-
+      </div> <!-- /container -->
   </main>
 </template>
 
@@ -105,17 +104,17 @@
 
         newsDetailLen: 60,
 
-        bannerSrc: '/static/img/banner.png',
+        bannerSrc: require('../assets/img/banner.png'),
       }
     },
     mounted: function () {
       let store = this.$store;
       let types = this.types;
 
-      getNewsLatest(3, (data) => {
+      getNewsLatest(6, (data) => {
         this.latestNews = data;
       });
-      getProjectsLatest(6, (data) => {
+      getProjectsLatest(3, (data) => {
         this.latestProjects = data;
       });
       getPublishLatest(6, (data) => {
@@ -128,26 +127,16 @@
 
 <style>
 
-  .home-line {
-    padding: 2rem 3rem;
-  }
-
   .home-line .row {
     /*background-color: #fff;*/
     /*padding: 1rem 2rem;*/
     /*box-shadow: 0 0 6px 0 lightseagreen*/
+    padding: 1rem 0;
   }
 
   /*定制icon*/
   .home-line h2 .oi {
     padding-right:1rem;
-  }
-
-  /*定制新闻板块*/
-  #home-news {
-    margin: 0rem auto;
-    /*background: #f7f9f2;*/
-    padding-bottom: 5rem;
   }
 
   #home-news .card {
@@ -177,31 +166,30 @@
     /*}*/
   /*}*/
 
-
-
-
   #home-news .card:hover {
-    border: 1px solid #4DB6AC;
-    box-shadow: 5px 5px 5px #4DB6AC;
-    transition: all 0.2s ease;
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 15px 0px #4DB6AC;
+  }
+  #home-news .card:hover .card-body {
+    color: #fff;
+    background: #4DB6AC;
   }
   #home-news .card-body {
     color: #818182;
-    height: 8rem;
     overflow: hidden;
     padding:0.5rem;
   }
 
   #home-projects a:hover {
     position: relative;
-    background-color: #ffa777!important;
+    background-color: lightseagreen!important;
     color: #fff!important;
     transition: transform 0.5s;
   }
 
   #home-publish a:hover {
     position: relative;
-    background-color: #ffa777!important;
+    background-color: lightseagreen!important;
     color: #fff!important;
     transition: transform 0.5s;
   }
@@ -219,18 +207,23 @@
     border-top: none;
   }
 
-
     /* 定制页面title */
   .home-line .para-title {
-    transform-style: preserve-3d;
-    padding: 10px 20px;
+    padding: 0.5rem 1rem;
     color: #00796B;
+    border-radius: 0;
+    border-bottom: 2px solid lightseagreen;
   }
 
   .home-line .card-text *{
     font-size: 1rem;
     font-weight:normal;
     line-height: 1.5;
+  }
+
+  /* 取消.list-group-item-light默认背景 */
+  .list-group-item-light {
+    background: transparent;
   }
 
 

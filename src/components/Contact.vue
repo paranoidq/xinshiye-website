@@ -50,13 +50,13 @@
   }
 
   .icon-contactus.icon-address {
-    background: url("/static/img/icon-contactus-address.png");
+    background: url("../assets/img/icon-contactus-address.png");
   }
   .icon-contactus.icon-tel {
-    background: url("/static/img/icon-contactus-tel.png");
+    background: url("../assets/img/icon-contactus-tel.png");
   }
   .icon-contactus.icon-website {
-    background: url("/static/img/icon-contactus-website.png");
+    background: url("../assets/img/icon-contactus-website.png");
   }
   .icon-contactus {
     width: 119px;
@@ -157,7 +157,7 @@
     data() {
   		return {
   			currentNav: "联系我们",
-        bannerSrc: '/static/img/banner-contactus.jpg',
+        bannerSrc: require('../assets/img/banner-contactus.jpg'),
       }
     },
     mounted: function () {

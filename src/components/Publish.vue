@@ -24,7 +24,7 @@
       return {
         currentSection: "公示公告",
         sectionBaseUrl: '/publish',
-        bannerSrc: '/static/img/banner-publish.jpg',
+        bannerSrc: require('../assets/img/banner-publish.jpg'),
         totalPageCountFun: getPublishTotalPageCount,
         currentPageFun: getPublishCurrentPage,
       };

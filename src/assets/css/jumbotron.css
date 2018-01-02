@@ -1,0 +1,24 @@
+body {
+  padding-top: 3.5rem;
+  /*background-color: #f7f7f7*/
+}
+
+/* 定制超出文本省略号 */
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.multiline-overflow-ellipsis {
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  max-width: 100%;
+  margin: 0 auto;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

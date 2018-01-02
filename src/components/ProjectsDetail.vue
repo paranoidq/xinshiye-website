@@ -21,7 +21,7 @@
       return {
         currentSection: "成果展示",
         sectionBaseUrl: "/projects",
-        bannerSrc: '/static/img/banner-projects.jpg',
+        bannerSrc: require('../assets/img/banner-projects.jpg'),
         getFun: getProject,
       };
     },

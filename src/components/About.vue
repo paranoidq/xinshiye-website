@@ -10,7 +10,7 @@
       <!-- Example row of columns -->
       <div class="row justify-content-center text-left">
         <div class="col-md-4">
-          <img src="/static/img/about-1.png" class="img-fluid"/>
+          <img src="../assets/img/about-1.png" class="img-fluid"/>
         </div>
         <div class="col-md-8">
           <p>
@@ -68,7 +68,7 @@
     data() {
       return {
       	currentNav: "公司简介",
-        bannerSrc: '/static/img/banner-about.jpg',
+        bannerSrc: require('../assets/img/banner-about.jpg'),
       }
     },
     components: {

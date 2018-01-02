@@ -1,5 +1,5 @@
 <template>
-  <div class="" id="banner">
+  <div class="container" id="banner">
     <!--<div class="col-md-12">-->
     <img :src="bannerSrc" class="img-fluid center-block" style="width: 100%;"/>
     <!--</div>-->
@@ -16,3 +16,9 @@
     }
   };
 </script>
+
+<style>
+  #banner {
+    padding-top: 0;
+  }
+</style>

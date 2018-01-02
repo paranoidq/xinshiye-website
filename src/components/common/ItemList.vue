@@ -7,44 +7,46 @@
     <navMap :currentNav="currentSection"></navMap>
 
     <div class="container list-lines">
-        <h2 class="para-title text-left"><span class="oi oi-globe"></span>{{currentSection}}</h2>
+        <h2 class="para-title text-left">{{currentSection}}</h2>
 
-        <!--列表-->
-        <div v-for="item in items" class="list-line" v-bind:key="item.id">
-          <div class="row justify-content-center text-left">
-            <div class="col-md-2 line-img">
-              <router-link :to="sectionBaseUrl + '/' + item.id">
-                <img class="card-img-top" :src="`/static/news-img/${item.id}.jpg`" onerror="this.src='/static/img/img-default.gif'" alt="Card image cap"/>
-              </router-link>
-            </div>
+      <!--列表-->
+      <div v-for="item in items" class="list-line" v-bind:key="item.id">
+        <div class="row justify-content-center text-left">
+          <div class="col-md-2 line-img">
+            <router-link :to="sectionBaseUrl + '/' + item.id">
+              <img class="card-img-top" v-if="item.imgUrl" :src='item.imgUrl'/>
+              <img class="card-img-top" src="/static/img/img-default.gif" v-else/>
+            </router-link>
+          </div>
 
-            <div class="col-md-10 line-content">
-              <div class="card">
-                <div class="card-header">
-                  <p class="overflow-ellipsis" style="margin-bottom: 0.5rem;">
-                    <router-link class="card-header" :to="sectionBaseUrl + '/' + item.id">{{item.title}}
-                    </router-link>
-                  </p>
-                  <p class="badge badge-primary" v-text="DateFormatter.formatTimestamp(item.publishTimestamp)"></p>
-                </div>
-                <div class="card-body">
-                  <p v-html="item.detail.length > 100 ? item.detail.slice(0, 100)+'...' : item.detail"></p>
-                  <!--<p>{{item.desc}}</p>-->
-                </div>
+          <div class="col-md-10 line-content">
+            <div class="card">
+              <div class="card-header">
+                <p class="overflow-ellipsis" style="margin-bottom: 0.5rem;">
+                  <router-link class="card-header" :to="sectionBaseUrl + '/' + item.id">{{item.title}}
+                  </router-link>
+                </p>
+                <p class="badge badge-primary" v-text="DateFormatter.formatTimestamp(item.publishTimestamp)"></p>
+              </div>
+              <div class="card-body">
+                <p class="multiline-overflow-ellipsis" v-html="item.brief"></p>
+                <!--<p>{{item.desc}}</p>-->
               </div>
             </div>
           </div>
         </div>
-        <!-- 分页组件 -->
-        <pagination
-          :currentPage="currentPage"
-          :totalPageCount="totalPageCount"
-          ref="pagination"
-          @change="pageChange"
-          v-show="!this.$store.state.isLoading">
-        </pagination>
-
-      </div> <!-- /container -->
+      </div>
+    </div> <!-- /container -->
+    <div class="container">
+      <!-- 分页组件 -->
+      <pagination
+        :currentPage="currentPage"
+        :totalPageCount="totalPageCount"
+        ref="pagination"
+        @change="pageChange"
+        v-show="!this.$store.state.isLoading">
+      </pagination>
+    </div>
   </main>
 
 </template>
@@ -123,8 +125,14 @@
 
 <style>
 
-  .list-lines>div:not(:first-child) {
-    padding: 10px 0;
+  .list-lines .list-line {
+    border-bottom: 1px solid lightseagreen;
+    padding: 10px 0 10px 1rem;
+  }
+
+  .list-lines .list-line .row {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .list-lines .card {
@@ -175,22 +183,11 @@
     overflow: hidden;
     padding-right: 0;
     padding-left: 0;
-    max-height: 7.5rem;
+    height: 7.5rem;
   }
   .list-lines .line-img img {
     border-radius: 0;
     height:100%;
-  }
-  .card-img-top {
-    border-radius: 0;
-  }
-  .list-lines .list-line {
-    border-bottom: 1px solid lightseagreen;
-  }
-
-  .list-lines .list-line .row {
-    margin-left: 0;
-    margin-right: 0;
   }
 
   .list-lines .line-content .card, .card-header {

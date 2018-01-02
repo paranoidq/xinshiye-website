@@ -21,7 +21,7 @@
       return {
         currentSection: "新闻动态",
         sectionBaseUrl: "/news",
-        bannerSrc: '/static/img/banner-news.jpg',
+        bannerSrc: require('../assets/img/banner-news.jpg'),
         getFun: getNews,
       };
     },

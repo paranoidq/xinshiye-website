@@ -93,6 +93,10 @@
     background: whitesmoke;
   }
 
+  .detail-container {
+    margin-bottom: 2rem;
+  }
+
   .fade-enter-active, .fade-leave-active {
     transition: all 0.5s;
   }
