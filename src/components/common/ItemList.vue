@@ -9,7 +9,6 @@
     <div class="container list-lines">
         <h2 class="para-title text-left"><span class="oi oi-globe"></span>{{currentSection}}</h2>
 
-        <transition-group name="fade" tag="div">
         <!--列表-->
         <div v-for="item in items" class="list-line" v-bind:key="item.id">
           <div class="row justify-content-center text-left">
@@ -36,7 +35,6 @@
             </div>
           </div>
         </div>
-        </transition-group>
         <!-- 分页组件 -->
         <pagination
           :currentPage="currentPage"

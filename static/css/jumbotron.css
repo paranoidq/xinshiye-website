@@ -1,6 +1,6 @@
 body {
   padding-top: 3.5rem;
-  /*background: url("/static/img/noise.png");*/
+  /*background-color: #f7f7f7*/
 }
 
 /* 定制超出文本省略号 */
@@ -9,16 +9,4 @@ body {
   white-space: nowrap;
   width: 100%;
   overflow: hidden;
-}
-
-@media (min-width: 1400px) {
-  .container {
-    max-width: 1360px;
-  }
-}
-
-@media (min-width: 2000px) {
-  .container {
-    max-width: 1600px;
-  }
 }

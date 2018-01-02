@@ -5,7 +5,7 @@
   <div id="app" class="container-fluid">
     <!-- 引用HeaderNav组件 -->
     <HeaderNav></HeaderNav>
-      <router-view class="child-view"></router-view>
+      <router-view></router-view>
     <!-- 引用Footer组件-->
     <Footer></Footer>
   </div>
@@ -89,6 +89,7 @@
     vertical-align: 20%;
     background: deepskyblue;
   }
+
 
   /*.slide-left-enter-active {*/
     /*opacity: 0.5;*/

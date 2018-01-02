@@ -132,6 +132,12 @@
     padding: 2rem 3rem;
   }
 
+  .home-line .row {
+    /*background-color: #fff;*/
+    /*padding: 1rem 2rem;*/
+    /*box-shadow: 0 0 6px 0 lightseagreen*/
+  }
+
   /*定制icon*/
   .home-line h2 .oi {
     padding-right:1rem;
@@ -140,13 +146,12 @@
   /*定制新闻板块*/
   #home-news {
     margin: 0rem auto;
-    background: #f7f9f2;
+    /*background: #f7f9f2;*/
     padding-bottom: 5rem;
   }
 
   #home-news .card {
     border-color: #bee5eb;
-    box-shadow: 5px 5px 5px #4DB6AC;
     position: relative;
     margin-bottom:0.5rem;
   }
@@ -176,8 +181,9 @@
 
 
   #home-news .card:hover {
-    border: 1px solid darkgreen;
-    transition: all 0.5s ease;
+    border: 1px solid #4DB6AC;
+    box-shadow: 5px 5px 5px #4DB6AC;
+    transition: all 0.2s ease;
   }
   #home-news .card-body {
     color: #818182;
