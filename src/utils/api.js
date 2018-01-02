@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URI_BASE = "http://localhost:16002/boot/api";
+let URI_BASE = process.env.API_BASE_URL
 
 const URIS = {
   "news": URI_BASE + "/news",
