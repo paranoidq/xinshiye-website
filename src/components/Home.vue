@@ -4,7 +4,11 @@
     <banner :bannerSrc="bannerSrc"></banner>
 
     <div class="home-line container" id="home-about">
-      <h2 class="para-title text-left"><span class="oi oi-person"></span>关于我们</h2>
+      <h4 class="para-title text-left">
+        <router-link :to="`/about`"><span class="oi oi-person"></span>
+          关于我们
+        </router-link>
+      </h4>
       <!-- Example row of columns -->
       <div class="row justify-content-center">
         <div class="col-md-4" style="overflow: hidden; max-height: 20rem;">
@@ -42,7 +46,11 @@
     </div> <!-- /container -->
 
       <div class="home-line container" id="home-news">
-        <h2 class="para-title text-left"><span class="oi oi-external-link"></span>项目展示</h2>
+        <h4 class="para-title text-left">
+          <router-link :to="`/projects`"><span class="oi oi-external-link"></span>
+            项目合作
+          </router-link>
+        </h4>
         <div class="row justify-content-center">
           <div v-for="item in latestProjects" class="col-md-4">
             <div class="card">
@@ -62,9 +70,13 @@
       </div> <!-- /container -->
 
       <div class="home-line container">
-        <div class="row justify-content-center" style="margin-top:0px;">
+        <div class="row justify-content-center" style="margin-left: 0; margin-right: 0;">
           <div class="list-group col-md-6 text-left" id="home-projects">
-            <h2 class="para-title"><span class="oi oi-audio-spectrum"></span>新闻动态</h2>
+              <h4 class="para-title">
+                <router-link :to="`/news`"><span class="oi oi-audio-spectrum"></span>
+                  新闻动态
+                </router-link>
+              </h4>
             <div v-for="item in latestNews"><router-link  :to="`/news/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
               {{item.title}}
             </router-link></div>
@@ -72,7 +84,11 @@
 
           <!--<div class="col-md-1"></div>-->
           <div class="list-group col-md-6 text-left" id="home-publish">
-            <h2 class="para-title text-left"><span class="oi oi-bell"></span>最新公告</h2>
+            <h4 class="para-title">
+              <router-link :to="`/publish`"><span class="oi oi-bell"></span>
+                最新公告
+              </router-link>
+            </h4>
             <div v-for="item in latestPublishes"><router-link :to="`/publish/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
               {{item.title}}
             </router-link>
@@ -135,7 +151,7 @@
   }
 
   /*定制icon*/
-  .home-line h2 .oi {
+  .home-line h4 .oi {
     padding-right:1rem;
   }
 
@@ -180,19 +196,6 @@
     padding:0.5rem;
   }
 
-  #home-projects a:hover {
-    position: relative;
-    background-color: lightseagreen!important;
-    color: #fff!important;
-    transition: transform 0.5s;
-  }
-
-  #home-publish a:hover {
-    position: relative;
-    background-color: lightseagreen!important;
-    color: #fff!important;
-    transition: transform 0.5s;
-  }
 
   #home-projects  .list-group-item {
     border-radius: 0;
@@ -206,14 +209,33 @@
     border-right: none;
     border-top: none;
   }
+  #home-projects .list-group-item:hover {
+    position: relative;
+    background-color: lightseagreen!important;
+    color: #fff!important;
+  }
+
+  #home-publish .list-group-item:hover {
+    position: relative;
+    background-color: lightseagreen!important;
+    color: #fff!important;
+  }
+
 
     /* 定制页面title */
   .home-line .para-title {
     padding: 0.5rem 1rem;
-    color: #00796B;
     border-radius: 0;
     border-bottom: 2px solid lightseagreen;
   }
+  .home-line .para-title a {
+    color: darkgreen;
+  }
+  .home-line .para-title a:hover {
+    color: darkblue;
+    text-decoration: none;
+  }
+
 
   .home-line .card-text *{
     font-size: 1rem;

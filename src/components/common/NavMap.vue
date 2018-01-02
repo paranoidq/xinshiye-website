@@ -43,8 +43,13 @@
     border-radius: 0px;
   }
   .breadcrumb-item a {
-    color: lightseagreen;
+    color: darkgreen;
   }
+  .breadcrumb-item a:hover {
+    color: darkblue;
+  }
+
+
   .breadcrumb {
     font-weight: bold;
   }

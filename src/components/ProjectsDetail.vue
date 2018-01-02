@@ -19,7 +19,7 @@
     },
     data() {
       return {
-        currentSection: "成果展示",
+        currentSection: "项目合作",
         sectionBaseUrl: "/projects",
         bannerSrc: require('../assets/img/banner-projects.jpg'),
         getFun: getProject,

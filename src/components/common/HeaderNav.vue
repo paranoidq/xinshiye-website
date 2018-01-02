@@ -24,7 +24,7 @@
             <router-link to="/news" class="nav-link" v-bind:class="{'highlight-section': this.$route.path.match('/news/*')}">新闻动态</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/projects" class="nav-link" v-bind:class="{'highlight-section': this.$route.path.match('/projects/*')}">成果业绩</router-link>
+            <router-link to="/projects" class="nav-link" v-bind:class="{'highlight-section': this.$route.path.match('/projects/*')}">项目合作</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/publish" class="nav-link" v-bind:class="{'highlight-section': this.$route.path.match('/publish/*')}">公示公告</router-link>
@@ -49,12 +49,12 @@
     font-weight: bold;
   }
   .navbar-light .navbar-nav .nav-link:hover {
-    color: #FF6D00;
+    color: darkgreen;
     text-decoration:none!important;
   }
   #top-nav {
     border-bottom: 1px solid #4fd2c2;
-    padding: 0px 0.5rem;
+    padding: 0.5rem 0.5rem;
   }
   #top-nav a:focus {
     color: black;
@@ -78,8 +78,8 @@
   }
 
   .highlight-section {
-    color: #FF6D00!important;
-    border-bottom: 1px solid #FF6D00;
+    color: darkgreen!important;
+    border-bottom: 1px solid darkgreen;
   }
 </style>
 

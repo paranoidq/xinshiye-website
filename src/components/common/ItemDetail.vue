@@ -1,7 +1,7 @@
 <template>
     <main role="main">
       <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="" id="banner">
+      <div class="container" id="banner">
         <!--<div class="col-md-12">-->
         <img :src="bannerSrc" class="img-fluid center-block" />
         <!--</div>-->

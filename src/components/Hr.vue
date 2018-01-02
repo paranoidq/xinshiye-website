@@ -2,11 +2,7 @@
 <template>
   <main role="main">
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="" id="banner">
-      <!--<div class="col-md-12">-->
-      <img src="../assets/img/banner-hr.jpg" class="img-fluid center-block" style="width: 100%;"/>
-      <!--</div>-->
-    </div>
+    <banner :bannerSrc="bannerSrc"></banner>
 
     <navMap :currentNav="currentNav"></navMap>
 
@@ -125,15 +121,18 @@
 
 <script>
   import navMap from './common/NavMap'
+  import banner from './common/Banner'
 
   export default {
     name: "Hr",
     components: {
       navMap,
+      banner,
     },
     data() {
     	return {
     	  currentNav: "人才招聘",
+        bannerSrc: require('../assets/img/banner-hr.jpg'),
       }
     },
     computed: {
