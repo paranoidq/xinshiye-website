@@ -8,7 +8,7 @@
 
     <div class="container">
       <router-link class="navbar-brand col-sm-3" to="/home">
-        <img src="/src/assets/img/logo.png" class="img-fluid"/>
+        <img src="../../assets/img/logo.png" class="img-fluid"/>
       </router-link>
 
 
