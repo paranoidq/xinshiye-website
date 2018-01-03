@@ -47,22 +47,22 @@
 
       <div class="home-line container" id="home-news">
         <h4 class="para-title text-left">
-          <router-link :to="`/projects`"><span class="oi oi-external-link"></span>
-            项目合作
+          <router-link :to="`/projects`"><span class="oi oi-audio-spectrum"></span>
+            新闻动态
           </router-link>
         </h4>
         <div class="row justify-content-center">
-          <div v-for="item in latestProjects" class="col-md-4">
+          <div v-for="item in latestNews" class="col-md-4">
             <div class="card">
-              <router-link :to="`/projects/${item.id}`">
+              <router-link :to="`/news/${item.id}`">
                 <!--<img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>-->
-                <img class="card-img-top" :src="`../static/news-img/3.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>
+                <img class="card-img-top" v-if="item.imgUrl" :src='item.imgUrl'/>
+                <img class="card-img-top" src="/static/img/img-default.gif" v-else/>
               </router-link>
               <div class="card-body text-left">
                 <p class="card-title font-weight-bold overflow-ellipsis">
                   {{item.title}}
                 </p>
-                <!--<p class="card-text" v-html="item.detail.length > newsDetailLen ? item.detail.slice(0, newsDetailLen)+'...' : item.detail"></p>-->
               </div>
             </div>
           </div>
@@ -71,19 +71,7 @@
 
       <div class="home-line container">
         <div class="row justify-content-center" style="margin-left: 0; margin-right: 0;">
-          <div class="list-group col-md-6 text-left" id="home-projects">
-              <h4 class="para-title">
-                <router-link :to="`/news`"><span class="oi oi-audio-spectrum"></span>
-                  新闻动态
-                </router-link>
-              </h4>
-            <div v-for="item in latestNews"><router-link  :to="`/news/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
-              {{item.title}}
-            </router-link></div>
-          </div>
-
-          <!--<div class="col-md-1"></div>-->
-          <div class="list-group col-md-6 text-left" id="home-publish">
+          <div class="list-group col-md-12 text-left" id="home-publish">
             <h4 class="para-title">
               <router-link :to="`/publish`"><span class="oi oi-bell"></span>
                 最新公告
@@ -94,6 +82,17 @@
             </router-link>
             </div>
           </div>
+
+          <!--<div class="list-group col-md-6 text-left" id="home-projects">-->
+            <!--<h4 class="para-title">-->
+              <!--<router-link :to="`/contact`"><span class="oi oi-audio-spectrum"></span>-->
+                <!--联系我们-->
+              <!--</router-link>-->
+            <!--</h4>-->
+            <!--&lt;!&ndash;<div v-for="item in latestNews"><router-link  :to="`/news/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">&ndash;&gt;-->
+              <!--&lt;!&ndash;{{item.title}}&ndash;&gt;-->
+            <!--&lt;!&ndash;</router-link></div>&ndash;&gt;-->
+          <!--</div>-->
         </div>
       </div> <!-- /container -->
   </main>
@@ -103,7 +102,6 @@
 
   import {getNewsLatest} from '../utils/api'
   import {getPublishLatest} from '../utils/api'
-  import {getProjectsLatest} from '../utils/api'
   import Banner from "./common/Banner";
 
 
@@ -116,10 +114,7 @@
       return {
         latestNews: [],
         latestPublishes: [],
-        latestProjects: [],
-
         newsDetailLen: 60,
-
         bannerSrc: require('../assets/img/banner.png'),
       }
     },
@@ -127,11 +122,8 @@
       let store = this.$store;
       let types = this.types;
 
-      getNewsLatest(6, (data) => {
+      getNewsLatest(3, (data) => {
         this.latestNews = data;
-      });
-      getProjectsLatest(3, (data) => {
-        this.latestProjects = data;
       });
       getPublishLatest(6, (data) => {
         this.latestPublishes = data;
