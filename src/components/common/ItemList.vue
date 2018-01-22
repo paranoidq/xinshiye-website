@@ -9,6 +9,10 @@
     <div class="container list-lines">
         <h2 class="para-title text-left">{{currentSection}}</h2>
 
+        <div v-show="this.$store.state.isLoading" style="margin: 2rem 0;">
+          <img src="../../assets/img/loading.gif" class="img-fluid"/>
+        </div>
+
       <!--列表-->
       <div v-for="item in items" class="list-line" v-bind:key="item.id">
         <div class="row justify-content-center text-left">
@@ -214,7 +218,6 @@
     opacity: 0;
     transform: translateX(30px);
   }
-
 </style>
 
 
