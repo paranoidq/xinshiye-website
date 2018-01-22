@@ -15,7 +15,7 @@
 
       <!-- Example row of columns -->
       <div class="row justify-content-center">
-        <div class="col-md-4" style="overflow: hidden; max-height: 20rem;">
+        <div class="col-md-4" style="overflow: hidden; max-height: 20rem; padding-top: 10px;">
           <img src="../assets/img/about-us-left-banner.jpg" class="img-fluid"/>
         </div>
         <div class="col-md-8 text-left">
@@ -23,9 +23,8 @@
             南通新视野环保科技有限公司是综合性环保技术服务性公司。公司凭借专业、严谨的技术能力和灵活、高效的协调能力，得到了客户及各级环境管理部门的认可和支持，享有良好的认可度及信誉度。
             <br/>
             公司秉承“科学严谨、优质高效”的服务宗旨，遵循“诚信为本、互利共赢”的经营方针，以科技为先导，以人才为基础，始终不渝地坚持科学、严谨、求实的工作作风，通过不断吸收新的环保政策和环保理念，广集先进的环保技术，为客户提供最佳解决方案。期望通过我们的努力，能为更多的客户解决更多的环保问题，提升客户的企业整体形象。
-            <br/><br/>
-            <span class="font-weight-bold">业务范围：</span><br/>
           </p>
+          <span class="font-weight-bold">业务范围：</span><br/>
           <table class="table table-striped">
             <tbody>
             <tr class="table-info">
@@ -87,9 +86,11 @@
         </h4>
         <div class="row justify-content-center" style="margin-left: 0; margin-right: 0;">
           <div class="list-group col-md-12 text-left" style="padding-right: 0;">
-            <div v-for="item in latestPublishes"><router-link :to="`/publish/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
-              {{item.title}}
-            </router-link>
+            <div v-for="item in latestPublishes">
+              <router-link :to="`/publish/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
+              <span style="float: left;">{{item.title}}</span>
+                <span style="float: right; font-size: 0.8rem; padding: 2px 0;" v-text="DateFormatter.formatTimestamp(item.publishTimestamp)"></span>
+              </router-link>
             </div>
           </div>
         </div>
@@ -145,6 +146,10 @@
   .home-line h4 .oi {
     padding-right:1rem;
   }
+  #home-about .table {
+    margin-bottom: 0;
+  }
+
 
   #home-news .card {
     border-color: #bee5eb;

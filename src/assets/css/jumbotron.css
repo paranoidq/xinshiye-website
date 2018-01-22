@@ -3,6 +3,10 @@ body {
   /*background-color: #f7f7f7*/
 }
 
+@media print{
+  body{display:none}
+}
+
 /* 定制超出文本省略号 */
 .overflow-ellipsis {
   text-overflow: ellipsis;

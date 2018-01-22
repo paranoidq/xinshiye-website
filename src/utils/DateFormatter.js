@@ -64,7 +64,7 @@ const DateFormatter = {
     })
   },
   formatTimestamp: function(timestamp) {
-    return DateFormatter.formatDate(new Date(timestamp), "yyyy年MM月dd日");
+    return DateFormatter.formatDate(new Date(timestamp), "yyyy-MM-dd");
   },
   currentYear: function() {
     return DateFormatter.formatDate(new Date(), "yyyy");

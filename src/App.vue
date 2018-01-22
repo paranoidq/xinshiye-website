@@ -33,7 +33,7 @@
   @import './assets/css/jumbotron.css';
 
   #app {
-    font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
+    font-family: "Microsoft YaHei","微软雅黑", Arial,Helvetica,sans-serif,"宋体";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;

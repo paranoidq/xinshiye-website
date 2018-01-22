@@ -20,7 +20,7 @@
           <h2 class="para-title">{{item.title}}</h2>
           <h6>
             <span class="badge badge-danger text-white" v-text="'发布时间: ' + DateFormatter.formatTimestamp(item.publishTimestamp)"></span>
-            <span class="badge badge-danger text-white" v-text="'作者: Admin' "></span>
+            <span class="badge badge-danger text-white" v-text="'作者: 管理员' "></span>
             <span class="badge badge-danger text-white" v-text="'来源: 网络' "></span>
           </h6>
           <div class="card detail-card">
