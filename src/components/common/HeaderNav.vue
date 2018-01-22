@@ -1,15 +1,15 @@
 <template id="head-nav">
   <!-- 导航栏 -->
-  <nav id="top-nav" class="navbar navbar-expand-md navbar-light bg-light fixed-top justify-content-center">
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsItems" aria-controls="navbarsItems" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav id="top-nav" class="navbar navbar-expand-lg navbar-light bg-light fixed-top justify-content-end">
 
     <div class="container">
-      <router-link class="navbar-brand col-sm-3" to="/home">
+      <router-link class="navbar-brand text-left" to="/home">
         <img src="../../assets/img/logo.png" class="img-fluid"/>
       </router-link>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsItems" aria-controls="navbarsItems" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarsItems">
@@ -54,27 +54,29 @@
   }
   #top-nav {
     border-bottom: 1px solid #4fd2c2;
-    padding: 0.5rem 0.5rem;
   }
+
   #top-nav a:focus {
     color: black;
   }
 
+  #top-nav .nav-item {
+    margin-right: 1rem;
+  }
+
   /* 定制nav-bar toggle */
   .navbar-toggle {
-    padding-left: 0px;padding-right: 0px;
   }
 
 
   /* 定制nav-brand和图片 */
   .navbar-brand {
-    width: 90%;
     padding-left: 0;
     margin-right: 0;
     padding-right: 0;
   }
   .navbar-brand img {
-    max-height: 4rem;
+    height: 2.5rem;
   }
 
   .highlight-section {

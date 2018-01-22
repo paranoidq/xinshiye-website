@@ -35,7 +35,7 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <!--百度地图容器-->
-          <div style="max-width:100%;height:500px;border:lightseagreen solid 1px;font-size:12px; border-radius: 10px; box-shadow: 10px 10px 10px lightseagreen" id="map"></div>
+          <div style="max-width:100%;height:500px;border:lightseagreen solid 1px;font-size:12px; border-radius: 5px; box-shadow: 0px 0px 10px lightseagreen" id="map"></div>
         </div>
         <div class="col-md-1"></div>
       </div>
@@ -46,7 +46,7 @@
 
 <style>
   .row-contactus-info {
-    padding-top: 60px;
+    padding-top: 20px;
   }
 
   .icon-contactus.icon-address {

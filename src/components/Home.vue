@@ -8,7 +8,11 @@
         <router-link :to="`/about`"><span class="oi oi-person"></span>
           关于我们
         </router-link>
+        <router-link :to="`/about`" class="para-title-more">
+        >> 更多
+        </router-link>
       </h4>
+
       <!-- Example row of columns -->
       <div class="row justify-content-center">
         <div class="col-md-4" style="overflow: hidden; max-height: 20rem;">
@@ -20,7 +24,7 @@
             <br/>
             公司秉承“科学严谨、优质高效”的服务宗旨，遵循“诚信为本、互利共赢”的经营方针，以科技为先导，以人才为基础，始终不渝地坚持科学、严谨、求实的工作作风，通过不断吸收新的环保政策和环保理念，广集先进的环保技术，为客户提供最佳解决方案。期望通过我们的努力，能为更多的客户解决更多的环保问题，提升客户的企业整体形象。
             <br/><br/>
-            <span class="font-weight-bold">服务范围：</span><br/>
+            <span class="font-weight-bold">业务范围：</span><br/>
           </p>
           <table class="table table-striped">
             <tbody>
@@ -47,12 +51,15 @@
 
       <div class="home-line container" id="home-news">
         <h4 class="para-title text-left">
-          <router-link :to="`/projects`"><span class="oi oi-audio-spectrum"></span>
+          <router-link :to="`/news`"><span class="oi oi-audio-spectrum"></span>
             新闻动态
+          </router-link>
+          <router-link :to="`/news`" class="para-title-more">
+            >> 更多
           </router-link>
         </h4>
         <div class="row justify-content-center">
-          <div v-for="item in latestNews" class="col-md-4">
+          <div v-for="item in latestNews" class="col-md-3">
             <div class="card">
               <router-link :to="`/news/${item.id}`">
                 <!--<img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>-->
@@ -69,30 +76,22 @@
         </div>
       </div> <!-- /container -->
 
-      <div class="home-line container">
+      <div class="home-line container" id="home-publish">
+        <h4 class="para-title text-left">
+          <router-link :to="`/publish`"><span class="oi oi-bell"></span>
+            最新公告
+          </router-link>
+          <router-link :to="`/publish`" class="para-title-more">
+            >> 更多
+          </router-link>
+        </h4>
         <div class="row justify-content-center" style="margin-left: 0; margin-right: 0;">
-          <div class="list-group col-md-12 text-left" id="home-publish">
-            <h4 class="para-title">
-              <router-link :to="`/publish`"><span class="oi oi-bell"></span>
-                最新公告
-              </router-link>
-            </h4>
+          <div class="list-group col-md-12 text-left" style="padding-right: 0;">
             <div v-for="item in latestPublishes"><router-link :to="`/publish/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
               {{item.title}}
             </router-link>
             </div>
           </div>
-
-          <!--<div class="list-group col-md-6 text-left" id="home-projects">-->
-            <!--<h4 class="para-title">-->
-              <!--<router-link :to="`/contact`"><span class="oi oi-audio-spectrum"></span>-->
-                <!--联系我们-->
-              <!--</router-link>-->
-            <!--</h4>-->
-            <!--&lt;!&ndash;<div v-for="item in latestNews"><router-link  :to="`/news/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">&ndash;&gt;-->
-              <!--&lt;!&ndash;{{item.title}}&ndash;&gt;-->
-            <!--&lt;!&ndash;</router-link></div>&ndash;&gt;-->
-          <!--</div>-->
         </div>
       </div> <!-- /container -->
   </main>
@@ -122,7 +121,7 @@
       let store = this.$store;
       let types = this.types;
 
-      getNewsLatest(3, (data) => {
+      getNewsLatest(4, (data) => {
         this.latestNews = data;
       });
       getPublishLatest(6, (data) => {
@@ -213,12 +212,18 @@
     color: #fff!important;
   }
 
-
     /* 定制页面title */
   .home-line .para-title {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    margin-left: 0px;
+    margin-right: 0px;
     border-radius: 0;
     border-bottom: 2px solid lightseagreen;
+  }
+  .home-line .para-title-more {
+    font-size: 0.85rem;
+    line-height: 2.2rem;
+    float: right;
   }
   .home-line .para-title a {
     color: darkgreen;

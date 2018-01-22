@@ -172,7 +172,7 @@
   #hr .card {
     border-color: #bee5eb;
     color: #434344;
-    box-shadow: 8px 8px 10px lightgrey;
+    box-shadow: 5px 5px 10px lightgrey;
   }
   #hr .card-body {
     overflow: hidden;

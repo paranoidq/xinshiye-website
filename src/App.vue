@@ -5,7 +5,7 @@
   <div id="app" class="container-fluid">
     <!-- 引用HeaderNav组件 -->
     <HeaderNav></HeaderNav>
-      <router-view></router-view>
+    <router-view></router-view>
     <!-- 引用Footer组件-->
     <Footer></Footer>
   </div>
@@ -33,7 +33,7 @@
   @import './assets/css/jumbotron.css';
 
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;

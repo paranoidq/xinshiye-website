@@ -70,8 +70,8 @@
 <style>
   .detail-card {
     border: 1px solid lightseagreen ;
-    box-shadow: 10px 10px 10px lightseagreen;
-    background: whitesmoke;
+    box-shadow: 0px 0px 5px lightseagreen;
+    background: #ffffff;
   }
 
   .detail-container {
