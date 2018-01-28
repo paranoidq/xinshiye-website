@@ -1,4 +1,4 @@
-<!--新闻动态组件-->
+<!--简单列表动态组件-->
 <template>
   <main role="main">
     <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -6,7 +6,7 @@
 
     <navMap :currentNav="currentSection"></navMap>
 
-    <div class="container list-lines">
+    <div class="container min-list-lines">
         <h4 class="para-title text-left">{{currentSection}}</h4>
 
         <div v-show="this.$store.state.isLoading" style="margin: 2rem 0;">
@@ -16,27 +16,19 @@
       <!--列表-->
       <div v-for="item in items" class="list-line" v-bind:key="item.id">
         <div class="row text-left">
-          <div class="col-md-2 line-img text-center">
-            <router-link :to="sectionBaseUrl + '/' + item.id">
-              <img class="card-img-top" v-if="item.imgUrl" :src='item.imgUrl'/>
-              <img class="card-img-top" src="/static/img/img-default.gif" v-else/>
-            </router-link>
-          </div>
-
-          <div class="col-md-10 line-content">
+          <div class="col-md-10 line-content text-left" style="padding-left: 0;">
             <div class="card">
               <div class="card-header">
-                <p class="overflow-ellipsis" style="margin-bottom: 0.5rem;">
+                <p class="overflow-ellipsis" style="margin-bottom: 0">
+                  <span class="oi oi-media-record" style="color: lightseagreen; font-size: 0.5rem; padding-right: 0.5rem"></span>
                   <router-link class="card-header" :to="sectionBaseUrl + '/' + item.id">{{item.title}}
                   </router-link>
                 </p>
-                <p class="badge badge-primary" v-text="DateFormatter.formatTimestamp(item.publishTimestamp)"></p>
-              </div>
-              <div class="card-body">
-                <p class="multiline-overflow-ellipsis" v-html="item.brief"></p>
-                <!--<p>{{item.desc}}</p>-->
               </div>
             </div>
+          </div>
+          <div class="col-md-2 text-right">
+            <span style="font-size: 0.8rem;" v-text="DateFormatter.formatTimestamp(item.publishTimestamp)"></span>
           </div>
         </div>
       </div>
@@ -129,100 +121,82 @@
 
 <style>
 
-  .list-lines {
+  .min-list-lines {
     padding-top: 0!important;
 
   }
 
-  .list-lines .list-line {
+  .min-list-lines .list-line {
     border-bottom: 1px dotted lightseagreen;
-    padding: 10px 0 10px 1rem;
+    padding: 15px 0 15px 1rem;
   }
 
-  .list-lines .list-line .row {
+  .min-list-lines .list-line .row {
     margin-left: 0;
     margin-right: 0;
   }
 
-  .list-lines .card {
+  .min-list-lines .card {
     border-color: #bee5eb;
     margin-left:0px;
   }
 
-  .list-lines .card-header {
+  .min-list-lines .card-header {
     color: #818182;
-    line-height:1.5rem;
+    line-height: 1rem;
     font-size: 1rem;
-    font-weight:bold;
-    padding-left:5px;
     border-radius: 0;
     background: transparent;
-    padding-bottom:0;
     /*background: linear-gradient(to right, lightgrey, transparent);*/
   }
-  .list-lines .card-body {
+  .min-list-lines .card-body {
     color: #818182;
     overflow: hidden;
     padding-left:5px;
     padding-top:0px;
     padding-bottom:0px;
   }
-  .list-lines .card-body p {
+  .min-list-lines .card-body p {
     margin: 0rem 0;
   }
 
-  .list-lines .list-line:hover .card {
+  .min-list-lines .list-line:hover .card {
     background: none!important;
     border-bottom-color: lightseagreen;
   }
-  .list-lines .list-line:hover {
+  .min-list-lines .list-line:hover {
     background-color: lightseagreen;
   }
-  .list-lines .list-line:hover .card-header a{
+  .min-list-lines .list-line:hover .card-header a{
     color: #fff!important;
     text-decoration: underline!important;
   }
 
-  .list-lines .para-title {
+  .min-list-lines .para-title {
     background: linear-gradient(to right, lightseagreen, transparent);
     color: white;
   }
 
-  .list-lines .line-img {
-    overflow: hidden;
-    padding-right: 0;
-    padding-left: 0;
-    height: 7.5rem;
-  }
-  .list-lines .line-img img {
+  .min-list-lines .line-img img {
     border-radius: 0;
     height:100%;
     width: 100%;
   }
 
-  .list-lines .line-content .card, .card-header {
+  .min-list-lines .line-content .card, .card-header {
     border: none;
   }
 
-  .card-body p * {
+  .min-list-lines .card-body p * {
     font-size: 1rem;
     font-weight:normal;
     color: #818182;
   }
-  .list-lines .list-line:hover * {
+  .min-list-lines .list-line:hover * {
     color: #fff!important;
   }
-  .list-lines .list-line:hover .card-body {
+  .min-list-lines .list-line:hover .card-body {
     color: #fff!important;
-  }
-
-  .fade-enter-active, .fade-leave-active {
-    transition: all 0.5s;
-  }
-  .fade-enter, .fade-leave-to
-    /* .list-leave-active for below version 2.1.8 */ {
-    opacity: 0;
-    transform: translateX(30px);
   }
 </style>
 

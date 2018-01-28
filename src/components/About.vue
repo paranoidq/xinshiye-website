@@ -5,12 +5,12 @@
 
     <navMap :currentNav="currentNav"></navMap>
 
-    <div class="container" id="about">
-      <h2 class="para-title text-left"><span class="oi oi-people"></span>公司简介</h2>
+    <div class="container" id="about" style="padding-top: 0!important;">
+      <h4 class="para-title text-left"><span class="oi oi-people"></span>公司简介</h4>
       <!-- Example row of columns -->
       <div class="row justify-content-center text-left">
         <div class="col-md-4">
-          <img src="../assets/img/about-1.png" class="img-fluid"/>
+          <img src="../assets/img/about-1.png" class="img-responsive"/>
         </div>
         <div class="col-md-8">
           <p>
@@ -30,7 +30,7 @@
     </div> <!-- /container -->
 
     <div class="container" id="buss">
-      <h2 class="para-title text-left"><span class="oi oi-spreadsheet"></span>业务范围</h2>
+      <h4 class="para-title text-left"><span class="oi oi-spreadsheet"></span>业务范围</h4>
       <!-- Example row of columns -->
       <div class="row justify-content-center">
         <div class="col-md-4 text-center">

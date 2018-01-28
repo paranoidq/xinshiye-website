@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row justify-content-left">
+    <div class="row text-left">
       <div class="col-md-12">
         <nav aria-label="breadcrumb" role="navigation">
           <ol class="breadcrumb">

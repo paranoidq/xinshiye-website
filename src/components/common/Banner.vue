@@ -1,7 +1,7 @@
 <template>
   <div class="container" id="banner">
     <!--<div class="col-md-12">-->
-    <img :src="bannerSrc" class="img-fluid center-block" style="width: 100%;"/>
+    <img :src="bannerSrc" class="img-responsive center-block" style="width: 100%;"/>
     <!--</div>-->
   </div>
 </template>

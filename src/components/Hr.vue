@@ -6,7 +6,7 @@
 
     <navMap :currentNav="currentNav"></navMap>
 
-    <div class="container" id="hr">
+    <div class="container" id="hr" style="padding-top: 0!important;">
       <div class="row justify-content-center">
         <div class="col-md-12">
           <div class="card">
@@ -155,12 +155,6 @@
     padding: 10px 0;
   }
 
-  #hr .card-header {
-    line-height:1rem;
-    padding: 0.75rem 1.25rem;
-    font-weight: bold;
-    font-size: 1rem;
-  }
   #hr .card-body {
     padding: 0.5rem;
   }
@@ -169,6 +163,7 @@
   }
 
   #hr .card {
+    border: 1px solid;
     border-color: #bee5eb;
     color: #434344;
     box-shadow: 5px 5px 10px lightgrey;
@@ -177,11 +172,13 @@
     overflow: hidden;
   }
   #hr .card-header {
+    padding: 0.75rem 1.25rem;
+    font-weight: bold;
     background-color: lightseagreen !important;
     color: #fff;
-    font-size: 1.1rem;
     border-bottom-color: #bee5eb;
-    font-weight:bold;
+    margin-top: 0;
+
   }
 
   #hr .card-header:hover {

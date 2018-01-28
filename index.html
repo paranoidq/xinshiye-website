@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+
   <meta name="description" content="南通新视野环保科技有限公司">
   <meta name="author" content="paranoidq">
+
+  <!--兼容性调整-->
+  <meta name="renderer" content="webkit">
+
   <link rel="icon" href="/static/img/favicon.ico">
   <title>南通新视野环保科技有限公司</title>
 
   <!-- Add this to <head> -->
-  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"/>
+  <!--<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"/>-->
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
 
   <!--icons-->
   <link href="/static/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
@@ -17,8 +24,19 @@
   <!--引用百度地图API-->
   <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=4ed99e10f2ebdfc0b8c6277cd388ab87"></script>
   <script type="text/javascript">
-
   </script>
+
+  <!--[if lt IE 9]>
+  <script src="/static/js/html5shiv.min.js"></script>
+  <script src="/static/js/html5shiv-printshiv.min.js"></script>
+  <script src="/static/js/respond.min.js"></script>
+  <![endif]-->
+
+  <!--[if lt IE 8]>
+  <script type="application/javascript">
+    alert("您的IE浏览器版本过低，请使用最新版本的IE浏览器");
+  </script>
+  <![endif]-->
 </head>
 <body oncopy="alert('版权所有，禁止转载！'); return false;" oncut="alert('版权所有，禁止转载！'); return false;">
 <div id="app" class="container-fluid">
@@ -29,6 +47,8 @@
 <script>window.jQuery || document.write('<script src="/static/js/jquery-3.2.1.slim.min.js"><\/script>')</script>
 <script src="/static/js/popper.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/pagination.min.js"></script>
+
+<!--<script src="/static/js/pagination.min.js"></script>-->
 </body>
 </html>
+

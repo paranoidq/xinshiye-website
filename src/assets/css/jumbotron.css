@@ -1,5 +1,9 @@
+html {
+  font-size: 15px;
+}
 body {
-  padding-top: 4rem;
+  padding-top: 3rem;
+  font-size: 15px;
   /*background-color: #f7f7f7*/
 }
 

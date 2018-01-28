@@ -15,16 +15,17 @@
 
       <!-- Example row of columns -->
       <div class="row justify-content-center">
-        <div class="col-md-4" style="overflow: hidden; max-height: 20rem; padding-top: 10px;">
-          <img src="../assets/img/about-us-left-banner.jpg" class="img-fluid"/>
+        <div class="col-md-4" style="overflow: hidden; max-height: 20rem; padding-top: 5px;">
+          <img src="../assets/img/about-us-left-banner.jpg" class="img-responsive"/>
         </div>
         <div class="col-md-8 text-left">
           <p style="text-align:justify">
             南通新视野环保科技有限公司是综合性环保技术服务性公司。公司凭借专业、严谨的技术能力和灵活、高效的协调能力，得到了客户及各级环境管理部门的认可和支持，享有良好的认可度及信誉度。
             <br/>
+            <br/>
             公司秉承“科学严谨、优质高效”的服务宗旨，遵循“诚信为本、互利共赢”的经营方针，以科技为先导，以人才为基础，始终不渝地坚持科学、严谨、求实的工作作风，通过不断吸收新的环保政策和环保理念，广集先进的环保技术，为客户提供最佳解决方案。期望通过我们的努力，能为更多的客户解决更多的环保问题，提升客户的企业整体形象。
           </p>
-          <span class="font-weight-bold">业务范围：</span><br/>
+          <p><span class="badge" style="background: lightseagreen; font-weight: bold; font-size: 1.1rem;">业务范围</span><br/></p>
           <table class="table table-striped">
             <tbody>
             <tr class="table-info">
@@ -59,18 +60,18 @@
         </h4>
         <div class="row justify-content-center">
           <div v-for="item in latestNews" class="col-md-3">
-            <div class="card">
-              <router-link :to="`/news/${item.id}`">
-                <!--<img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>-->
-                <img class="card-img-top" v-if="item.imgUrl" :src='item.imgUrl'/>
-                <img class="card-img-top" src="/static/img/img-default.gif" v-else/>
-              </router-link>
-              <div class="card-body text-left">
-                <p class="card-title font-weight-bold overflow-ellipsis">
-                  {{item.title}}
-                </p>
+              <div class="thumbnail card">
+                <router-link :to="`/news/${item.id}`">
+                  <!--<img class="card-img-top" :src="`../static/news-img/${item.id}.jpg`" onerror="this.src='../static/img/img-default.gif'" alt="Card image cap"/>-->
+                  <img class="card-img-top" v-if="item.imgUrl" :src='item.imgUrl'/>
+                  <img class="card-img-top" src="/static/img/img-default.gif" v-else/>
+                </router-link>
+                <div class="caption card-body text-left">
+                  <p class="card-title font-weight-bold overflow-ellipsis" :title="`${item.title}`">
+                    {{item.title}}
+                  </p>
+                </div>
               </div>
-            </div>
           </div>
         </div>
       </div> <!-- /container -->
@@ -88,7 +89,7 @@
           <div class="list-group col-md-12 text-left" style="padding-right: 0;">
             <div v-for="item in latestPublishes">
               <router-link :to="`/publish/${item.id}`" class="list-group-item list-group-item-light overflow-ellipsis">
-              <span style="float: left;">{{item.title}}</span>
+                <span style="float: left;">{{item.title}}</span>
                 <span style="float: right; font-size: 0.8rem; padding: 2px 0;" v-text="DateFormatter.formatTimestamp(item.publishTimestamp)"></span>
               </router-link>
             </div>
@@ -147,36 +148,17 @@
     padding-right:1rem;
   }
   #home-about .table {
-    margin-bottom: 0;
   }
 
-
   #home-news .card {
-    border-color: #bee5eb;
+    border: 1px solid #22d0c8;
     position: relative;
-    margin-bottom:0.5rem;
   }
   #home-news .card img {
     border-bottom: 1px solid #bee5eb;
     height: 10rem;
+    width: 100%;
   }
-
-  /*!* 响应式图片大小 *!*/
-  /*@media(max-width: 960px) {*/
-    /*#home-news .card img {*/
-      /*height: 10rem;*/
-    /*}*/
-  /*}*/
-  /*@media(min-width: 1200px) {*/
-    /*#home-news .card img {*/
-      /*height: 15rem;*/
-    /*}*/
-  /*}*/
-  /*@media(min-width: 1400px) {*/
-    /*#home-news .card img {*/
-      /*height: 20rem;*/
-    /*}*/
-  /*}*/
 
   #home-news .card:hover {
     border: 1px solid #fff;
@@ -191,7 +173,6 @@
     overflow: hidden;
     padding:0.5rem;
   }
-
 
   #home-projects  .list-group-item {
     border-radius: 0;

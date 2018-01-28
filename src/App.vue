@@ -78,7 +78,7 @@
 
 
   /*定制icon*/
-  .container h2 .oi {
+  .container h4 .oi {
     padding-right:1rem;
   }
 

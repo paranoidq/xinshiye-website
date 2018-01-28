@@ -2,27 +2,40 @@
   <div class="row justify-content-center">
     <nav aria-label="">
       <ul class="pagination" id="news-pagination">
-        <li class="page-item">
-          <a class="page-link" v-if="currentPage==1">首页</a>
-          <a class="page-link" v-else href="javascript:;" @click="goPage(1)">首页</a>
+        <li class="disabled" v-if="currentPage==1">
+          <a>首页</a>
         </li>
-        <li class="page-item">
-          <a class="page-link" v-if="currentPage<=1">上一页</a>
-          <a class="page-link" v-else href="javascript:;" @click="goPage(currentPage-1)">上一页</a>
+        <li v-else>
+          <a class=""  href="javascript:;" @click="goPage(1)">首页</a>
         </li>
 
-        <li class="page-item" v-for="item in pageList">
-          <a class="page-link" v-if="currentPage == item.key || sign == item.key">{{item.key}}</a>
-          <a class="page-link" v-else href="javascript:;" @click="goPage(item.value)">{{item.key}}</a>
+        <li class="disabled" v-if="currentPage<=1">
+          <a>上一页</a>
+        </li>
+        <li v-else>
+          <a class="" href="javascript:;" @click="goPage(currentPage-1)">上一页</a>
         </li>
 
-        <li class="page-item">
-          <a class="page-link" v-if="currentPage>=totalPageCount">下一页</a>
-          <a class="page-link" v-else href="javascript:;" @click="goPage(currentPage+1)">下一页</a>
+        <template class="page-item active" v-for="item in pageList">
+          <li class="active" v-if="currentPage == item.key || sign == item.key">
+            <a>{{item.key}}</a></li>
+          <li class="" v-else>
+            <a href="javascript:;" @click="goPage(item.value)">{{item.key}}</a></li>
+        </template>
+
+
+        <li class="disabled" v-if="currentPage>=totalPageCount">
+          <a>下一页</a>
         </li>
-        <li class="page-item">
-          <a class="page-link" v-if="currentPage==totalPageCount">尾页</a>
-          <a class="page-link" v-else href="javascript:;" @click="goPage(totalPageCount)">尾页</a>
+        <li v-else>
+          <a class="" href="javascript:;" @click="goPage(currentPage+1)">下一页</a>
+        </li>
+
+        <li class="disabled" v-if="currentPage==totalPageCount">
+          <a>尾页</a>
+        </li>
+        <li v-else>
+          <a class="" href="javascript:;" @click="goPage(totalPageCount)">尾页</a>
         </li>
       </ul>
     </nav>
@@ -124,3 +137,6 @@
     }
   };
 </script>
+
+<style>
+</style>

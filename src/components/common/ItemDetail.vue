@@ -3,7 +3,7 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="container" id="banner">
         <!--<div class="col-md-12">-->
-        <img :src="bannerSrc" class="img-fluid center-block" />
+        <img :src="bannerSrc" class="img-responsive center-block" />
         <!--</div>-->
       </div>
 
@@ -12,11 +12,12 @@
         :sectionBaseUrl="sectionBaseUrl"
       ></navMap>
 
-      <transition name="fade">
-
-      <div class="container detail-container" v-show="!this.$store.state.isLoading">
+      <div class="container detail-container">
+        <div v-show="this.$store.state.isLoading">
+          <img src="../../assets/img/loading.gif" class="img-responsive text-center"/>
+        </div>
         <!--<h2 class="para-title text-center"></h2>-->
-        <div class="col-md-12 line-content">
+        <div class="col-md-12 line-content" v-show="!this.$store.state.isLoading">
           <h2 class="para-title">{{item.title}}</h2>
           <h6>
             <span class="badge badge-danger text-white" v-text="'发布时间: ' + DateFormatter.formatTimestamp(item.publishTimestamp)"></span>
@@ -31,8 +32,6 @@
           </div>
         </div>
       </div> <!-- /container -->
-      </transition>
-
     </main>
 </template>
 
@@ -97,16 +96,15 @@
     margin-bottom: 2rem;
   }
 
-  .fade-enter-active, .fade-leave-active {
-    transition: all 0.5s;
-  }
-  .fade-enter, .fade-leave-to
-    /* .list-leave-active for below version 2.1.8 */ {
-    opacity: 0;
-    transform: translateX(30px);
+  .detail-container .para-title {
+    margin-top: 0px;
+    font-size: 1.5rem;
   }
 
-
+  .detail-container .card-body {
+    padding: 1rem;
+    font-size:1rem;
+  }
 </style>
 
 

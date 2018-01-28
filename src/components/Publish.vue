@@ -1,5 +1,5 @@
 <template>
-  <itemList
+  <itemListMin
     :currentSection='currentSection'
     :bannerSrc='bannerSrc'
     :sectionBaseUrl='sectionBaseUrl'
@@ -7,18 +7,18 @@
     :currentPageFun='currentPageFun'
   >
 
-  </itemList>
+  </itemListMin>
 </template>
 
 <script>
   import {getPublishTotalPageCount} from '../utils/api'
   import {getPublishCurrentPage} from '../utils/api'
 
-  import itemList from './common/ItemList'
+  import itemListMin from './common/ItemListMin'
 
   export default {
     components: {
-      itemList,
+      itemListMin,
     },
     data() {
       return {
