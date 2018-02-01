@@ -68,6 +68,46 @@
       },
     },
     methods: {
+    	toSwf: function (_link, div_id) {
+        var swfVersionStr = "9";
+        var xiSwfUrlStr = "/static/flexpaper/expressInstall.swf";
+
+        var flashvars = {
+          SwfFile: escape(_link),
+          Scale: 0.6,
+          ZoomTransition: "easeOut",
+          ZoomTime: 0.5,
+          ZoomInterval: 0.1,
+          FitPageOnLoad: true,
+          FitWidthOnLoad: true,
+          PrintEnabled: true,
+          FullScreenAsMaxWindow: false,
+          ProgressiveLoading: true,
+          PrintToolsVisible: true,
+          ViewModeToolsVisible: true,
+          ZoomToolsVisible: true,
+          FullScreenVisible: true,
+          NavToolsVisible: true,
+          CursorToolsVisible: false,
+          SearchToolsVisible: false,
+          localeChain: "zh_CN"
+        };
+        var params = {
+        }
+        params.quality = "high";
+        params.bgcolor = "#ffffff";
+        params.allowscriptaccess = "*";
+        params.allowfullscreen = "true";
+        var attributes = {};
+        attributes.id = "FlexPaperViewer";
+        attributes.name = "FlexPaperViewer";
+        swfobject.embedSWF(
+          "/static/flexpaper/FlexPaperViewer.swf", div_id,
+          "600", "650",
+          swfVersionStr, xiSwfUrlStr,
+          flashvars, params, attributes);
+        swfobject.createCSS("#" + div_id, "display:block;text-align:left;");
+      }
 
     },
     mounted: function () {
@@ -77,6 +117,26 @@
       var rst = this.getFun(this.$route.params.id,(data) => {
         this.item = data;
         store.commit(types.LOADED);
+
+        var toSwf = this.toSwf;
+        // virtual dom 在下一次dom更新之前无法获取元素
+        this.$nextTick(function () {
+          $(".pdf-attach a").each(function (i) {
+          	var pdf_a = $(this);
+            var _link = pdf_a.attr("href");
+            var _title = pdf_a.attr("title");
+
+            var pdf_link = _link.substring(0, _link.lastIndexOf("."));
+
+            pdf_a.replaceWith('<div id="flashContent_' + i + '">' +
+              '<p style="line-height: 16px;">' +
+              '<a style="font-size:12px; color:#0066cc;" target="_blank" href="' + pdf_link +'" title="' + _title + '">' + _title + '</a>' +
+              '</p>' +
+              '</div>')
+            toSwf(_link, "flashContent_" + i);
+          });
+        });
+
       });
     },
   }
@@ -104,6 +164,7 @@
   .detail-container .card-body {
     padding: 1rem;
     font-size:1rem;
+    font-size: inherit;
   }
 </style>
 

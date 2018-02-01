@@ -204,9 +204,8 @@
     border: none;
   }
 
-  .card-body p * {
+  .list-lines .card-body p * {
     font-size: 1rem;
-    font-weight:normal;
     color: #818182;
   }
   .list-lines .list-line:hover * {
